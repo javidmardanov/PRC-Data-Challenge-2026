@@ -11,6 +11,13 @@ from fetch_data import client, DEFAULT_CREDENTIALS, list_objects, sha256
 BUCKET='prc-2026-elegant-alligator'
 
 
+def recent_submissions(objects, cutoff):
+    # The scorer writes *_result.json and *_persist.json beside each submission.
+    # These generated receipts are storage objects, not additional submissions.
+    return sum(o['Key'].lower().endswith('.parquet') and o['LastModified']>=cutoff
+               for o in objects)
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('file',type=Path)
@@ -34,7 +41,7 @@ def main():
         raise ValueError('Use a version number greater than every existing submission')
     # A rolling 24h cap is conservative when the server's reset timezone is unclear.
     cutoff=datetime.now(timezone.utc)-timedelta(days=1)
-    if sum(o['LastModified']>=cutoff for o in objects)>=5:
+    if recent_submissions(objects, cutoff)>=5:
         raise ValueError('Five uploads already present from the last 24 hours')
     if sum(o['Size'] for o in objects)+args.file.stat().st_size > 1_000_000_000:
         raise ValueError('Upload would exceed the 1 GB bucket limit')
