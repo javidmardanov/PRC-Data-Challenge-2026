@@ -1,0 +1,91 @@
+{
+  "alphas": {
+    "Rome": 0.4224120030856563,
+    "other": 1.0
+  },
+  "candidates": {
+    "cap6000": {
+      "scores": {
+        "7": 294.91011524070547,
+        "11": 220.24525336462324,
+        "combined": 263.22237527386073,
+        "missing": 1113.6525034548886
+      },
+      "date_parity": {
+        "0": {
+          "rows": 2641,
+          "missing_rmse": 1260.4336424422686,
+          "missing_sse": 4195738125.8477516
+        },
+        "1": {
+          "rows": 2653,
+          "missing_rmse": 945.1597895195852,
+          "missing_sse": 2369996604.5536466
+        }
+      },
+      "delta_vs_cap6000": {
+        "full": 0.0,
+        "july": 0.0,
+        "november": 0.0,
+        "even_missing": 0.0,
+        "odd_missing": 0.0
+      }
+    },
+    "cap12000": {
+      "scores": {
+        "7": 294.65409192875524,
+        "11": 220.0094068999966,
+        "combined": 262.9766870799348,
+        "missing": 1109.774952427937
+      },
+      "date_parity": {
+        "0": {
+          "rows": 2641,
+          "missing_rmse": 1253.9811445113526,
+          "missing_sse": 4152889865.196395
+        },
+        "1": {
+          "rows": 2653,
+          "missing_rmse": 944.6025557077982,
+          "missing_sse": 2367202890.8264647
+        }
+      },
+      "delta_vs_cap6000": {
+        "full": -0.24568819392595742,
+        "july": -0.25602331195023,
+        "november": -0.23584646462663272,
+        "even_missing": -6.452497930916024,
+        "odd_missing": -0.5572338117870004
+      }
+    },
+    "raw_average_50_50": {
+      "scores": {
+        "7": 294.74628874678297,
+        "11": 220.09677995268757,
+        "combined": 263.0661013247548,
+        "missing": 1111.1872712291158
+      },
+      "date_parity": {
+        "0": {
+          "rows": 2641,
+          "missing_rmse": 1256.6077956423612,
+          "missing_sse": 4170305784.614636
+        },
+        "1": {
+          "rows": 2653,
+          "missing_rmse": 944.4408929844631,
+          "missing_sse": 2366392696.7054424
+        }
+      },
+      "delta_vs_cap6000": {
+        "full": -0.1562739491059233,
+        "july": -0.1638264939224996,
+        "november": -0.14847341193566876,
+        "even_missing": -3.8258467999073673,
+        "odd_missing": -0.7188965351220986
+      }
+    }
+  },
+  "selected": "cap12000_fixed_original_alphas",
+  "diagnosis": "At fixed original alphas, cap12000 improves both date parities if both deltas are negative; the prior even->odd held loss then comes from unstable refitted Rome alpha."
+}

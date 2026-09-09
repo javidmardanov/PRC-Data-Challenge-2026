@@ -1,8 +1,19 @@
 # PRC Data Challenge 2026 — TimesFM-3 solution
 
-Taxi-out-time prediction for EUROCONTROL's PRC 2026 challenge. Frozen v1 combines
-Google TimesFM-3 airport forecasts with CatBoost and LightGBM residual models,
-a missing-timestamp specialist, and a Rome airport expert.
+Taxi-out-time prediction for EUROCONTROL's PRC 2026 challenge. Frozen v2 combines
+Google TimesFM-3 airport forecasts, seasonal CatBoost blends, a missing-timestamp
+mixture of experts, and a targeted correction for extreme timestamp estimates.
+
+V2 lowers July/November tuning RMSE from **266.052234 to 262.526361 seconds**.
+July improves to 294.335353 and November to 219.339979. Three GPT-5.6-sol workers
+tested parameters in bounded rounds; a parent independently checked predictions,
+held-date comparisons, routing, and the final submission arithmetic. See the
+[research workflow and reproduction commands](docs/research_program.md),
+[frozen v2 recipe](docs/v2_ensemble.json), and [independent review](docs/review_v2.json).
+These are repeatedly used tuning periods, not a fresh test set. V2 was not
+selected using December or official ranking labels. Its official score is pending.
+
+The preceding v1 results provide the benchmark:
 
 | Evaluation | RMSE, seconds |
 | --- | ---: |

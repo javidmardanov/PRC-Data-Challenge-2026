@@ -1,0 +1,240 @@
+{
+  "december_read": false,
+  "selection_metric": "cross-month and opposite-day held calibration",
+  "candidates": {
+    "incumbent_d5_l30_i400": {
+      "held_checks": {
+        "fit_july_check_november": {
+          "alphas": {
+            "Rome": 0.3770077778414954,
+            "other": 1.0
+          },
+          "missing_rows": 1356,
+          "missing_rmse": 1057.2040363769572,
+          "missing_sse": 1515574587.8650267
+        },
+        "fit_november_check_july": {
+          "alphas": {
+            "Rome": 0.9393338904428751,
+            "other": 1.0
+          },
+          "missing_rows": 3938,
+          "missing_rmse": 1142.1206248401852,
+          "missing_sse": 5136882836.396849
+        },
+        "fit_even_dates_check_odd": {
+          "alphas": {
+            "Rome": 0.6586011960950973,
+            "other": 1.0
+          },
+          "missing_rows": 2653,
+          "missing_rmse": 949.596069505045,
+          "missing_sse": 2392296840.417148
+        },
+        "fit_odd_dates_check_even": {
+          "alphas": {
+            "Rome": 0.2955711925713455,
+            "other": 0.9919301383046542
+          },
+          "missing_rows": 2641,
+          "missing_rmse": 1261.7382273866715,
+          "missing_sse": 4204428039.0994387
+        }
+      },
+      "pooled": {
+        "alphas": {
+          "Rome": 0.4224120030856563,
+          "other": 1.0
+        },
+        "scores": {
+          "7": 294.91011524070547,
+          "11": 220.24525336462324,
+          "combined": 263.22237527386073,
+          "missing": 1113.6525034548886
+        }
+      },
+      "held_delta_vs_incumbent": {
+        "fit_july_check_november": 0.0,
+        "fit_november_check_july": 0.0,
+        "fit_even_dates_check_odd": 0.0,
+        "fit_odd_dates_check_even": 0.0
+      }
+    },
+    "d4_l50_i600": {
+      "held_checks": {
+        "fit_july_check_november": {
+          "alphas": {
+            "Rome": 0.34300142201929285,
+            "other": 1.0
+          },
+          "missing_rows": 1356,
+          "missing_rmse": 1058.6232668760765,
+          "missing_sse": 1519646447.908387
+        },
+        "fit_november_check_july": {
+          "alphas": {
+            "Rome": 0.8967379258734742,
+            "other": 1.0
+          },
+          "missing_rows": 3938,
+          "missing_rmse": 1144.951837181018,
+          "missing_sse": 5162382125.869974
+        },
+        "fit_even_dates_check_odd": {
+          "alphas": {
+            "Rome": 0.5795063589006845,
+            "other": 1.0
+          },
+          "missing_rows": 2653,
+          "missing_rmse": 949.7180851184772,
+          "missing_sse": 2392911662.5065374
+        },
+        "fit_odd_dates_check_even": {
+          "alphas": {
+            "Rome": 0.26006444610168145,
+            "other": 0.9919301383046542
+          },
+          "missing_rows": 2641,
+          "missing_rmse": 1261.5835802764238,
+          "missing_sse": 4203397456.3909535
+        }
+      },
+      "pooled": {
+        "alphas": {
+          "Rome": 0.3690379100244529,
+          "other": 1.0
+        },
+        "scores": {
+          "7": 294.84804528277397,
+          "11": 220.31108488799396,
+          "combined": 263.2101438827774,
+          "missing": 1113.459696545721
+        }
+      },
+      "held_delta_vs_incumbent": {
+        "fit_july_check_november": 1.419230499119294,
+        "fit_november_check_july": 2.831212340832735,
+        "fit_even_dates_check_odd": 0.12201561343226786,
+        "fit_odd_dates_check_even": -0.15464711024765165
+      }
+    },
+    "d6_l60_i400": {
+      "held_checks": {
+        "fit_july_check_november": {
+          "alphas": {
+            "Rome": 0.326584313032625,
+            "other": 1.0
+          },
+          "missing_rows": 1356,
+          "missing_rmse": 1057.4849996043702,
+          "missing_sse": 1516380255.0704732
+        },
+        "fit_november_check_july": {
+          "alphas": {
+            "Rome": 0.9010566601418912,
+            "other": 1.0
+          },
+          "missing_rows": 3938,
+          "missing_rmse": 1145.4364421252092,
+          "missing_sse": 5166753043.931026
+        },
+        "fit_even_dates_check_odd": {
+          "alphas": {
+            "Rome": 0.611682286103387,
+            "other": 1.0
+          },
+          "missing_rows": 2653,
+          "missing_rmse": 953.5313865925516,
+          "missing_sse": 2412166245.1410036
+        },
+        "fit_odd_dates_check_even": {
+          "alphas": {
+            "Rome": 0.2009162099575623,
+            "other": 0.9919301383046542
+          },
+          "missing_rows": 2641,
+          "missing_rmse": 1261.776921603904,
+          "missing_sse": 4204685920.7153645
+        }
+      },
+      "pooled": {
+        "alphas": {
+          "Rome": 0.3673563866478014,
+          "other": 1.0
+        },
+        "scores": {
+          "7": 294.9263012229284,
+          "11": 220.2562119385399,
+          "combined": 263.23638755046716,
+          "missing": 1113.8733529623323
+        }
+      },
+      "held_delta_vs_incumbent": {
+        "fit_july_check_november": 0.2809632274129399,
+        "fit_november_check_july": 3.315817285023968,
+        "fit_even_dates_check_odd": 3.9353170875066326,
+        "fit_odd_dates_check_even": 0.03869421723243249
+      }
+    },
+    "normal_cap12000": {
+      "held_checks": {
+        "fit_july_check_november": {
+          "alphas": {
+            "Rome": 0.4659056529333788,
+            "other": 1.0
+          },
+          "missing_rows": 1356,
+          "missing_rmse": 1050.3209409834396,
+          "missing_sse": 1495904051.2166665
+        },
+        "fit_november_check_july": {
+          "alphas": {
+            "Rome": 1.0,
+            "other": 1.0
+          },
+          "missing_rows": 3938,
+          "missing_rmse": 1137.3832258524228,
+          "missing_sse": 5094356692.449924
+        },
+        "fit_even_dates_check_odd": {
+          "alphas": {
+            "Rome": 0.9272439936112336,
+            "other": 1.0
+          },
+          "missing_rows": 2653,
+          "missing_rmse": 957.1947903277179,
+          "missing_sse": 2430736612.1707797
+        },
+        "fit_odd_dates_check_even": {
+          "alphas": {
+            "Rome": 0.32807545047335995,
+            "other": 0.9931324907928982
+          },
+          "missing_rows": 2641,
+          "missing_rmse": 1255.569375717838,
+          "missing_sse": 4163416221.5721126
+        }
+      },
+      "pooled": {
+        "alphas": {
+          "Rome": 0.5326964058512959,
+          "other": 1.0
+        },
+        "scores": {
+          "7": 294.65988533480066,
+          "11": 219.9533585149233,
+          "combined": 262.95863516957286,
+          "missing": 1109.4896584870824
+        }
+      },
+      "held_delta_vs_incumbent": {
+        "fit_july_check_november": -6.8830953935175785,
+        "fit_november_check_july": -4.73739898776239,
+        "fit_even_dates_check_odd": 7.598720822672931,
+        "fit_odd_dates_check_even": -6.16885166883344
+      }
+    }
+  },
+  "selected": "normal_cap12000",
+  "selection_reason": "Cap12000 improves pooled and both months; selection remains conditional on cross-month and opposite-date transfer checks reported above."
+}

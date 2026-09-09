@@ -168,6 +168,12 @@ def run(args):
             east=x.wx_wind_east_knots.replace(-999999,np.nan)
             x['headwind']=(north*np.cos(heading)+east*np.sin(heading)).fillna(-999999).astype('float32')
             x['crosswind']=(east*np.cos(heading)-north*np.sin(heading)).abs().fillna(-999999).astype('float32')
+    if args.tail_copies:
+        aobt = x['mvt_minus_AOBT_3_flt']
+        eobt = x['mvt_minus_EOBT_1_flt']
+        x['aobt_delta_below_300'] = aobt.clip(upper=300)
+        x['aobt_delta_above_2200'] = aobt.clip(lower=2200)
+        x['eobt_delta_above_3600'] = eobt.clip(lower=3600)
     cats = x.select_dtypes(['object','category']).columns.tolist()
     for c in cats:
         x[c] = x[c].astype('category')
@@ -191,7 +197,7 @@ def run(args):
         model = CatBoostRegressor(iterations=args.iterations, depth=args.depth,
             learning_rate=args.rate, l2_leaf_reg=args.l2, loss_function='RMSE',
             task_type=args.device, devices='0' if args.device=='GPU' else None,
-            random_seed=args.seed, thread_count=8, border_count=128,
+            random_seed=args.seed, thread_count=args.threads, border_count=args.border_count,
             one_hot_max_size=20, max_ctr_complexity=1, gpu_ram_part=0.55,
             allow_writing_files=True,train_dir=str(OUT/(args.name+'_logs')))
         print('Fitting',flush=True)
@@ -199,7 +205,7 @@ def run(args):
             early_stopping_rounds=None if args.final else 200, verbose=100)
         model.save_model(str(OUT/(args.name+'.cbm')))
     sel = rows.source.eq('ranking') if args.final else (known & month.eq(12) if args.audit else valid)
-    pred = model.predict(x.loc[sel], thread_count=8) + base[sel]
+    pred = model.predict(x.loc[sel], thread_count=args.threads) + base[sel]
     result = rows.loc[sel, [ID,TIME,'ADEP_mvt',TARGET]].copy()
     result['prediction'] = pred
     result.to_parquet(OUT/(args.name+'_predictions.parquet'), index=False)
@@ -237,6 +243,9 @@ if __name__ == '__main__':
     p.add_argument('--boost-priority',action='store_true')
     p.add_argument('--sample',type=int,default=0)
     p.add_argument('--known-only',action='store_true')
+    p.add_argument('--tail-copies', action='store_true')
+    p.add_argument('--border-count', type=int, default=128)
+    p.add_argument('--threads', type=int, default=8)
     p.add_argument('--load')
     args=p.parse_args()
     if args.prepare: prepare()

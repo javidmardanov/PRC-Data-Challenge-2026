@@ -1,0 +1,20 @@
+{
+  "selected": "normal_cap12000_fixed_original_alphas",
+  "selection_frozen": true,
+  "normal_training_rows": 200429,
+  "classifier_reused": "moe_missing_v2_identity_final.cbm",
+  "raw_rows": 5290,
+  "exact_missing_id_set": true,
+  "complete_rows": 344841,
+  "finite": true,
+  "changed_rows": 5265,
+  "tail_fallback_rows": 25,
+  "alphas": {
+    "Rome": 0.4224120030856563,
+    "other": 1.0
+  },
+  "routing": "After complete v1; LIRF schedule>=24000 remains complete-v1 prediction.",
+  "raw_output": "artifacts/moe_normal_cap12000_raw_missing_ranking.parquet",
+  "complete_output": "artifacts/moe_normal_cap12000_complete_ranking.parquet",
+  "december_scored": false
+}

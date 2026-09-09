@@ -1,0 +1,48 @@
+{
+  "december_read": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "trials": {
+    "moe_cls_d4_l50_i600": {
+      "params": {
+        "iterations": 600,
+        "depth": 4,
+        "l2_leaf_reg": 50
+      },
+      "alphas": {
+        "Rome": 0.3690379100244529,
+        "other": 1.0
+      },
+      "scores": {
+        "7": 294.84804528277397,
+        "11": 220.31108488799396,
+        "combined": 263.2101438827774,
+        "missing": 1113.459696545721
+      },
+      "raw_missing_rmse": 1127.0473311492922,
+      "tail_exact": true
+    },
+    "moe_cls_d6_l60_i400": {
+      "params": {
+        "iterations": 400,
+        "depth": 6,
+        "l2_leaf_reg": 60
+      },
+      "alphas": {
+        "Rome": 0.3673563866478014,
+        "other": 1.0
+      },
+      "scores": {
+        "7": 294.9263012229284,
+        "11": 220.2562119385399,
+        "combined": 263.23638755046716,
+        "missing": 1113.8733529623323
+      },
+      "raw_missing_rmse": 1126.4403202676344,
+      "tail_exact": true
+    }
+  }
+}

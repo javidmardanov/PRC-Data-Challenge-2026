@@ -1,0 +1,86 @@
+{
+  "baseline": {
+    "pooled_rmse": 266.0522342012221,
+    "month_rmse": {
+      "2025-07": 297.1304005768509,
+      "2025-11": 224.10055777655305
+    }
+  },
+  "tail_rows": 9866,
+  "candidates": [
+    {
+      "path": "artifacts/catboost_tail_d6_s600_predictions.parquet",
+      "hybrid_path": "artifacts/catboost_catboost_tail_d6_s600_predictions_tail_hybrid.parquet",
+      "full_replacement": {
+        "pooled_rmse": 270.6776999732369,
+        "month_rmse": {
+          "2025-07": 301.86310353272654,
+          "2025-11": 228.66978742586346
+        }
+      },
+      "gated_alpha_even_dates": 0.3518396165877747,
+      "gated_all": {
+        "pooled_rmse": 265.81263728629,
+        "month_rmse": {
+          "2025-07": 296.8571792657246,
+          "2025-11": 223.90752071297752
+        }
+      },
+      "gated_complete_path": "artifacts/catboost_catboost_tail_d6_s600_predictions_gated_complete_validation.parquet",
+      "gated_odd_complete": {
+        "pooled_rmse": 255.82893375992444,
+        "month_rmse": {
+          "2025-07": 288.26292060843025,
+          "2025-11": 209.89533582143065
+        }
+      },
+      "baseline_odd_complete": {
+        "pooled_rmse": 256.12404945461185,
+        "month_rmse": {
+          "2025-07": 288.5548540944907,
+          "2025-11": 210.2050359384866
+        }
+      },
+      "gated_even_fit_rmse": 541.0941782447387,
+      "gated_odd_check_rmse": 537.7253128037842,
+      "baseline_odd_check_rmse": 542.661969051312
+    },
+    {
+      "path": "artifacts/catboost_tail_d8_s600_predictions.parquet",
+      "hybrid_path": "artifacts/catboost_catboost_tail_d8_s600_predictions_tail_hybrid.parquet",
+      "full_replacement": {
+        "pooled_rmse": 269.37471263685796,
+        "month_rmse": {
+          "2025-07": 300.598363786124,
+          "2025-11": 227.27660288978012
+        }
+      },
+      "gated_alpha_even_dates": 0.34137919616609186,
+      "gated_all": {
+        "pooled_rmse": 265.82060763457764,
+        "month_rmse": {
+          "2025-07": 296.8757139772654,
+          "2025-11": 223.8992286920938
+        }
+      },
+      "gated_complete_path": "artifacts/catboost_catboost_tail_d8_s600_predictions_gated_complete_validation.parquet",
+      "gated_odd_complete": {
+        "pooled_rmse": 255.81913207857235,
+        "month_rmse": {
+          "2025-07": 288.2450451205733,
+          "2025-11": 209.8986663484596
+        }
+      },
+      "baseline_odd_complete": {
+        "pooled_rmse": 256.12404945461185,
+        "month_rmse": {
+          "2025-07": 288.5548540944907,
+          "2025-11": 210.2050359384866
+        }
+      },
+      "gated_even_fit_rmse": 541.5563213050625,
+      "gated_odd_check_rmse": 537.5606718410543,
+      "baseline_odd_check_rmse": 542.661969051312
+    }
+  ]
+}

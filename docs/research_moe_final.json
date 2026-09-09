@@ -1,0 +1,21 @@
+{
+  "selected": "incumbent_d5_l30_i400",
+  "selection_frozen": true,
+  "fit_years": [
+    2025
+  ],
+  "december_scored": false,
+  "normal_training_rows": 200285,
+  "classifier_training_rows": 121394,
+  "ranking_missing_rows": 5290,
+  "ranking_changed_rows": 5265,
+  "ranking_tail_fallback_rows": 25,
+  "alphas": {
+    "Rome": 0.4224120030856563,
+    "other": 1.0
+  },
+  "raw_output_semantics": "All missing-AOBT ranking rows contain raw expert outputs; config applies v1 fallback to LIRF schedule>=24000.",
+  "raw_output": "artifacts/moe_missing_v2_raw_missing_ranking.parquet",
+  "complete_output": "artifacts/moe_missing_v2_complete_ranking.parquet",
+  "cpu_threads": 3
+}

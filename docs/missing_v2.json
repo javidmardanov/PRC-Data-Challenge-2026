@@ -1,0 +1,856 @@
+{
+  "december_read": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "v1": {
+    "rows": 353045,
+    "rmse": 266.0522342012221,
+    "bias": -3.456388193009493,
+    "sse": 24989863607.79162
+  },
+  "missing_v1": {
+    "rows": 5294,
+    "rmse": 1157.6290380059893,
+    "bias": -51.39340813063761,
+    "sse": 7094515815.125957
+  },
+  "missing_airport_month": {
+    "EDDF/7": {
+      "rows": 435,
+      "rmse": 401.17946740628054,
+      "bias": -51.587112055113515,
+      "sse": 70011059.80474831
+    },
+    "EDDF/11": {
+      "rows": 92,
+      "rmse": 691.8979542106204,
+      "bias": -97.25014501969888,
+      "sse": 44042495.67175743
+    },
+    "EDDM/7": {
+      "rows": 172,
+      "rmse": 654.498697032775,
+      "bias": -73.70763056478448,
+      "sse": 73679389.63982722
+    },
+    "EDDM/11": {
+      "rows": 35,
+      "rmse": 425.5039708624311,
+      "bias": -192.19616405742448,
+      "sse": 6336877.022689382
+    },
+    "EGLL/7": {
+      "rows": 338,
+      "rmse": 1312.9278348516905,
+      "bias": -376.3498132058658,
+      "sse": 582637470.8405815
+    },
+    "EGLL/11": {
+      "rows": 54,
+      "rmse": 360.28556000297885,
+      "bias": 144.14556784728626,
+      "sse": 7009506.976319645
+    },
+    "EHAM/7": {
+      "rows": 515,
+      "rmse": 329.55278566259346,
+      "bias": 1.2032687361907997,
+      "sse": 55931594.84705725
+    },
+    "EHAM/11": {
+      "rows": 230,
+      "rmse": 447.34782256558003,
+      "bias": -50.47475424829168,
+      "sse": 46027617.10145811
+    },
+    "LEBL/7": {
+      "rows": 430,
+      "rmse": 343.84659051219916,
+      "bias": -42.97819422974819,
+      "sse": 50839105.45695149
+    },
+    "LEBL/11": {
+      "rows": 67,
+      "rmse": 321.5118395037685,
+      "bias": -16.217803292404913,
+      "sse": 6925780.8170535
+    },
+    "LEMD/7": {
+      "rows": 277,
+      "rmse": 299.8071436176546,
+      "bias": -34.039008071987595,
+      "sse": 24897957.571877033
+    },
+    "LEMD/11": {
+      "rows": 47,
+      "rmse": 316.8529658563915,
+      "bias": -76.49074321291813,
+      "sse": 4718602.692683606
+    },
+    "LFPG/7": {
+      "rows": 664,
+      "rmse": 473.10379952662197,
+      "bias": -25.714669634918412,
+      "sse": 148621264.20401335
+    },
+    "LFPG/11": {
+      "rows": 372,
+      "rmse": 1030.4056381019689,
+      "bias": -479.52583784993885,
+      "sse": 394965709.8000251
+    },
+    "LIRF/7": {
+      "rows": 337,
+      "rmse": 3437.935169475949,
+      "bias": 523.5522708449016,
+      "sse": 3983137203.348113
+    },
+    "LIRF/11": {
+      "rows": 52,
+      "rmse": 4884.401933166172,
+      "bias": -1260.2018667633924,
+      "sse": 1240583876.7253067
+    },
+    "LSZH/7": {
+      "rows": 345,
+      "rmse": 564.4015077696237,
+      "bias": 73.82814244803853,
+      "sse": 109899426.38055547
+    },
+    "LSZH/11": {
+      "rows": 97,
+      "rmse": 288.2959032048515,
+      "bias": 87.3016402256803,
+      "sse": 8062109.197056008
+    },
+    "LTFM/7": {
+      "rows": 425,
+      "rmse": 690.0465881224952,
+      "bias": -55.59411550876933,
+      "sse": 202369824.85628602
+    },
+    "LTFM/11": {
+      "rows": 310,
+      "rmse": 330.2928425561954,
+      "bias": 51.47845285471877,
+      "sse": 33818942.171594016
+    }
+  },
+  "missing_sse_concentration": {
+    "1": 0.07977977228974024,
+    "5": 0.2465347073960935,
+    "10": 0.31184235144816863,
+    "25": 0.4475495641789376,
+    "100": 0.7390233655297838,
+    "500": 0.9447457244840399
+  },
+  "missing_schedule_regimes": {
+    "EDDF/(-inf, 0.0]": {
+      "rows": 3,
+      "rmse": 905.5969542052442,
+      "bias": -624.8178945806688,
+      "sse": 2460317.5303974454
+    },
+    "EDDF/(0.0, 1200.0]": {
+      "rows": 13,
+      "rmse": 226.49449600460434,
+      "bias": -36.384332922998894,
+      "sse": 666896.8373649365
+    },
+    "EDDF/(1200.0, 3600.0]": {
+      "rows": 20,
+      "rmse": 265.22318138431723,
+      "bias": -50.74989326395958,
+      "sse": 1406866.7188723686
+    },
+    "EDDF/(3600.0, 6000.0]": {
+      "rows": 243,
+      "rmse": 327.6366219974068,
+      "bias": 3.0164789516488995,
+      "sse": 26085018.72595081
+    },
+    "EDDF/(6000.0, 24000.0]": {
+      "rows": 243,
+      "rmse": 547.1138160528025,
+      "bias": -137.17865890600993,
+      "sse": 72738047.23495394
+    },
+    "EDDF/(24000.0, inf]": {
+      "rows": 5,
+      "rmse": 1462.6283484854418,
+      "bias": 915.2901040286464,
+      "sse": 10696408.428966256
+    },
+    "EDDM/(0.0, 1200.0]": {
+      "rows": 5,
+      "rmse": 442.11066141347624,
+      "bias": 428.968019142632,
+      "sse": 977309.184677307
+    },
+    "EDDM/(1200.0, 3600.0]": {
+      "rows": 4,
+      "rmse": 139.35385960025368,
+      "bias": 130.95982482269278,
+      "sse": 77677.99274194885
+    },
+    "EDDM/(3600.0, 6000.0]": {
+      "rows": 111,
+      "rmse": 253.63303560244125,
+      "bias": -12.071902078320255,
+      "sse": 7140598.559128925
+    },
+    "EDDM/(6000.0, 24000.0]": {
+      "rows": 86,
+      "rmse": 912.9373167383155,
+      "bias": -236.67841392698395,
+      "sse": 71677090.80922857
+    },
+    "EDDM/(24000.0, inf]": {
+      "rows": 1,
+      "rmse": 378.93286574255285,
+      "bias": -378.93286574255285,
+      "sse": 143590.1167398636
+    },
+    "EGLL/(1200.0, 3600.0]": {
+      "rows": 1,
+      "rmse": 206.70288138302567,
+      "bias": 206.70288138302567,
+      "sse": 42726.08117204518
+    },
+    "EGLL/(3600.0, 6000.0]": {
+      "rows": 129,
+      "rmse": 355.66886740044407,
+      "bias": 38.46330464689096,
+      "sse": 16318544.277690994
+    },
+    "EGLL/(6000.0, 24000.0]": {
+      "rows": 262,
+      "rmse": 1479.2272939762909,
+      "bias": -475.537577788783,
+      "sse": 573285707.4580381
+    },
+    "EHAM/(-inf, 0.0]": {
+      "rows": 57,
+      "rmse": 385.3102587936023,
+      "bias": -100.28740464589579,
+      "sse": 8462447.745300788
+    },
+    "EHAM/(0.0, 1200.0]": {
+      "rows": 175,
+      "rmse": 150.6494105670212,
+      "bias": -59.900800345086,
+      "sse": 3971667.8582334123
+    },
+    "EHAM/(1200.0, 3600.0]": {
+      "rows": 62,
+      "rmse": 256.5960763564113,
+      "bias": -60.4254731217302,
+      "sse": 4082175.8768933243
+    },
+    "EHAM/(3600.0, 6000.0]": {
+      "rows": 227,
+      "rmse": 292.4664885054212,
+      "bias": 69.46719496598534,
+      "sse": 19416818.84600301
+    },
+    "EHAM/(6000.0, 24000.0]": {
+      "rows": 219,
+      "rmse": 417.70563110074227,
+      "bias": -66.6019738188478,
+      "sse": 38210680.74146601
+    },
+    "EHAM/(24000.0, inf]": {
+      "rows": 5,
+      "rmse": 2358.6191248533037,
+      "bias": 1554.5340779667101,
+      "sse": 27815420.880618818
+    },
+    "LEBL/(0.0, 1200.0]": {
+      "rows": 26,
+      "rmse": 316.6844204946724,
+      "bias": -15.35609086377036,
+      "sse": 2607514.5767852087
+    },
+    "LEBL/(1200.0, 3600.0]": {
+      "rows": 10,
+      "rmse": 385.7726989958283,
+      "bias": -67.2467521965363,
+      "sse": 1488205.7529052598
+    },
+    "LEBL/(3600.0, 6000.0]": {
+      "rows": 187,
+      "rmse": 257.9046495720514,
+      "bias": -1.7062412911554516,
+      "sse": 12438269.146655051
+    },
+    "LEBL/(6000.0, 24000.0]": {
+      "rows": 271,
+      "rmse": 379.789631555702,
+      "bias": -73.35953146421807,
+      "sse": 39089084.50828549
+    },
+    "LEBL/(24000.0, inf]": {
+      "rows": 3,
+      "rmse": 844.9481817196383,
+      "bias": 568.0032310965672,
+      "sse": 2141812.2893739687
+    },
+    "LEMD/(3600.0, 6000.0]": {
+      "rows": 139,
+      "rmse": 205.5513177945133,
+      "bias": 23.95569140888388,
+      "sse": 5872936.85034148
+    },
+    "LEMD/(6000.0, 24000.0]": {
+      "rows": 185,
+      "rmse": 358.2511833157437,
+      "bias": -88.39843931233824,
+      "sse": 23743623.41421915
+    },
+    "LFPG/(-inf, 0.0]": {
+      "rows": 2,
+      "rmse": 1212.6558351776973,
+      "bias": 1199.6250495381778,
+      "sse": 2941068.349181037
+    },
+    "LFPG/(0.0, 1200.0]": {
+      "rows": 9,
+      "rmse": 372.64289170100335,
+      "bias": 225.82488206232352,
+      "sse": 1249764.5226175715
+    },
+    "LFPG/(1200.0, 3600.0]": {
+      "rows": 53,
+      "rmse": 509.7607072901246,
+      "bias": -182.20558625785722,
+      "sse": 13772366.87093719
+    },
+    "LFPG/(3600.0, 6000.0]": {
+      "rows": 450,
+      "rmse": 375.0488034952665,
+      "bias": -14.852691179401203,
+      "sse": 63297722.25145397
+    },
+    "LFPG/(6000.0, 24000.0]": {
+      "rows": 518,
+      "rmse": 944.4201266968561,
+      "bias": -354.554163874214,
+      "sse": 462019416.6178348
+    },
+    "LFPG/(24000.0, inf]": {
+      "rows": 4,
+      "rmse": 276.87334289070935,
+      "bias": 27.45940845987377,
+      "sse": 306635.3920139052
+    },
+    "LIRF/(-inf, 0.0]": {
+      "rows": 3,
+      "rmse": 1027.872071456045,
+      "bias": -736.4903578273071,
+      "sse": 3169562.985838022
+    },
+    "LIRF/(0.0, 1200.0]": {
+      "rows": 5,
+      "rmse": 4534.775009213547,
+      "bias": -3346.9013937699356,
+      "sse": 102820921.9209386
+    },
+    "LIRF/(1200.0, 3600.0]": {
+      "rows": 12,
+      "rmse": 4166.688649513512,
+      "bias": -2979.1942544880476,
+      "sse": 208335531.62381688
+    },
+    "LIRF/(3600.0, 6000.0]": {
+      "rows": 121,
+      "rmse": 1578.3099813399103,
+      "bias": 488.5604717693173,
+      "sse": 301418550.0608598
+    },
+    "LIRF/(6000.0, 24000.0]": {
+      "rows": 230,
+      "rmse": 3565.9188907610855,
+      "bias": 759.2994499036047,
+      "sse": 2924628833.161957
+    },
+    "LIRF/(24000.0, inf]": {
+      "rows": 18,
+      "rmse": 9670.538535848656,
+      "bias": -3786.320181260711,
+      "sse": 1683347680.3200097
+    },
+    "LSZH/(-inf, 0.0]": {
+      "rows": 47,
+      "rmse": 321.78146186110314,
+      "bias": 194.38147366718778,
+      "sse": 4866535.532281023
+    },
+    "LSZH/(0.0, 1200.0]": {
+      "rows": 111,
+      "rmse": 358.45066827594934,
+      "bias": 154.5404530787514,
+      "sse": 14262043.85620969
+    },
+    "LSZH/(1200.0, 3600.0]": {
+      "rows": 42,
+      "rmse": 322.9397135991175,
+      "bias": -19.30092952722869,
+      "sse": 4380182.462018161
+    },
+    "LSZH/(3600.0, 6000.0]": {
+      "rows": 137,
+      "rmse": 277.2754407035022,
+      "bias": 120.33919358783933,
+      "sse": 10532788.79237303
+    },
+    "LSZH/(6000.0, 24000.0]": {
+      "rows": 105,
+      "rmse": 894.0010915873253,
+      "bias": -76.44554084786027,
+      "sse": 83919984.93472956
+    },
+    "LTFM/(-inf, 0.0]": {
+      "rows": 11,
+      "rmse": 325.2692755191149,
+      "bias": 279.4233576524335,
+      "sse": 1163801.1175640288
+    },
+    "LTFM/(0.0, 1200.0]": {
+      "rows": 340,
+      "rmse": 204.831330967195,
+      "bias": 87.71160105144939,
+      "sse": 14264997.209569475
+    },
+    "LTFM/(1200.0, 3600.0]": {
+      "rows": 210,
+      "rmse": 493.90617707260486,
+      "bias": -214.12743610709364,
+      "sse": 51228095.46759981
+    },
+    "LTFM/(3600.0, 6000.0]": {
+      "rows": 92,
+      "rmse": 979.3587090433059,
+      "bias": 65.65097793867643,
+      "sse": 88241200.2500653
+    },
+    "LTFM/(6000.0, 24000.0]": {
+      "rows": 82,
+      "rmse": 995.6654410620987,
+      "bias": -19.974492509783765,
+      "sse": 81290672.98308145
+    }
+  },
+  "missing_target_regimes": {
+    "(-inf, 600.0]": {
+      "rows": 813,
+      "rmse": 503.37984463738536,
+      "bias": 263.2652639104073,
+      "sse": 206007100.8735596
+    },
+    "(600.0, 1200.0]": {
+      "rows": 2751,
+      "rmse": 730.5877424362138,
+      "bias": 183.0914707096714,
+      "sse": 1468369494.2940173
+    },
+    "(1200.0, 2400.0]": {
+      "rows": 1460,
+      "rmse": 826.2531470555551,
+      "bias": -201.1021678163151,
+      "sse": 996733624.0080446
+    },
+    "(2400.0, 6000.0]": {
+      "rows": 126,
+      "rmse": 2329.5468786303336,
+      "bias": -1876.5154914508394,
+      "sse": 683775371.1267775
+    },
+    "(6000.0, 24000.0]": {
+      "rows": 126,
+      "rmse": 4039.765183046549,
+      "bias": -3107.873951807492,
+      "sse": 2056282544.503545
+    },
+    "(24000.0, inf]": {
+      "rows": 18,
+      "rmse": 9670.538535848656,
+      "bias": -3786.320181260711,
+      "sse": 1683347680.3200097
+    }
+  },
+  "feature_columns": [
+    "FLIGHT_RULE_mvt",
+    "ADEP_mvt",
+    "ADES_mvt",
+    "AIRCRAFT_TYPE_mvt",
+    "RUNWAY_mvt",
+    "STAND_mvt",
+    "airport_runway",
+    "airport_stand",
+    "stand_prefix",
+    "stand_number",
+    "flight_prefix",
+    "flight_number",
+    "MVT_TIME_UTC_mvt_hour",
+    "MVT_TIME_UTC_mvt_minute",
+    "MVT_TIME_UTC_mvt_second",
+    "SCHED_TIME_UTC_mvt_hour",
+    "SCHED_TIME_UTC_mvt_minute",
+    "SCHED_TIME_UTC_mvt_second",
+    "mvt_minus_SCHED_TIME_UTC_mvt",
+    "month",
+    "dow",
+    "day",
+    "dayofyear",
+    "week",
+    "DEP_count_-1_900",
+    "DEP_count_1_900",
+    "DEP_count_-1_1800",
+    "DEP_count_1_1800",
+    "DEP_count_-1_3600",
+    "DEP_count_1_3600",
+    "DEP_count_-1_7200",
+    "DEP_count_1_7200",
+    "ARR_count_-1_900",
+    "ARR_count_1_900",
+    "ARR_count_-1_1800",
+    "ARR_count_1_1800",
+    "ARR_count_-1_3600",
+    "ARR_count_1_3600",
+    "ARR_count_-1_7200",
+    "ARR_count_1_7200",
+    "arr_taxi_mean_1800",
+    "arr_taxi_mean_7200",
+    "arr_taxi_mean_21600",
+    "runway_prev_gap",
+    "runway_next_gap",
+    "runway_count_30min",
+    "airport_queue_at_takeoff",
+    "airport_proxy_taxi_mean_1800",
+    "airport_proxy_taxi_count_1800",
+    "airport_proxy_taxi_mean_7200",
+    "airport_proxy_taxi_count_7200",
+    "runway_queue_at_takeoff",
+    "runway_proxy_taxi_mean_1800",
+    "runway_proxy_taxi_count_1800",
+    "runway_proxy_taxi_mean_7200",
+    "runway_proxy_taxi_count_7200",
+    "wx_age_minutes",
+    "wx_cold_humid",
+    "wx_dewpoint_c",
+    "wx_dewpoint_spread_c",
+    "wx_freezing_temp",
+    "wx_gust_knots",
+    "wx_pressure_hpa",
+    "wx_reported_fog",
+    "wx_reported_freezing",
+    "wx_reported_hail",
+    "wx_reported_rain",
+    "wx_reported_snow",
+    "wx_reported_thunder",
+    "wx_temp_c",
+    "wx_visibility_km",
+    "wx_wind_deg",
+    "wx_wind_east_knots",
+    "wx_wind_knots",
+    "wx_wind_north_knots",
+    "tfm_decile_mean",
+    "tfm_median",
+    "tfm_q1",
+    "tfm_q2",
+    "tfm_q3",
+    "tfm_q4",
+    "tfm_q5",
+    "tfm_q6",
+    "tfm_q7",
+    "tfm_q8",
+    "tfm_q9",
+    "tfm_width",
+    "stand_runway",
+    "airport_flight_prefix",
+    "flight_prefix_length"
+  ],
+  "params": {
+    "iterations": 600,
+    "depth": 6,
+    "learning_rate": 0.06,
+    "l2_leaf_reg": 30,
+    "thread_count": 4,
+    "random_seed": 20260909,
+    "verbose": false,
+    "one_hot_max_size": 20,
+    "max_ctr_complexity": 1,
+    "allow_writing_files": false
+  },
+  "train_rows": 215527,
+  "train_missing_rows": 15527,
+  "sample_seed": 20260909,
+  "known_sample_rows": 200000,
+  "known_allocation": {
+    "LIRF": 120000,
+    "other": 80000
+  },
+  "missing_weight": 8,
+  "retained_tail": "LIRF schedule delta >=24000: frozen v1 complete missing+Rome pipeline",
+  "candidates": {
+    "direct": {
+      "alpha": 0.2032480582970088,
+      "raw_missing": {
+        "rows": 5294,
+        "rmse": 1249.6510826844521,
+        "bias": 20.6839101134109,
+        "sse": 8267257723.837719
+      },
+      "blended_missing": {
+        "rows": 5294,
+        "rmse": 1150.9501682510945,
+        "bias": -36.74383315027918,
+        "sse": 7012889218.186498
+      },
+      "blended_full": {
+        "rows": 353045,
+        "rmse": 265.6173638506351,
+        "bias": -3.2367140722996184,
+        "sse": 24908237010.85216
+      },
+      "months": {
+        "7": {
+          "raw_missing": 1284.6337258992205,
+          "blended_missing": 1164.0162462466099,
+          "blended_full": 297.4276499571595
+        },
+        "11": {
+          "raw_missing": 1141.9979649258612,
+          "blended_missing": 1112.1346733752137,
+          "blended_full": 222.50975711060232
+        }
+      },
+      "airports": {
+        "EDDF": {
+          "raw_missing": 442.4148465803576,
+          "blended_missing": 448.9160366858332
+        },
+        "EDDM": {
+          "raw_missing": 616.5518725580943,
+          "blended_missing": 617.4135251653407
+        },
+        "EGLL": {
+          "raw_missing": 1110.2921991107362,
+          "blended_missing": 1182.8586593470673
+        },
+        "EHAM": {
+          "raw_missing": 309.18365696005384,
+          "blended_missing": 337.1832985322373
+        },
+        "LEBL": {
+          "raw_missing": 329.60966759746,
+          "blended_missing": 331.66474959155045
+        },
+        "LEMD": {
+          "raw_missing": 253.54765639597883,
+          "blended_missing": 281.7961684263712
+        },
+        "LFPG": {
+          "raw_missing": 530.7003797755898,
+          "blended_missing": 643.9351127442685
+        },
+        "LIRF": {
+          "raw_missing": 4152.93777172533,
+          "blended_missing": 3704.5944652611347
+        },
+        "LSZH": {
+          "raw_missing": 747.9596739591664,
+          "blended_missing": 522.4523556356077
+        },
+        "LTFM": {
+          "raw_missing": 532.0254995876995,
+          "blended_missing": 553.6982092177694
+        }
+      },
+      "regional_alphas": {
+        "Rome": 0.0,
+        "other": 0.6902681343293586
+      },
+      "regional_missing": {
+        "rows": 5294,
+        "rmse": 1125.2449101107586,
+        "bias": -1.6563037302130872,
+        "sse": 6703136314.323518
+      },
+      "regional_full": {
+        "rows": 353045,
+        "rmse": 263.96061987703246,
+        "bias": -2.7105676015952316,
+        "sse": 24598484106.989185
+      },
+      "regional_months": {
+        "7": {
+          "missing": 1140.2696567821458,
+          "full": 295.52212292560824
+        },
+        "11": {
+          "missing": 1080.4272606188708,
+          "full": 221.2009721502057
+        }
+      }
+    },
+    "mixture": {
+      "alpha": 0.8188608021064201,
+      "raw_missing": {
+        "rows": 5294,
+        "rmse": 1122.0027234736806,
+        "bias": -27.751123403930126,
+        "sse": 6664564250.187593
+      },
+      "blended_missing": {
+        "rows": 5294,
+        "rmse": 1120.1390652300627,
+        "bias": -32.03366789569755,
+        "sse": 6642442815.756011
+      },
+      "blended_full": {
+        "rows": 353045,
+        "rmse": 263.6347748396026,
+        "bias": -3.166083940566396,
+        "sse": 24537790608.421684
+      },
+      "months": {
+        "7": {
+          "raw_missing": 1144.295514331756,
+          "blended_missing": 1139.9831452118779,
+          "blended_full": 295.49929758034597
+        },
+        "11": {
+          "raw_missing": 1054.5934472302272,
+          "blended_missing": 1060.4061348743405,
+          "blended_full": 220.39018558161519
+        }
+      },
+      "airports": {
+        "EDDF": {
+          "raw_missing": 426.3878279102526,
+          "blended_missing": 425.46001040162514
+        },
+        "EDDM": {
+          "raw_missing": 604.4212704731856,
+          "blended_missing": 604.006094851611
+        },
+        "EGLL": {
+          "raw_missing": 1116.1367324210476,
+          "blended_missing": 1129.2671752252497
+        },
+        "EHAM": {
+          "raw_missing": 271.5390322616505,
+          "blended_missing": 271.67766057692387
+        },
+        "LEBL": {
+          "raw_missing": 305.39317702991855,
+          "blended_missing": 305.92992233245064
+        },
+        "LEMD": {
+          "raw_missing": 255.22671366416944,
+          "blended_missing": 256.84571918802
+        },
+        "LFPG": {
+          "raw_missing": 542.86273458243,
+          "blended_missing": 557.9450253058907
+        },
+        "LIRF": {
+          "raw_missing": 3680.5928612531657,
+          "blended_missing": 3662.294098511389
+        },
+        "LSZH": {
+          "raw_missing": 497.0037109421148,
+          "blended_missing": 496.72721084674896
+        },
+        "LTFM": {
+          "raw_missing": 519.3165647000643,
+          "blended_missing": 521.3339778185195
+        }
+      },
+      "regional_alphas": {
+        "Rome": 0.4224120030856562,
+        "other": 1.0
+      },
+      "regional_missing": {
+        "rows": 5294,
+        "rmse": 1113.6525034548886,
+        "bias": -19.547411242673288,
+        "sse": 6565734730.401396
+      },
+      "regional_full": {
+        "rows": 353045,
+        "rmse": 263.22237527386073,
+        "bias": -2.9788493310375532,
+        "sse": 24461082523.067066
+      },
+      "regional_months": {
+        "7": {
+          "missing": 1132.570153717344,
+          "full": 294.91011524070547
+        },
+        "11": {
+          "missing": 1056.7951417508184,
+          "full": 220.24525336462324
+        }
+      }
+    }
+  },
+  "selected": "mixture",
+  "regional_routing": "Two closed-form validation alphas after complete v1: Rome vs other missing-AOBT rows; never combine blindly before old Rome routing.",
+  "verification": {
+    "direct": {
+      "rows": 5294,
+      "finite": true,
+      "exact_missing_validation_ID_set": true
+    },
+    "mixture": {
+      "rows": 5294,
+      "finite": true,
+      "exact_missing_validation_ID_set": true
+    },
+    "direct_model": {
+      "trees": 600,
+      "features": 90,
+      "device": "CPU"
+    },
+    "normal_model": {
+      "trees": 600,
+      "features": 90,
+      "device": "CPU"
+    },
+    "identity_model": {
+      "trees": 400,
+      "features": 90,
+      "device": "CPU"
+    }
+  },
+  "recommendation": {
+    "model": "mixture",
+    "routing": "After full frozen v1 pipeline, update only missing AOBT rows with alpha times (raw expert - pipeline).",
+    "alphas": {
+      "Rome": 0.4224120030856562,
+      "other": 1.0
+    },
+    "selection_frozen": true,
+    "no_december_or_official_score_used": true
+  },
+  "mixture_recipe": {
+    "normal": "600 trees depth6 lr0.06 l2=30; train target<6000 and nonidentity, excluding Rome schedule>=24000; missing sample weight8, other sample weight1",
+    "classifier": "400 trees depth5 lr0.06 l2=30; train Rome only, target abs(Y-schedule)<=6; multiply sample weight by clip(1+(max(schedule,0)/3600)^2,1,25)",
+    "inference": "Normal prediction outside Rome; Rome probability*schedule+(1-probability)*normal, probability0 if schedule<=0; clip prediction at zero; Rome schedule>=24000 uses frozen v1 complete pipeline",
+    "seed": 20260909,
+    "validation": [
+      7,
+      11
+    ],
+    "excluded_from_training": [
+      7,
+      11,
+      12
+    ]
+  }
+}

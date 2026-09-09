@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "submission": "elegant-alligator_v2.parquet",
+  "selection_frozen": true,
+  "validation": {
+    "pooled_rmse": 262.5263614123253,
+    "month_rmse": {
+      "2025-07": 294.335353103769,
+      "2025-11": 219.33997851000913
+    }
+  },
+  "improvement_over_v1_local": 3.5258727888968338,
+  "submission_check": {
+    "rows": 344841,
+    "protected_rows": 25,
+    "tail_gate_rows": 10672,
+    "independent_max_abs_difference": 1.8189894035458565e-12,
+    "sha256": "f2e880e71f5ada055b5154b7b2f2e1db06628eacb291e20da9b39f7fb38315aa",
+    "v1_hashes_unchanged": true,
+    "december_scored": false
+  },
+  "model_sha256": {
+    "tfm_queue_d10_v2_final.cbm": "bb5a5d6899d3ec2c75a42f954f9c06759b72c628b10fc9a4126dbfd5ec9f2282",
+    "catboost_tail_d6_final.cbm": "e3e2cbbd06d557b1159169508e8f9496adcb976582587222377647b5723f6704",
+    "moe_normal_cap12000_final.cbm": "7bd39a0ad50725b9b4e918c1fc15cb20532c57d6d7bc9db58e1b158cd8447971",
+    "moe_missing_v2_identity_final.cbm": "6e4c45d407a6cfc64d263c3544ff3b395f206c00f47c5556ab4a0c73b673e00f"
+  },
+  "official": null,
+  "research_workers": [
+    "gpt-5.6-sol",
+    "gpt-5.6-sol",
+    "gpt-5.6-sol"
+  ],
+  "workflow": "docs/research_program.md",
+  "method_contributions": {
+    "missing_expert_only": 262.9766870799348,
+    "seasonal_blend_and_original_missing": 262.952468,
+    "tail_gate_only_over_v1": 265.81263728629
+  },
+  "generalization_notes": [
+    "July/November repeatedly tuned; held-date comparisons are not a fresh test",
+    "January2026 uses November weights without direct January validation",
+    "No v2 December score or ranking-label fitting"
+  ]
+}

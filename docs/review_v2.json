@@ -1,0 +1,28 @@
+{
+  "candidate": "artifacts/v2_validation.parquet",
+  "reference": "complete frozen v1",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 262.5263614123253,
+    "month_rmse": {
+      "2025-07": 294.335353103769,
+      "2025-11": 219.33997851000913
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 266.0522342012221,
+    "month_rmse": {
+      "2025-07": 297.1304005768509,
+      "2025-11": 224.10055777655305
+    }
+  },
+  "rmse_change": -3.5258727888968338,
+  "day_bootstrap_rmse_change_95pct": [
+    -6.109875391148391,
+    -1.5998071566026286
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 352998,
+  "december_scored": false,
+  "sha256": "743799a1a41b895e53fd1db943177139b7fe8017616df877dab7701ffa0b71de"
+}

@@ -1,0 +1,130 @@
+{
+  "lane": "catboost_residual_extreme_delay",
+  "selection_labels": [
+    "2025-07",
+    "2025-11"
+  ],
+  "training_exclusions": [
+    "2025-07",
+    "2025-11",
+    "2025-12"
+  ],
+  "december_used": false,
+  "baseline_complete": {
+    "pooled_rmse": 266.0522342012221,
+    "july_rmse": 297.1304005768509,
+    "november_rmse": 224.10055777655305
+  },
+  "baseline_known_rmse": 226.8485,
+  "tail_gate": "mvt_minus_AOBT_3_flt > -100000 and (mvt_minus_AOBT_3_flt < 300 or mvt_minus_AOBT_3_flt > 2200 or mvt_minus_EOBT_1_flt > 3600)",
+  "tail_rows": 9866,
+  "trials": [
+    {
+      "name": "catboost_tail_d6_s600_border254",
+      "status": "aborted",
+      "reason": "sustained GPU throughput failure; no result JSON",
+      "observed": "iteration 0 total 1.69s, then no iteration 100 after minutes"
+    },
+    {
+      "name": "catboost_tail_d6_s600_initial",
+      "status": "aborted",
+      "reason": "sustained GPU throughput failure; no result JSON",
+      "observed": "iteration 0 total 3.35s after long pool construction"
+    },
+    {
+      "name": "catboost_tail_d6_s600",
+      "status": "complete",
+      "params": {
+        "sample": 600000,
+        "iterations": 4500,
+        "trees": 4496,
+        "depth": 6,
+        "rate": 0.06,
+        "l2": 20,
+        "border_count": 128
+      },
+      "known_rmse": 236.0171827893447,
+      "full_replacement_rmse": {
+        "pooled": 270.6776999732369,
+        "july": 301.86310353272654,
+        "november": 228.66978742586346
+      },
+      "gated_alpha_even_dates": 0.3518396165877747,
+      "gated_complete_rmse": {
+        "pooled": 265.81263728629,
+        "july": 296.8571792657246,
+        "november": 223.90752071297752
+      },
+      "odd_date_complete_rmse": {
+        "candidate": 255.82893375992444,
+        "baseline": 256.12404945461185,
+        "july_candidate": 288.26292060843025,
+        "july_baseline": 288.5548540944907,
+        "november_candidate": 209.89533582143065,
+        "november_baseline": 210.2050359384866
+      }
+    },
+    {
+      "name": "catboost_tail_d8_s600",
+      "status": "complete",
+      "params": {
+        "sample": 600000,
+        "iterations": 4500,
+        "trees": 4471,
+        "depth": 8,
+        "rate": 0.06,
+        "l2": 20,
+        "border_count": 128
+      },
+      "known_rmse": 233.96089271933812,
+      "full_replacement_rmse": {
+        "pooled": 269.37471263685796,
+        "july": 300.598363786124,
+        "november": 227.27660288978012
+      },
+      "gated_alpha_even_dates": 0.34137919616609186,
+      "gated_complete_rmse": {
+        "pooled": 265.82060763457764,
+        "july": 296.8757139772654,
+        "november": 223.8992286920938
+      },
+      "odd_date_complete_rmse": {
+        "candidate": 255.81913207857235,
+        "baseline": 256.12404945461185,
+        "july_candidate": 288.2450451205733,
+        "july_baseline": 288.5548540944907,
+        "november_candidate": 209.8986663484596,
+        "november_baseline": 210.2050359384866
+      }
+    }
+  ],
+  "selected": {
+    "status": "provisional_pending_combined_base_check",
+    "trial": "catboost_tail_d6_s600",
+    "reason": "best all-row complete score; depth 8 is marginally better on pooled odd dates",
+    "alpha": 0.3518396165877747
+  },
+  "apply_order": [
+    "replace only frozen tfm_queue_d8 base prediction on the tail gate",
+    "apply frozen v1 base weights",
+    "apply frozen missing specialist",
+    "apply frozen Rome expert",
+    "clip nonnegative",
+    "apply timing bounds",
+    "add alpha times the routed gated-minus-v1 delta to the selected complete base",
+    "reapply timing bounds"
+  ],
+  "artifacts": {
+    "model": "artifacts/catboost_tail_d6_s600.cbm",
+    "raw_validation": "artifacts/catboost_tail_d6_s600_predictions.parquet",
+    "hybrid_validation": "artifacts/catboost_catboost_tail_d6_s600_predictions_tail_hybrid.parquet",
+    "complete_validation": "artifacts/catboost_catboost_tail_d6_s600_predictions_gated_complete_validation.parquet",
+    "scores": "docs/research_catboost_scores.json"
+  },
+  "reproduce_validation": "python -u scripts/train.py --name catboost_tail_d6_s600 --iterations 4500 --depth 6 --rate .06 --l2 20 --border-count 128 --threads 8 --device GPU --residual --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --known-only --tail-copies --sample 600000 --boost-priority",
+  "score": "python -u scripts/catboost_score.py artifacts/catboost_tail_d6_s600_predictions.parquet artifacts/catboost_tail_d8_s600_predictions.parquet",
+  "ranking_inference_ready": true,
+  "proposed_final_command": "python -u scripts/train.py --name catboost_tail_d6_final --iterations 4496 --depth 6 --rate .06 --l2 20 --border-count 128 --threads 8 --device GPU --residual --tfm data/processed/timesfm_hourly_final.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --known-only --tail-copies --final --boost-priority",
+  "final_fit_note": "Not run pending parent review. --final deliberately ignores --sample and trains on all labeled 2025 rows, including July, November, and December only after selection is frozen.",
+  "next_hypothesis": "Fit the gated alpha against the selected seasonal plus missing-v2 complete base by calibration month and require odd-date gains in both July and November before final fitting."
+}

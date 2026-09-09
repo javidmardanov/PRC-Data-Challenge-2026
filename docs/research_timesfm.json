@@ -1,0 +1,320 @@
+{
+  "december_read": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "calibration_dates": "even UTC day-of-month in July and November 2025",
+  "check_dates": "odd UTC day-of-month in July and November 2025",
+  "model_order": [
+    "artifacts/tfm_queue_d8_predictions.parquet",
+    "artifacts/no_tfm_full_d8_predictions.parquet",
+    "artifacts/lgbm_tfm_validation.parquet",
+    "artifacts/tfm_queue_d10_v2_predictions.parquet"
+  ],
+  "routing": "base blend -> frozen v1 missing -> frozen v1 Rome -> nonnegative -> frozen timing bounds -> missing-v2 regional update",
+  "trials": [
+    {
+      "name": "incumbent",
+      "penalty": null,
+      "weights": [
+        0.7985604681600207,
+        0.17672281746128118,
+        0.024716714378698216,
+        0.0
+      ],
+      "scores": {
+        "m7_calib": 302.65121661439997,
+        "m7_check": 286.92415873225127,
+        "m11_calib": 230.44728052283602,
+        "m11_check": 209.0179943579914,
+        "m7_all": 294.65409192875524,
+        "m11_all": 220.0094068999966
+      },
+      "check_mean": 247.97107654512132
+    },
+    {
+      "name": "unregularized",
+      "penalty": 0.0,
+      "weights": [
+        0.5752600583130176,
+        0.12074027593650888,
+        0.0,
+        0.3039996657504735
+      ],
+      "scores": {
+        "m7_calib": 302.5791837450484,
+        "m7_check": 286.9055868377799,
+        "m11_calib": 230.14115122084866,
+        "m11_check": 208.57596460710357,
+        "m7_all": 294.60890432510973,
+        "m11_all": 219.6391968523564
+      },
+      "check_mean": 247.74077572244173
+    },
+    {
+      "name": "ridge_0.01",
+      "penalty": 0.01,
+      "weights": [
+        0.7469271490094821,
+        0.1602499924186424,
+        0.0030641059354261173,
+        0.08975875263644935
+      ],
+      "scores": {
+        "m7_calib": 302.6343922771189,
+        "m7_check": 286.89470475917574,
+        "m11_calib": 230.29545090964814,
+        "m11_check": 208.78811871670672,
+        "m7_all": 294.630938043241,
+        "m11_all": 219.82074362999487
+      },
+      "check_mean": 247.84141173794123
+    },
+    {
+      "name": "ridge_0.05",
+      "penalty": 0.05,
+      "weights": [
+        0.7880965884688838,
+        0.17278677609547152,
+        0.014353411802056406,
+        0.024763223633588398
+      ],
+      "scores": {
+        "m7_calib": 302.65402297058125,
+        "m7_check": 286.91564921521774,
+        "m11_calib": 230.39463001833823,
+        "m11_check": 208.9359959639182,
+        "m7_all": 294.65122077032936,
+        "m11_all": 219.94289918854605
+      },
+      "check_mean": 247.92582258956799
+    }
+  ],
+  "selected": {
+    "name": "unregularized",
+    "penalty": 0.0,
+    "weights": [
+      0.5752600583130176,
+      0.12074027593650888,
+      0.0,
+      0.3039996657504735
+    ],
+    "scores": {
+      "m7_calib": 302.5791837450484,
+      "m7_check": 286.9055868377799,
+      "m11_calib": 230.14115122084866,
+      "m11_check": 208.57596460710357,
+      "m7_all": 294.60890432510973,
+      "m11_all": 219.6391968523564
+    },
+    "check_mean": 247.74077572244173
+  },
+  "selected_validation": "artifacts/timesfm_blend_selected_validation.parquet",
+  "selected_validation_sha256": "743799a1a41b895e53fd1db943177139b7fe8017616df877dab7701ffa0b71de",
+  "cross_month_transfer": {
+    "m7_to_m11": {
+      "weights": [
+        0.4610020554464843,
+        0.36119165147870247,
+        0.0,
+        0.17780629307481327
+      ],
+      "destination_check_rmse": 209.9804363995172,
+      "destination_incumbent_check_rmse": 209.0179943579914
+    },
+    "m11_to_m7": {
+      "weights": [
+        0.6394062619480203,
+        0.0,
+        1.3877787807814457e-17,
+        0.3605937380519798
+      ],
+      "destination_check_rmse": 287.04169559516174,
+      "destination_incumbent_check_rmse": 286.92415873225127
+    }
+  },
+  "seasonal_shrinkage": [
+    {
+      "strength": 0.25,
+      "july_weights": [
+        0.5466955575963843,
+        0.18085311982205726,
+        0.0,
+        0.2724513225815584
+      ],
+      "november_weights": [
+        0.5912966092217683,
+        0.09055520695238166,
+        3.469446951953614e-18,
+        0.3181481838258501
+      ],
+      "scores": {
+        "m7_check": 286.8736940316436,
+        "m11_check": 208.46891104901283,
+        "m7_all": 294.5576086503161,
+        "m11_all": 219.56378843908234
+      }
+    },
+    {
+      "strength": 0.5,
+      "july_weights": [
+        0.518131056879751,
+        0.24096596370760567,
+        0.0,
+        0.24090297941264338
+      ],
+      "november_weights": [
+        0.607333160130519,
+        0.06037013796825444,
+        6.938893903907228e-18,
+        0.3322967019012266
+      ],
+      "scores": {
+        "m7_check": 286.8667269819949,
+        "m11_check": 208.37772701210488,
+        "m7_all": 294.53031349541345,
+        "m11_all": 219.5015988750051
+      }
+    },
+    {
+      "strength": 0.75,
+      "july_weights": [
+        0.4895665561631176,
+        0.3010788075931541,
+        0.0,
+        0.20935463624372835
+      ],
+      "november_weights": [
+        0.6233697110392696,
+        0.03018506898412722,
+        1.0408340855860843e-17,
+        0.34644521997660327
+      ],
+      "scores": {
+        "m7_check": 286.8847799096709,
+        "m11_check": 208.3024333369487,
+        "m7_all": 294.5270394389503,
+        "m11_all": 219.4526393981917
+      }
+    }
+  ],
+  "seasonal_decision": "retain strongest tested shrink no greater than 0.5 only when both month-specific odd-date checks beat pooled",
+  "frozen_blend": {
+    "strength": 0.5,
+    "july_weights": [
+      0.518131056879751,
+      0.24096596370760567,
+      0.0,
+      0.24090297941264338
+    ],
+    "november_weights": [
+      0.607333160130519,
+      0.06037013796825444,
+      6.938893903907228e-18,
+      0.3322967019012266
+    ],
+    "scores": {
+      "m7_check": 286.8667269819949,
+      "m11_check": 208.37772701210488,
+      "m7_all": 294.53031349541345,
+      "m11_all": 219.5015988750051
+    }
+  },
+  "tail_delta_trials": [
+    {
+      "name": "d6",
+      "path": "artifacts/catboost_tail_d6_s600_predictions.parquet",
+      "gate_rows": 9866,
+      "alpha": 0.2969850441234747,
+      "scores": {
+        "m7_calib": 302.27518239708786,
+        "m7_check": 286.6620644272799,
+        "m11_calib": 229.99406089018063,
+        "m11_check": 208.10748722973366,
+        "m7_all": 294.335353103769,
+        "m11_all": 219.33997851000913
+      }
+    },
+    {
+      "name": "d8",
+      "path": "artifacts/catboost_tail_d8_s600_predictions.parquet",
+      "gate_rows": 9866,
+      "alpha": 0.26041994262493784,
+      "scores": {
+        "m7_calib": 302.34359643161895,
+        "m7_check": 286.65905533721406,
+        "m11_calib": 229.9915499007367,
+        "m11_check": 208.14801840707995,
+        "m7_all": 294.36790993660725,
+        "m11_all": 219.35786083847606
+      }
+    }
+  ],
+  "tail_delta": {
+    "name": "d6",
+    "path": "artifacts/catboost_tail_d6_s600_predictions.parquet",
+    "gate_rows": 9866,
+    "alpha": 0.2969850441234747,
+    "scores": {
+      "m7_calib": 302.27518239708786,
+      "m7_check": 286.6620644272799,
+      "m11_calib": 229.99406089018063,
+      "m11_check": 208.10748722973366,
+      "m7_all": 294.335353103769,
+      "m11_all": 219.33997851000913
+    }
+  },
+  "ranking_month_mapping_if_retained": "July uses July recipe; January uses November winter recipe, with no direct January validation because Jan-2025 lacks TimesFM",
+  "missing_v2": {
+    "selected": "cap12000_fixed_original_alphas",
+    "development_raw": "artifacts/moe_normal_cap12000_raw_missing_validation.parquet",
+    "ranking_raw": "artifacts/moe_normal_cap12000_raw_missing_ranking.parquet",
+    "normal_params": {
+      "iterations": 600,
+      "depth": 6,
+      "learning_rate": 0.06,
+      "l2_leaf_reg": 30,
+      "target_cap": 12000
+    },
+    "classifier_params": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.06,
+      "l2_leaf_reg": 30
+    },
+    "alphas": {
+      "LIRF": 0.4224120030856563,
+      "other": 1.0
+    },
+    "evidence_limit": "Aggregate, whole-month, and missing even/odd scores improve versus cap6000; one broader July odd full-score comparison was slightly worse, so evidence is mixed by subslice."
+  },
+  "protected_rome_tail": {
+    "rule": "missing LIRF and mvt_minus_SCHED_TIME_UTC_mvt >= 24000 skips missing-v2 update",
+    "validation_rows": 18,
+    "raw_expert_mutation_invariant": true,
+    "comparison": "np.array_equal after adding 1e9 to every protected raw expert prediction"
+  },
+  "v1_ranking_reconstruction_check": {
+    "stored_submission": "submissions/elegant-alligator_v1.parquet",
+    "protected_rows": 25,
+    "all_max_abs_difference": 0.0,
+    "protected_max_abs_difference": 0.0,
+    "protected_array_equal": true
+  },
+  "selection_rule": "lowest mean month check RMSE among candidates no worse than incumbent in either month",
+  "january_policy": "global weights only; no January-specific fit because Jan-2025 lacks TimesFM while Jan-2026 has complete TimesFM",
+  "final_apply": {
+    "status": "ready; verified against the real 344841-row template",
+    "output": "artifacts/v2_ranking.parquet",
+    "output_sha256": "f2e880e71f5ada055b5154b7b2f2e1db06628eacb291e20da9b39f7fb38315aa",
+    "required_model_order": [
+      "artifacts/tfm_queue_final_predictions.parquet",
+      "artifacts/no_tfm_final_predictions.parquet",
+      "artifacts/lgbm_tfm_ranking.parquet",
+      "artifacts/tfm_queue_d10_v2_final_predictions.parquet"
+    ],
+    "command": "python scripts/timesfm_blend_research.py --apply-final --predictions artifacts/tfm_queue_final_predictions.parquet artifacts/no_tfm_final_predictions.parquet artifacts/lgbm_tfm_ranking.parquet artifacts/tfm_queue_d10_v2_final_predictions.parquet --missing artifacts/missing_ranking.parquet --rome artifacts/lirf_identity_expert_ranking.parquet --missing-v2 artifacts/moe_normal_cap12000_raw_missing_ranking.parquet --tail-predictions artifacts/catboost_tail_d6_final_predictions.parquet --output submissions/timesfm_blend.parquet"
+  }
+}
