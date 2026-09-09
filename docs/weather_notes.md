@@ -14,6 +14,8 @@ It caches two CSV requests: 2024-12-31 through 2026-01-31, and 2026-06-30 throug
 Downloads use no credentials and are capped at 100 MB total. Source URLs,
 retrieval time, SHA256 hashes, sizes, and coverage statistics are preserved in
 `data/processed/weather_hourly.json`.
+The executed download's metadata is also preserved in the published
+[weather source manifest](weather_source_manifest.json).
 
 Output `data/processed/weather_hourly.parquet` joins on `ADEP_mvt` and UTC `hour`,
 the same keys as the TimesFM feature tables. For each airport-hour, the latest

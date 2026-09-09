@@ -16,7 +16,27 @@
     "recipe_reselected_after_audit": false,
     "predictions_sha256": "2abd53f08522c8a3d5878d8d8699956961302ef93f479ac55daa8a5c1e8a8b32"
   },
-  "official_submission": null,
+  "official_submission": {
+    "status": "SUCCEEDED",
+    "bucket": "prc-2026-elegant-alligator",
+    "key": "elegant-alligator_v1.parquet",
+    "sha256": "faebb2d0535b2a3044826aba0163938960dafff043199dcb0c5d6840071becd2",
+    "uploaded_at": "2026-09-09T02:54:29.605652+00:00",
+    "bytes": 4707617,
+    "leaderboard": {
+      "submissionId": "3770961f-26b8-4db3-bbf8-48014a31e854",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v1.parquet",
+      "score": 285.0706,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-09T02:55:05.359073Z"
+    },
+    "team_rank_at_snapshot": 14,
+    "teams_in_snapshot": 81,
+    "leader_score": 246.7053,
+    "leaderboard_retrieved_at": "2026-09-09T02:55:34.024447+00:00"
+  },
   "development_model_sha256": {
     "tfm_queue_d8.cbm": "f8e7fe50f9cb672adc3c6150b5dc56f7f23a363d07be73ae0fede0f133b2747b",
     "no_tfm_full_d8.cbm": "7261b9a34b632aa5ca55e698b611f0c19991d04b8fdbf11c36615473f6d4ee02",
@@ -43,5 +63,7 @@
     "missing_regression.cbm": "1f0aaf8a01f8c56262fe1907d0fd7f6b3259ff715e53dc3853c6bc4a012b858a",
     "lirf_identity_classifier_final.cbm": "40b48f0b0f2e9456d15026c54b63f4edb99ae0bfff26feabff07ec8eb300e95e",
     "lirf_identity_normal_final.cbm": "645825f29d950ccac63e3ac9d1939f2c57a3c0e9be47b76e8019006fa7235aa7"
-  }
+  },
+  "source_repository": "https://github.com/javidmardanov/PRC-Data-Challenge-2026",
+  "source_commit": "2ab5238"
 }

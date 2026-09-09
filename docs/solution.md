@@ -19,8 +19,9 @@ once after freezing v1. RMSE is measured in seconds:
 | November tuning | — | 224.10055777655305 |
 | December frozen audit | 165,677 | 217.5040384241259 |
 
-No selection used the December audit score. These are local measurements, not
-official ranking scores. The tuning split tests missing months: some training
+No selection used the December audit score. These are local measurements.
+The resulting v1 official ranking RMSE was 285.0706 on all 344,841 pairs.
+The tuning split tests missing months: some training
 observations follow July. `train.py --forward` is an optional January–June-to-July
 diagnostic, separate from v1. Final ranking models use all official 2025 labels;
 the audit uses retained development models.
@@ -204,4 +205,8 @@ Google source and pretrained weights retain separate upstream licenses. The
 restricts commercial/production use and redistribution; cash-prize competition
 clearance has not been established. This guide does not assert prize eligibility.
 Official rules also require public GitHub source and documented external-data
-rights. Public-source publication was pending when this guide was written.
+rights. Source is published at
+[GitHub](https://github.com/javidmardanov/PRC-Data-Challenge-2026).
+The validated v1 file was uploaded on 2026-09-09 at 02:54 UTC and scored at
+02:55 UTC. Upload receipts and SHA-256 hashes are recorded locally and in
+the public results report, without publishing raw inputs or prediction files.
