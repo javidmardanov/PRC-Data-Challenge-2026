@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-09-08T23:17:30.650982+00:00",
+  "source_endpoint": "https://s3.opensky-network.org",
+  "buckets": {
+    "prc-2026-datasets": [
+      {
+        "key": "ranking.parquet",
+        "size_bytes": 43564605,
+        "etag": "838b6c57f7c3c6b491a169c0c1516d55-3",
+        "last_modified": "2026-09-04T08:30:40.896000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\ranking.parquet",
+        "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+      },
+      {
+        "key": "submitting.parquet",
+        "size_bytes": 1677097,
+        "etag": "03044267cf6c774914ae275dfd29d0e0",
+        "last_modified": "2026-09-04T08:27:23.547000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\submitting.parquet",
+        "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+      },
+      {
+        "key": "training_2025-01-01_2025-02-01.parquet",
+        "size_bytes": 21218481,
+        "etag": "a7a06335eba1fb819d7a857e8136abd8-2",
+        "last_modified": "2026-08-13T08:06:57.137000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-01-01_2025-02-01.parquet",
+        "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+      },
+      {
+        "key": "training_2025-02-01_2025-03-01.parquet",
+        "size_bytes": 19824510,
+        "etag": "382843b77d872aafad391e9d72e69b38-2",
+        "last_modified": "2026-08-13T08:06:59.019000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-02-01_2025-03-01.parquet",
+        "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+      },
+      {
+        "key": "training_2025-03-01_2025-04-01.parquet",
+        "size_bytes": 22606072,
+        "etag": "9f997f4faae04635a30f8e38d948c47f-2",
+        "last_modified": "2026-08-13T08:07:00.340000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-03-01_2025-04-01.parquet",
+        "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+      },
+      {
+        "key": "training_2025-04-01_2025-05-01.parquet",
+        "size_bytes": 23840340,
+        "etag": "4b57475a40bddde3231935db373d4722-2",
+        "last_modified": "2026-08-13T08:06:46.252000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-04-01_2025-05-01.parquet",
+        "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+      },
+      {
+        "key": "training_2025-05-01_2025-06-01.parquet",
+        "size_bytes": 25187756,
+        "etag": "0064f01f3ad2686a41eecd3db8b6337f-2",
+        "last_modified": "2026-08-13T08:06:49.689000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-05-01_2025-06-01.parquet",
+        "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+      },
+      {
+        "key": "training_2025-06-01_2025-07-01.parquet",
+        "size_bytes": 24991697,
+        "etag": "8c2e639482725e31c6401e8f643813c9-2",
+        "last_modified": "2026-08-13T08:06:56.791000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-06-01_2025-07-01.parquet",
+        "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+      },
+      {
+        "key": "training_2025-07-01_2025-08-01.parquet",
+        "size_bytes": 26014977,
+        "etag": "79ff9ed041cf1937b4f9c55ca3e2513e-2",
+        "last_modified": "2026-08-13T08:06:43.735000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-07-01_2025-08-01.parquet",
+        "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+      },
+      {
+        "key": "training_2025-08-01_2025-09-01.parquet",
+        "size_bytes": 25969246,
+        "etag": "27c4e39f8035f0b6fc8e74287cbcb181-2",
+        "last_modified": "2026-08-13T08:06:58.744000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-08-01_2025-09-01.parquet",
+        "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+      },
+      {
+        "key": "training_2025-09-01_2025-10-01.parquet",
+        "size_bytes": 25102673,
+        "etag": "7693c7f704fa2ef6755a8dd7dee90a04-2",
+        "last_modified": "2026-08-13T08:06:41.506000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-09-01_2025-10-01.parquet",
+        "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+      },
+      {
+        "key": "training_2025-10-01_2025-11-01.parquet",
+        "size_bytes": 25392098,
+        "etag": "75e571814153dc15b921b528bb5df105-2",
+        "last_modified": "2026-08-13T08:06:58.672000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-10-01_2025-11-01.parquet",
+        "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+      },
+      {
+        "key": "training_2025-11-01_2025-12-01.parquet",
+        "size_bytes": 22173840,
+        "etag": "491d4b08b10237a723c447f6b4f1bd60-2",
+        "last_modified": "2026-08-13T08:06:25.369000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-11-01_2025-12-01.parquet",
+        "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+      },
+      {
+        "key": "training_2025-12-01_2026-01-01.parquet",
+        "size_bytes": 22653598,
+        "etag": "251424006e8a625d2a8aa3bd3f5036a2-2",
+        "last_modified": "2026-08-13T08:06:57.822000+00:00",
+        "local_path": "data\\raw\\prc-2026-datasets\\training_2025-12-01_2026-01-01.parquet",
+        "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+      }
+    ]
+  }
+}

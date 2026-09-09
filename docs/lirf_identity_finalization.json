@@ -1,0 +1,57 @@
+{
+  "audit": {
+    "output": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\lirf_identity_expert_audit.parquet",
+    "rows": 12064,
+    "classifier_training_rows": 122097,
+    "normal_training_rows": 99976,
+    "training_months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10
+    ],
+    "december_scored": false,
+    "regime": "LIRF and MVT-SCHED <24000 seconds; no fallback for omitted rows",
+    "original_development_sha256": {
+      "lirf_identity_classifier.cbm": "8ae83f186ebda2856646f345d2f599dad787a6b9a11651fd2493f6168a96a11d",
+      "lirf_identity_normal.cbm": "2ceea8c99946388a2d3ad4f5970c5739127c245b2f964daa4886a1ebf7cd92e7"
+    },
+    "original_development_weights_unchanged": true,
+    "cpu_threads": 4,
+    "gpu": false
+  },
+  "final": {
+    "output": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\lirf_identity_expert_ranking.parquet",
+    "rows": 26859,
+    "classifier_training_rows": 160704,
+    "normal_training_rows": 131547,
+    "training_months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "december_scored": false,
+    "regime": "LIRF and MVT-SCHED <24000 seconds; no fallback for omitted rows",
+    "original_development_sha256": {
+      "lirf_identity_classifier.cbm": "8ae83f186ebda2856646f345d2f599dad787a6b9a11651fd2493f6168a96a11d",
+      "lirf_identity_normal.cbm": "2ceea8c99946388a2d3ad4f5970c5739127c245b2f964daa4886a1ebf7cd92e7"
+    },
+    "original_development_weights_unchanged": true,
+    "cpu_threads": 4,
+    "gpu": false
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "retrieved_at": "2026-09-09T01:52:09.043516+00:00",
+  "source": "Iowa Environmental Mesonet ASOS/METAR archive",
+  "license_url": "https://mesonet.agron.iastate.edu/disclaimer.php",
+  "rights": "IEM states its website materials are public domain and freely usable for lawful purposes.",
+  "api_documentation": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?help=",
+  "sources": [
+    {
+      "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=EDDF&station=EDDM&station=EGLL&station=EHAM&station=LEBL&station=LEMD&station=LFPG&station=LIRF&station=LSZH&station=LTFM&data=tmpf&data=dwpf&data=drct&data=sknt&data=alti&data=vsby&data=gust&data=wxcodes&sts=2024-12-31T00%3A00Z&ets=2026-02-01T00%3A00Z&tz=Etc%2FUTC&format=onlycomma&latlon=no&elev=no&missing=M&trace=T&report_type=3&report_type=4",
+      "path": "data\\external\\iem_metar\\metar_2024-12-31_2026-02-01.csv",
+      "bytes": 11654676,
+      "sha256": "6c91ff732305b9761a0e12300f860f7d2f7df269cc87e4fcf47e04b95dc3bb2b",
+      "observations": 191035
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=EDDF&station=EDDM&station=EGLL&station=EHAM&station=LEBL&station=LEMD&station=LFPG&station=LIRF&station=LSZH&station=LTFM&data=tmpf&data=dwpf&data=drct&data=sknt&data=alti&data=vsby&data=gust&data=wxcodes&sts=2026-06-30T00%3A00Z&ets=2026-08-01T00%3A00Z&tz=Etc%2FUTC&format=onlycomma&latlon=no&elev=no&missing=M&trace=T&report_type=3&report_type=4",
+      "path": "data\\external\\iem_metar\\metar_2026-06-30_2026-08-01.csv",
+      "bytes": 930684,
+      "sha256": "8fa2de74d4d10ba34b2caf69ad10a9a4ca377fd84c8d5659b12856dfc7e27810",
+      "observations": 15339
+    }
+  ],
+  "total_download_bytes": 12585360,
+  "hourly_rows": 102480,
+  "missing_temperature_by_airport": {
+    "EDDF": 0.0,
+    "EDDM": 9.75800156128025e-05,
+    "EGLL": 0.0,
+    "EHAM": 0.0,
+    "LEBL": 0.0,
+    "LEMD": 0.0,
+    "LFPG": 0.0,
+    "LIRF": 9.75800156128025e-05,
+    "LSZH": 9.75800156128025e-05,
+    "LTFM": 0.0
+  },
+  "missing_by_column": {
+    "wx_temp_c": 2.927400468384075e-05,
+    "wx_dewpoint_c": 2.927400468384075e-05,
+    "wx_wind_knots": 1.95160031225605e-05,
+    "wx_gust_knots": 0.9806889149102264,
+    "wx_wind_deg": 0.09902419984387198,
+    "wx_visibility_km": 9.75800156128025e-06,
+    "wx_pressure_hpa": 9.75800156128025e-06,
+    "wx_reported_snow": 0.0,
+    "wx_reported_freezing": 0.0,
+    "wx_reported_rain": 0.0,
+    "wx_reported_fog": 0.0,
+    "wx_reported_thunder": 0.0,
+    "wx_reported_hail": 0.0,
+    "wx_dewpoint_spread_c": 2.927400468384075e-05,
+    "wx_freezing_temp": 2.927400468384075e-05,
+    "wx_cold_humid": 2.927400468384075e-05,
+    "wx_wind_north_knots": 0.09902419984387198,
+    "wx_wind_east_knots": 0.09902419984387198,
+    "wx_age_minutes": 0.0
+  }
+}

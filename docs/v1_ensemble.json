@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "models": [
+    "artifacts/tfm_queue_d8_predictions.parquet",
+    "artifacts/no_tfm_full_d8_predictions.parquet",
+    "artifacts/lgbm_tfm_validation.parquet"
+  ],
+  "weights": [
+    0.7985604681600207,
+    0.17672281746128118,
+    0.024716714378698216
+  ],
+  "specialist_enabled": true,
+  "specialist_alpha": 0.9999999999999999,
+  "validation_rows": 353045,
+  "base_validation": {
+    "pooled_rmse": 362.71858784911683,
+    "month_rmse": {
+      "2025-07": 437.1139844074511,
+      "2025-11": 248.3096263080076
+    }
+  },
+  "model_validation": [
+    {
+      "pooled_rmse": 365.50874202873416,
+      "month_rmse": {
+        "2025-07": 441.4339331548979,
+        "2025-11": 248.2293662762908
+      }
+    },
+    {
+      "pooled_rmse": 375.5639400223479,
+      "month_rmse": {
+        "2025-07": 449.91142672360513,
+        "2025-11": 262.5764582963703
+      }
+    },
+    {
+      "pooled_rmse": 303.747911596349,
+      "month_rmse": {
+        "2025-07": 338.6340952227331,
+        "2025-11": 256.77710849418463
+      }
+    }
+  ],
+  "specialist_validation_rows": 5294,
+  "rome_betas": {
+    "known": 0.16359683681421205,
+    "missing": 0.9048126597030896
+  },
+  "rome_validation_file": "artifacts/lirf_identity_expert_validation.parquet",
+  "rome_validation_rows": {
+    "known": 26137,
+    "missing": 371
+  },
+  "rome_grouping": "Membership in the missing-specialist prediction IDs",
+  "fit_sse": 25077404288.684868,
+  "clip_nonnegative": true,
+  "bounds_enabled": true,
+  "bounds_path": "data/processed/timing_bounds.parquet",
+  "bounds_changed_rows": 55,
+  "validation_sse": 24989863607.791626,
+  "validation": {
+    "pooled_rmse": 266.0522342012221,
+    "month_rmse": {
+      "2025-07": 297.1304005768509,
+      "2025-11": 224.10055777655305
+    }
+  }
+}

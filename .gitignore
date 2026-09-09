@@ -1,0 +1,19 @@
+# Private object-storage credentials
+credentials.json
+
+# Downloaded challenge data (large and access-controlled)
+data/raw/
+
+# Local Python artifacts
+.venv/
+__pycache__/
+*.py[cod]
+
+# Reproducible local caches, pretrained dependencies and model artifacts
+.vendor/
+artifacts/
+submissions/
+data/processed/
+data/*.cbm
+data/proxy_validation.parquet
+catboost_info/

@@ -1,0 +1,47 @@
+{
+  "frozen_at_utc": "2026-09-09T02:43:21.915562+00:00",
+  "original_frozen_config_sha256": "ba180b11c78337a2d877684d9417d3adcc21ab810405e43ec6b8b602d8621c58",
+  "validation": {
+    "pooled_rmse": 266.0522342012221,
+    "month_rmse": {
+      "2025-07": 297.1304005768509,
+      "2025-11": 224.10055777655305
+    }
+  },
+  "baseline_validation_rmse": 284.925300674995,
+  "december_audit": {
+    "rmse_seconds": 217.5040384241259,
+    "rows": 165677,
+    "scored_at_utc": "2026-09-09T02:46:45.802603+00:00",
+    "recipe_reselected_after_audit": false,
+    "predictions_sha256": "2abd53f08522c8a3d5878d8d8699956961302ef93f479ac55daa8a5c1e8a8b32"
+  },
+  "official_submission": null,
+  "development_model_sha256": {
+    "tfm_queue_d8.cbm": "f8e7fe50f9cb672adc3c6150b5dc56f7f23a363d07be73ae0fede0f133b2747b",
+    "no_tfm_full_d8.cbm": "7261b9a34b632aa5ca55e698b611f0c19991d04b8fdbf11c36615473f6d4ee02",
+    "lgbm_tfm.txt": "097e683854e911e169e89d8fc077347b5da281037dc7f0a55cc83c4d9d47c236",
+    "missing_audit_model.cbm": "9498dacfc3dadca035bfea5446370257081164d100b952972d113d2b88c96431",
+    "missing_audit_config.json": "8dc4384a5b4fe2ee0cccadf982d8a2f4010a18813d05c0e5f2efc1bbe66cb021",
+    "lirf_identity_classifier.cbm": "8ae83f186ebda2856646f345d2f599dad787a6b9a11651fd2493f6168a96a11d",
+    "lirf_identity_normal.cbm": "2ceea8c99946388a2d3ad4f5970c5739127c245b2f964daa4886a1ebf7cd92e7"
+  },
+  "timesfm_model": "google/timesfm-3.0-pytorch",
+  "timesfm_revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+  "timesfm_prize_license_clearance": "unconfirmed",
+  "prepared_submission": {
+    "filename": "elegant-alligator_v1.parquet",
+    "rows": 344841,
+    "bytes": 4707617,
+    "sha256": "faebb2d0535b2a3044826aba0163938960dafff043199dcb0c5d6840071becd2",
+    "checks": "Exact original IDs, order, columns, numeric finite predictions; also passed under python -O"
+  },
+  "final_model_sha256": {
+    "tfm_queue_final.cbm": "8128dd4f7c50f32120438fa0654ca7ff3b732aa69da4893e58921f5416724b89",
+    "no_tfm_final.cbm": "f3e909fe2e5a4a7c70d6556b513ef086d5ea2fc177807b766538eb0ee751f776",
+    "lgbm_tfm_final.txt": "2439b83c6a0eb97c7491a090e8ae28a459b87587b37068086fa1c7eafcda71ff",
+    "missing_regression.cbm": "1f0aaf8a01f8c56262fe1907d0fd7f6b3259ff715e53dc3853c6bc4a012b858a",
+    "lirf_identity_classifier_final.cbm": "40b48f0b0f2e9456d15026c54b63f4edb99ae0bfff26feabff07ec8eb300e95e",
+    "lirf_identity_normal_final.cbm": "645825f29d950ccac63e3ac9d1939f2c57a3c0e9be47b76e8019006fa7235aa7"
+  }
+}

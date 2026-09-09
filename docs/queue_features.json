@@ -1,0 +1,36 @@
+{
+  "rows": 2429888,
+  "ranking_departures": 344841,
+  "features": 12,
+  "valid_source_intervals": 2400891,
+  "source_columns": [
+    "MVT_ID_mvt",
+    "PHASE_mvt",
+    "ADEP_mvt",
+    "ADES_mvt",
+    "MVT_TIME_UTC_mvt",
+    "AOBT_3_flt",
+    "RUNWAY_mvt",
+    "SCHED_TIME_UTC_mvt",
+    "LOBT_flt"
+  ],
+  "source_interval_seconds": [
+    0,
+    21600
+  ],
+  "source_interval_lower_exclusive": true,
+  "self_exclusion": "Own valid interval excluded at AOBT; own takeoff is already outside the half-open interval; neighbor means/counts exclude own duration.",
+  "temporal_scope": "Each supplied file is processed independently; ranking contains two disconnected months. Symmetric proxy windows use provided post-operations times.",
+  "missing_queries": "Queue at missing AOBT is NaN; empty neighbor means are NaN with count zero.",
+  "development_bound_check": {
+    "rows": 1550798,
+    "min": -3606.0,
+    "max": 3606.0,
+    "violations": 0,
+    "excluded_months": [
+      7,
+      11,
+      12
+    ]
+  }
+}
