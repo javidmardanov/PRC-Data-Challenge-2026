@@ -11,7 +11,10 @@ held-date comparisons, routing, and the final submission arithmetic. See the
 [research workflow and reproduction commands](docs/research_program.md),
 [frozen v2 recipe](docs/v2_ensemble.json), and [independent review](docs/review_v2.json).
 These are repeatedly used tuning periods, not a fresh test set. V2 was not
-selected using December or official ranking labels. Its official score is pending.
+selected using December or official ranking labels. V2 scored **274.3377**
+officially (all 344,841 pairs), improving v1's 285.0706 by **3.76%** and ranking
+**6th of 83 teams** at the 2026-09-09 07:28 UTC snapshot. The leader scored
+246.6571. Full receipts and model hashes are in [v2 results](docs/results_v2.json).
 
 The preceding v1 results provide the benchmark:
 

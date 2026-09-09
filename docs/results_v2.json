@@ -25,7 +25,27 @@
     "moe_normal_cap12000_final.cbm": "7bd39a0ad50725b9b4e918c1fc15cb20532c57d6d7bc9db58e1b158cd8447971",
     "moe_missing_v2_identity_final.cbm": "6e4c45d407a6cfc64d263c3544ff3b395f206c00f47c5556ab4a0c73b673e00f"
   },
-  "official": null,
+  "official": {
+    "submissionId": "63373a1c-2bc1-4b50-8b04-94f7deb7166d",
+    "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+    "teamName": "elegant-alligator",
+    "filename": "elegant-alligator_v2.parquet",
+    "score": 274.3377,
+    "usedPairs": 344841,
+    "processedAt": "2026-09-09T07:27:52.756478Z",
+    "rank": 6,
+    "teams": 83,
+    "snapshot_at": "2026-09-09T07:28:45.219649+00:00",
+    "leader": {
+      "submissionId": "1de6761a-6982-45d4-8b35-e03282a2e797",
+      "teamId": "a45d1dc2-0a43-4790-9a14-19c9065e47f9",
+      "teamName": "youthful-giraffe",
+      "filename": "youthful-giraffe_v17.parquet",
+      "score": 246.6571,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-09T03:34:38.828422Z"
+    }
+  },
   "research_workers": [
     "gpt-5.6-sol",
     "gpt-5.6-sol",
@@ -41,5 +61,15 @@
     "July/November repeatedly tuned; held-date comparisons are not a fresh test",
     "January2026 uses November weights without direct January validation",
     "No v2 December score or ranking-label fitting"
-  ]
+  ],
+  "upload": {
+    "bucket": "prc-2026-elegant-alligator",
+    "key": "elegant-alligator_v2.parquet",
+    "sha256": "f2e880e71f5ada055b5154b7b2f2e1db06628eacb291e20da9b39f7fb38315aa",
+    "uploaded_at": "2026-09-09T07:27:27.101419+00:00",
+    "bytes": 4707625
+  },
+  "source_commit": "284ae17",
+  "official_improvement_seconds": 10.73290000000003,
+  "official_improvement_percent": 3.7649971621065204
 }
