@@ -1,0 +1,28 @@
+{
+  "candidate": "artifacts\\v3_cat_missing_validation.parquet",
+  "reference": "artifacts\\v2_validation.parquet",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 261.8973757151639,
+    "month_rmse": {
+      "2025-07": 293.55579096092265,
+      "2025-11": 218.93165557842423
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 262.5263614123253,
+    "month_rmse": {
+      "2025-07": 294.335353103769,
+      "2025-11": 219.33997851000913
+    }
+  },
+  "rmse_change": -0.6289856971613972,
+  "day_bootstrap_rmse_change_95pct": [
+    -0.836150224547896,
+    -0.4314090156043314
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 15117,
+  "december_scored": false,
+  "corrections_disjoint": true
+}

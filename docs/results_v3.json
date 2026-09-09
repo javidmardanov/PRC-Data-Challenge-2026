@@ -1,0 +1,47 @@
+{
+  "version": 3,
+  "submission": "elegant-alligator_v3.parquet",
+  "selection_frozen": true,
+  "validation": {
+    "pooled_rmse": 259.9769016847317,
+    "month_rmse": {
+      "2025-07": 291.50483831750523,
+      "2025-11": 217.16599975817016
+    }
+  },
+  "submission_check": {
+    "rows": 344841,
+    "tail_gate_rows": 10672,
+    "protected_rows": 25,
+    "missing_correction_rows": 5265,
+    "known_arrival_correction_rows": 313035,
+    "outside_correction_masks_bitwise_unchanged": true,
+    "v1_v2_hashes_unchanged": true,
+    "independent_max_abs_difference": 1.8189894035458565e-12,
+    "sha256": "8e31bd802386442bb8de9b0f93773d86dc19678219c7560ea5b3ae07f2fc6273",
+    "december_scored": false
+  },
+  "model_sha256": {
+    "catboost_tail_d8_full_v3_final.cbm": "800481f3194494ff32bc4d7a272a6784fd73c844f09013e909bbd9be75c742c4",
+    "tfm_arrival_d8_v3_final.cbm": "198d88b60e169ee00699f80874e6c9b149ba47bc9d683e2879efe18ed26c610a",
+    "moe_missing_arrival_v3_normal_cap12000_final.cbm": "510a907660a77d75bcd9e47a9c393964791e827723b610d568171ded961b7464"
+  },
+  "official": {
+    "status": "not uploaded yet"
+  },
+  "workers": [
+    "gpt-5.6-sol",
+    "gpt-5.6-sol",
+    "gpt-5.6-sol"
+  ],
+  "workflow": "docs/research_program.md",
+  "recipe": "docs/v3_ensemble.json",
+  "reproduction": "docs/solution_v3.md",
+  "notes": [
+    "July/November repeatedly used for tuning; not untouched validation.",
+    "December departure labels never used for new selection.",
+    "TimesFM3 context512 retained; context168 rejected.",
+    "Jointly refitted correction coefficients rejected because November odd-date error worsened.",
+    "Existing v2 final identity classifier reused unchanged."
+  ]
+}

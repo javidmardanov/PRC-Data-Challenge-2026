@@ -1,0 +1,114 @@
+{
+  "excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "december_scored": false,
+  "source_classes": [
+    "normal",
+    "schedule",
+    "AOBT",
+    "LOBT"
+  ],
+  "training_source_counts": {
+    "0": 87004,
+    "1": 21566,
+    "2": 10695,
+    "3": 1821
+  },
+  "validation_source_counts": {
+    "0": 19121,
+    "1": 4395,
+    "2": 2252,
+    "3": 382
+  },
+  "eligible_validation_rows": 26137,
+  "baseline_full_rmse": 262.5263614123253,
+  "trials": {
+    "gap_binary_v3b": {
+      "pooled_alpha": 0.03313321013910761,
+      "known_rome_rmse": 391.7255595270118,
+      "full_rmse": 262.5204215758892,
+      "months": {
+        "7": {
+          "full_rmse": 294.3377822861427,
+          "known_rome_rmse": 453.56014019773176
+        },
+        "11": {
+          "full_rmse": 219.32068651539805,
+          "known_rome_rmse": 290.7424246094748
+        }
+      },
+      "held_checks": {
+        "fit_even_check_odd": {
+          "alpha": 0.06345231653853331,
+          "rows": 13269,
+          "rmse": 402.4933844822885,
+          "baseline_rmse": 402.335922072808
+        },
+        "fit_odd_check_even": {
+          "alpha": 0.007223978903875204,
+          "rows": 12868,
+          "rmse": 380.5464416679346,
+          "baseline_rmse": 380.58723632051294
+        },
+        "fit_july_check_november": {
+          "alpha": 0.011516391162295067,
+          "rows": 11273,
+          "rmse": 290.8719837419252,
+          "baseline_rmse": 290.9519205515426
+        },
+        "fit_november_check_july": {
+          "alpha": 0.12682042635500876,
+          "rows": 14864,
+          "rmse": 454.3347625270452,
+          "baseline_rmse": 453.5399135576502
+        }
+      }
+    },
+    "multisource_v3b": {
+      "pooled_alpha": 0.0,
+      "known_rome_rmse": 391.77932520254825,
+      "full_rmse": 262.5263614123253,
+      "months": {
+        "7": {
+          "full_rmse": 294.335353103769,
+          "known_rome_rmse": 453.5399135576502
+        },
+        "11": {
+          "full_rmse": 219.33997851000913,
+          "known_rome_rmse": 290.9519205515426
+        }
+      },
+      "held_checks": {
+        "fit_even_check_odd": {
+          "alpha": 0.02212037325476815,
+          "rows": 13269,
+          "rmse": 402.69174052454747,
+          "baseline_rmse": 402.335922072808
+        },
+        "fit_odd_check_even": {
+          "alpha": 0.0,
+          "rows": 12868,
+          "rmse": 380.58723632051294,
+          "baseline_rmse": 380.58723632051294
+        },
+        "fit_july_check_november": {
+          "alpha": 0.0,
+          "rows": 11273,
+          "rmse": 290.9519205515426,
+          "baseline_rmse": 290.9519205515426
+        },
+        "fit_november_check_july": {
+          "alpha": 0.0510292080439297,
+          "rows": 14864,
+          "rmse": 454.3070695972889,
+          "baseline_rmse": 453.5399135576502
+        }
+      }
+    }
+  },
+  "selected": "frozen_v2_no_correction",
+  "selection_reason": "Gap binary gains only 0.006 pooled RMSE and loses even-to-odd and November-to-July transfer; multisource has pooled alpha zero."
+}

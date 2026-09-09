@@ -1,0 +1,58 @@
+{
+  "december_read": false,
+  "fit_dates": "even UTC day in July/November 2025",
+  "optimizer": {
+    "method": "L-BFGS-B",
+    "gradient": "SciPy finite differences over two bounded scalars",
+    "bounds": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "success": true
+  },
+  "coefficient_order": [
+    "catboost_tail",
+    "timesfm_arrival"
+  ],
+  "current_weights": [
+    0.5441252012777676,
+    1.0
+  ],
+  "joint_even_fit_weights": [
+    0.37769062310088086,
+    1.0
+  ],
+  "reconstruction_max_abs": 0.0,
+  "current_all": {
+    "pooled": 259.9769016847317,
+    "july": 291.50483831750523,
+    "november": 217.16599975817016
+  },
+  "joint_all": {
+    "pooled": 259.9737462521834,
+    "july": 291.50321210760563,
+    "november": 217.16034886898427
+  },
+  "current_odd": {
+    "pooled": 251.66248672784198,
+    "july": 284.1267033176828,
+    "november": 205.54421059012867
+  },
+  "joint_odd": {
+    "pooled": 251.6695973994545,
+    "july": 284.1184062963058,
+    "november": 205.57737116405215
+  },
+  "promotion_rule": "promote only if both odd-date months improve",
+  "promoted": false,
+  "selected_weights": [
+    0.5441252012777676,
+    1.0
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "december_scored": false,
+  "arrival_features": [
+    "arr_stand_mean",
+    "arr_stand_median",
+    "arr_stand_count",
+    "arr_runway_mean",
+    "arr_runway_median",
+    "arr_runway_count",
+    "arr_stand_previous_age",
+    "arr_stand_previous_taxi",
+    "arr_stand_previous_aircraft_match"
+  ],
+  "training_rows": 121086,
+  "eligible_validation_rows": 26137,
+  "pooled_alpha": 0.2416563436609875,
+  "baseline_full_rmse": 262.5263614123253,
+  "corrected_full_rmse": 262.41495153513114,
+  "months": {
+    "7": {
+      "full_rmse": 294.1308439323911
+    },
+    "11": {
+      "full_rmse": 219.3723349135052
+    }
+  },
+  "held_checks": {
+    "fit_even_check_odd": {
+      "alpha": 0.27525082525599875,
+      "rows": 13269,
+      "rmse": 401.6825601973437,
+      "baseline_rmse": 402.335922072808
+    },
+    "fit_odd_check_even": {
+      "alpha": 0.2086368801316235,
+      "rows": 12868,
+      "rmse": 379.3088764629679,
+      "baseline_rmse": 380.58723632051294
+    },
+    "fit_july_check_november": {
+      "alpha": 0.30001479896419314,
+      "rows": 11273,
+      "rmse": 291.62358166885923,
+      "baseline_rmse": 290.9519205515426
+    },
+    "fit_november_check_july": {
+      "alpha": 0.06698097973023734,
+      "rows": 14864,
+      "rmse": 452.8375623496729,
+      "baseline_rmse": 453.5399135576502
+    },
+    "month_7_fit_even_check_odd": {
+      "alpha": 0.3547886091805719,
+      "rows": 7637,
+      "rmse": 464.5522243753267,
+      "baseline_rmse": 465.4635112546093
+    },
+    "month_7_fit_odd_check_even": {
+      "alpha": 0.24584874267707665,
+      "rows": 7227,
+      "rmse": 438.22397829923375,
+      "baseline_rmse": 440.58934383763176
+    },
+    "month_11_fit_even_check_odd": {
+      "alpha": 0.034227540201599974,
+      "rows": 5632,
+      "rmse": 295.88001869882953,
+      "baseline_rmse": 295.95541488026834
+    },
+    "month_11_fit_odd_check_even": {
+      "alpha": 0.09859061935872063,
+      "rows": 5641,
+      "rmse": 285.90911292685655,
+      "baseline_rmse": 285.8690570200293
+    }
+  },
+  "selected": "pending_parent_review"
+}

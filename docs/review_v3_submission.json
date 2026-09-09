@@ -1,0 +1,12 @@
+{
+  "rows": 344841,
+  "tail_gate_rows": 10672,
+  "protected_rows": 25,
+  "missing_correction_rows": 5265,
+  "known_arrival_correction_rows": 313035,
+  "outside_correction_masks_bitwise_unchanged": true,
+  "v1_v2_hashes_unchanged": true,
+  "independent_max_abs_difference": 1.8189894035458565e-12,
+  "sha256": "8e31bd802386442bb8de9b0f93773d86dc19678219c7560ea5b3ae07f2fc6273",
+  "december_scored": false
+}

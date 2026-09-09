@@ -1,0 +1,141 @@
+{
+  "lane": "catboost_tail_v3",
+  "december_read": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "candidate": "artifacts/catboost_tail_d8_full_v3_predictions.parquet",
+  "model": "artifacts/catboost_tail_d8_full_v3.cbm",
+  "training_args": {
+    "prepare": false,
+    "name": "catboost_tail_d8_full_v3",
+    "iterations": 6000,
+    "depth": 8,
+    "rate": 0.0750579017889309,
+    "l2": 4.09091585219017,
+    "seed": 42,
+    "device": "GPU",
+    "residual": true,
+    "forward": false,
+    "final": false,
+    "audit": false,
+    "tfm": "data/processed/timesfm_hourly_dev.parquet",
+    "weather": "data/processed/weather_hourly.parquet",
+    "extra": "data/processed/queue_features.parquet",
+    "interactions": true,
+    "boost_priority": true,
+    "sample": 0,
+    "known_only": true,
+    "tail_copies": true,
+    "border_count": 128,
+    "threads": 8,
+    "load": null
+  },
+  "gate_rows": 9866,
+  "v2_reconstruction_max_abs": 0.0,
+  "baseline": {
+    "pooled": 262.5263614123253,
+    "july": 294.335353103769,
+    "november": 219.33997851000913
+  },
+  "full_base_replacement": {
+    "pooled": 262.46746560939795,
+    "july": 294.3758118114848,
+    "november": 219.12279143774182
+  },
+  "gated_alpha_even": 0.5441252012777676,
+  "gated_all": {
+    "pooled": 262.3407152406101,
+    "july": 294.15673460248115,
+    "november": 219.13832307733165
+  },
+  "gated_odd_check": {
+    "pooled": 253.94464569836208,
+    "july": 286.49620641920575,
+    "november": 207.7546940957178
+  },
+  "baseline_odd_check": {
+    "pooled": 254.17768114897837,
+    "july": 286.6620644272799,
+    "november": 208.10748722973366
+  },
+  "cross_month_transfer": {
+    "july_to_november": {
+      "alpha_fit_on_source_even": 0.6507822253153651,
+      "destination_odd_candidate_rmse": 207.72241014027952,
+      "destination_odd_baseline_rmse": 208.10748722973366
+    },
+    "november_to_july": {
+      "alpha_fit_on_source_even": 0.39437650202918917,
+      "destination_odd_candidate_rmse": 286.5126500377471,
+      "destination_odd_baseline_rmse": 286.6620644272799
+    }
+  },
+  "frozen_alpha_shrink_sensitivity": [
+    {
+      "factor_of_frozen_alpha": 0.25,
+      "alpha": 0.1360313003194419,
+      "odd_check": {
+        "pooled": 254.09155299727627,
+        "july": 286.59314641243213,
+        "november": 207.9898442480551
+      },
+      "all": {
+        "pooled": 262.45292497886675,
+        "july": 294.26408106383934,
+        "november": 219.2611815581829
+      }
+    },
+    {
+      "factor_of_frozen_alpha": 0.5,
+      "alpha": 0.2720626006388838,
+      "odd_check": {
+        "pooled": 254.02399786793606,
+        "july": 286.54252922289766,
+        "november": 207.89181348248812
+      },
+      "all": {
+        "pooled": 262.39749947366397,
+        "july": 294.21055023527936,
+        "november": 219.20129714836492
+      }
+    },
+    {
+      "factor_of_frozen_alpha": 0.75,
+      "alpha": 0.40809390095832576,
+      "odd_check": {
+        "pooled": 253.97503058174107,
+        "july": 286.51022255818754,
+        "november": 207.81342268774645
+      },
+      "all": {
+        "pooled": 262.3600963115414,
+        "july": 294.17477030316604,
+        "november": 219.16034078381352
+      }
+    }
+  ],
+  "output": "artifacts/catboost_tail_d8_full_v3_gated_validation.parquet",
+  "selected": "gated correction; full replacement rejected because July regressed",
+  "apply": "On the saved tail gate, add alpha times the seasonally weighted, fully routed candidate-column-0 minus incumbent-column-0 delta to frozen v2, then clip those gate rows to timing bounds.",
+  "reproduce": "python -u scripts/train.py --name catboost_tail_d8_full_v3 --iterations 6000 --depth 8 --rate 0.07505790178893094 --l2 4.090915852190167 --seed 42 --border-count 128 --threads 8 --device GPU --residual --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --known-only --tail-copies --boost-priority",
+  "final_fit": {
+    "status": "complete after parent authorization",
+    "model": "artifacts/catboost_tail_d8_full_v3_final.cbm",
+    "raw_ranking": "artifacts/catboost_tail_d8_full_v3_final_predictions.parquet",
+    "candidate_ranking": "artifacts/catboost_v3_ranking.parquet",
+    "iterations": 5995,
+    "command": "python -u scripts/train.py --name catboost_tail_d8_full_v3_final --iterations 5995 --depth 8 --rate 0.07505790178893094 --l2 4.090915852190167 --seed 42 --border-count 128 --threads 8 --device GPU --residual --tfm data/processed/timesfm_hourly_final.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --known-only --tail-copies --final --boost-priority",
+    "ranking_checks": {"rows": 344841, "unique_ids": 344841, "finite": true, "gate_rows": 10672, "changed_gate_rows": 10655, "changed_outside_gate": 0, "protected_rome_rows": 25, "protected_rome_changed": 0},
+    "sha256": "f793024398a8c7069f288466cd5a5cccfe04946048d4121b4f883c080b902809"
+  },
+  "optional_missing_arrival_apply": {
+    "semantics": "After the CatBoost gate, add the fixed regional alpha times (new missing-arrival raw minus frozen v2 cap-12000 raw) on missing rows, skip protected Rome schedule tails, do not reclip missing rows, and restore protected v2 values bitwise.",
+    "command": "python scripts/catboost_apply_v3.py --baseline submissions/elegant-alligator_v2.parquet --predictions artifacts/tfm_queue_final_predictions.parquet artifacts/no_tfm_final_predictions.parquet artifacts/lgbm_tfm_ranking.parquet artifacts/tfm_queue_d10_v2_final_predictions.parquet --tail-predictions artifacts/catboost_tail_d8_full_v3_final_predictions.parquet --missing-arrival artifacts/moe_missing_arrival_v3_raw_missing_ranking.parquet --output artifacts/catboost_v3_with_missing_arrival_ranking.parquet",
+    "no_argument_behavior": "Omitting --missing-arrival reproduces the CatBoost-only candidate.",
+    "noop_check": "Passing the frozen v2 cap-12000 raw file produced byte-identical prediction values to artifacts/catboost_v3_ranking.parquet."
+  },
+  "next_hypothesis": "Retain the gated model unless a combined TimesFM context candidate preserves its odd-date gains in both months."
+}

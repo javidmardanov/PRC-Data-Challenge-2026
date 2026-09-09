@@ -1,0 +1,57 @@
+{
+  "excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "december_scored": false,
+  "arrival_features": [
+    "arr_stand_mean",
+    "arr_stand_median",
+    "arr_stand_count",
+    "arr_runway_mean",
+    "arr_runway_median",
+    "arr_runway_count",
+    "arr_stand_previous_age",
+    "arr_stand_previous_taxi",
+    "arr_stand_previous_aircraft_match"
+  ],
+  "baseline_full_rmse": 262.5263614123253,
+  "fixed_full_rmse": 262.08333592567396,
+  "even_fitted_shrink": 1.0,
+  "shrunk_full_rmse": 262.08333592567396,
+  "checks": {
+    "odd_all": {
+      "rows": 2646,
+      "baseline_rmse": 920.0984514256944,
+      "fixed_rmse": 914.361611716832,
+      "even_shrink_rmse": 914.361611716832
+    },
+    "odd_july": {
+      "rows": 2003,
+      "baseline_rmse": 993.9724735125332,
+      "fixed_rmse": 988.157275728421,
+      "even_shrink_rmse": 988.157275728421
+    },
+    "odd_november": {
+      "rows": 643,
+      "baseline_rmse": 637.2657989715552,
+      "fixed_rmse": 631.4320905232124,
+      "even_shrink_rmse": 631.4320905232124
+    },
+    "july_all": {
+      "rows": 3924,
+      "baseline_rmse": 1051.2974141641073,
+      "fixed_rmse": 1043.1016291202404,
+      "even_shrink_rmse": 1043.1016291202404
+    },
+    "november_all": {
+      "rows": 1352,
+      "baseline_rmse": 608.0313433632798,
+      "fixed_rmse": 599.0256877947995,
+      "even_shrink_rmse": 599.0256877947995
+    }
+  },
+  "protected_tail_rows": 18,
+  "selected": "pending_parent_review"
+}

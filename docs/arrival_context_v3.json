@@ -1,0 +1,36 @@
+{
+  "rows": 2429888,
+  "path": "data\\processed\\arrival_context_v3.parquet",
+  "columns": [
+    "MVT_ID_mvt",
+    "arr_stand_mean",
+    "arr_stand_median",
+    "arr_stand_count",
+    "arr_runway_mean",
+    "arr_runway_median",
+    "arr_runway_count",
+    "arr_stand_previous_age",
+    "arr_stand_previous_taxi",
+    "arr_stand_previous_aircraft_match"
+  ],
+  "departure_target_or_block_read": false,
+  "source": "Official supplied arrival observations; group by airport and calendar month",
+  "arrival_duration_clip_seconds": [
+    0,
+    7200
+  ],
+  "previous_arrival_max_age_seconds": 86400,
+  "coverage": {
+    "MVT_ID_mvt": 1.0,
+    "arr_stand_mean": 0.9994547073774593,
+    "arr_stand_median": 0.9994547073774593,
+    "arr_stand_count": 0.9994547073774593,
+    "arr_runway_mean": 0.6971683468538468,
+    "arr_runway_median": 0.6971683468538468,
+    "arr_runway_count": 0.6971683468538468,
+    "arr_stand_previous_age": 0.9765236093186188,
+    "arr_stand_previous_taxi": 0.9765236093186188,
+    "arr_stand_previous_aircraft_match": 0.9765236093186188
+  },
+  "queue_combined_path": "data/processed/queue_arrival_context_v3.parquet"
+}

@@ -29,7 +29,8 @@ the parent recursively narrows follow-up questions using measured errors.
 - Within July and November, separate calibration dates from check dates before
   fitting new weights; report cross-period transfer where practical. This
   reduces selection optimism but does not create an untouched test set.
-- CPU worker thread_count <= 3, OPENBLAS_NUM_THREADS=1. Own processes may run
+- CPU-only worker thread_count <= 3; the leased GPU trainer may use 8 CPU threads.
+  OPENBLAS_NUM_THREADS=1. Own processes may run
   AboveNormal. Never terminate unrelated processes. One GPU job at a time;
   parent grants ownership. No external API credentials or extra model services.
 - No worker commits, pushes, submissions, or external messages. Parent integrates,
@@ -100,9 +101,9 @@ its cap-12000 missing expert and integrated validation predictions in this order
 ```powershell
 python scripts/check_v2.py --snapshot-v1
 python scripts/missing_v2.py
-python -u scripts/train.py --name tfm_queue_d10_v2 --iterations 4500 --depth 10 --rate .05 --l2 30 --threads 8 --residual --known-only --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --boost-priority
-python -u scripts/train.py --name catboost_tail_d6_s600 --iterations 4500 --depth 6 --rate .06 --l2 20 --border-count 128 --threads 8 --residual --known-only --tail-copies --sample 600000 --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --boost-priority
-python -u scripts/train.py --name catboost_tail_d8_s600 --iterations 4500 --depth 8 --rate .06 --l2 20 --border-count 128 --threads 8 --residual --known-only --tail-copies --sample 600000 --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --boost-priority
+python -u scripts/train.py --name tfm_queue_d10_v2 --iterations 4500 --depth 10 --rate .05 --l2 30 --border-count 128 --threads 8 --device GPU --residual --known-only --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --boost-priority
+python -u scripts/train.py --name catboost_tail_d6_s600 --iterations 4500 --depth 6 --rate .06 --l2 20 --border-count 128 --threads 8 --device GPU --residual --known-only --tail-copies --sample 600000 --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --boost-priority
+python -u scripts/train.py --name catboost_tail_d8_s600 --iterations 4500 --depth 8 --rate .06 --l2 20 --border-count 128 --threads 8 --device GPU --residual --known-only --tail-copies --sample 600000 --tfm data/processed/timesfm_hourly_dev.parquet --weather data/processed/weather_hourly.parquet --extra data/processed/queue_features.parquet --interactions --boost-priority
 python scripts/moe_cap_trial.py
 python scripts/moe_cap_decision.py
 python scripts/timesfm_blend_research.py

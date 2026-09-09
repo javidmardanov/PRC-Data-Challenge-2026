@@ -1,0 +1,29 @@
+{
+  "selected": "missing_arrival_fixed_existing_alphas",
+  "selection_frozen": true,
+  "fit_years": [
+    2025
+  ],
+  "december_scored": false,
+  "normal_training_rows": 200429,
+  "arrival_features": [
+    "arr_stand_mean",
+    "arr_stand_median",
+    "arr_stand_count",
+    "arr_runway_mean",
+    "arr_runway_median",
+    "arr_runway_count",
+    "arr_stand_previous_age",
+    "arr_stand_previous_taxi",
+    "arr_stand_previous_aircraft_match"
+  ],
+  "classifier_reused": "moe_missing_v2_identity_final.cbm",
+  "classifier_feature_count": 90,
+  "raw_rows": 5290,
+  "exact_missing_id_set": true,
+  "finite": true,
+  "protected_ranking_tail_rows": 25,
+  "output": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\moe_missing_arrival_v3_raw_missing_ranking.parquet",
+  "apply": "v2 + regional_alpha*(new_raw-v2_cap12000_raw) outside LIRF schedule>=24000; Rome=.4224120030856563, other=1",
+  "reproduction_command": "$env:OPENBLAS_NUM_THREADS='1'; & 'C:\\Users\\javid\\anaconda3\\python.exe' scripts/moe_missing_arrival_finalize_v3.py"
+}

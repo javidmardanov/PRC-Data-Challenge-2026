@@ -1,0 +1,16 @@
+{
+  "frozen_even_alpha": 0.2752508252559986,
+  "odd_checks": {
+    "7": {
+      "rows": 7637,
+      "rmse": 464.34554192641,
+      "baseline_rmse": 465.4635112546093
+    },
+    "11": {
+      "rows": 5632,
+      "rmse": 296.24571798329725,
+      "baseline_rmse": 295.95541488026834
+    }
+  },
+  "selected": "frozen_v2_no_correction"
+}

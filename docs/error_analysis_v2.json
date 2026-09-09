@@ -1,0 +1,86 @@
+{
+  "validation_rmse": 262.5263614123253,
+  "known_rmse": 226.3183239571304,
+  "missing_rmse": 1109.774952427937,
+  "airports": {
+    "EDDF": {
+      "rows": 39456,
+      "rmse": 189.99035777484514,
+      "sse_share": 0.058532931074499736
+    },
+    "EDDM": {
+      "rows": 28387,
+      "rmse": 175.5767275860086,
+      "sse_share": 0.035964787171613805
+    },
+    "EGLL": {
+      "rows": 40213,
+      "rmse": 253.86270944186612,
+      "sse_share": 0.1065095112610536
+    },
+    "EHAM": {
+      "rows": 41721,
+      "rmse": 163.27560969376913,
+      "sse_share": 0.045711074895854624
+    },
+    "LEBL": {
+      "rows": 30084,
+      "rmse": 225.92236696599582,
+      "sse_share": 0.06310708719187023
+    },
+    "LEMD": {
+      "rows": 36237,
+      "rmse": 179.50326514602614,
+      "sse_share": 0.047986716875942706
+    },
+    "LFPG": {
+      "rows": 40358,
+      "rmse": 255.44178861501888,
+      "sse_share": 0.1082274996425916
+    },
+    "LIRF": {
+      "rows": 26539,
+      "rmse": 587.617443188725,
+      "sse_share": 0.37661534309512995
+    },
+    "LSZH": {
+      "rows": 22689,
+      "rmse": 181.22344563829867,
+      "sse_share": 0.030624444394628667
+    },
+    "LTFM": {
+      "rows": 47361,
+      "rmse": 255.15326961222684,
+      "sse_share": 0.12672060439681515
+    }
+  },
+  "timestamp_identity": {
+    "mvt_minus_AOBT_3_flt": {
+      "known_rows": 26943,
+      "rmse": 139.14560774915694,
+      "sse_share": 0.02143922347781824
+    },
+    "mvt_minus_LOBT_flt": {
+      "known_rows": 17737,
+      "rmse": 277.7847218296402,
+      "sse_share": 0.05624979886795476
+    },
+    "mvt_minus_IOBT_flt": {
+      "known_rows": 17811,
+      "rmse": 278.524005094031,
+      "sse_share": 0.05678552730630884
+    },
+    "mvt_minus_EOBT_1_flt": {
+      "known_rows": 18663,
+      "rmse": 225.72165460571387,
+      "sse_share": 0.039079770306096565
+    },
+    "mvt_minus_SCHED_TIME_UTC_mvt": {
+      "known_rows": 15560,
+      "rmse": 383.9011951554694,
+      "sse_share": 0.09424810289860998
+    }
+  },
+  "note": "Identity/oracle analyses use tuning targets as diagnostics only, never routing features.",
+  "worst_1000_sse_share": 0.3902399164895555
+}

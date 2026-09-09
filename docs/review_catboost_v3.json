@@ -1,0 +1,27 @@
+{
+  "candidate": "artifacts\\catboost_tail_d8_full_v3_gated_validation.parquet",
+  "reference": "artifacts\\v2_validation.parquet",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 262.3407152406101,
+    "month_rmse": {
+      "2025-07": 294.15673460248115,
+      "2025-11": 219.13832307733165
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 262.5263614123253,
+    "month_rmse": {
+      "2025-07": 294.335353103769,
+      "2025-11": 219.33997851000913
+    }
+  },
+  "rmse_change": -0.1856461717151774,
+  "day_bootstrap_rmse_change_95pct": [
+    -0.2687629743151838,
+    -0.09572518081346722
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 9845,
+  "december_scored": false
+}

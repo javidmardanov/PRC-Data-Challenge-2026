@@ -1,0 +1,27 @@
+{
+  "candidate": "artifacts\\timesfm_arrival_d8_v3_gated_validation.parquet",
+  "reference": "artifacts\\v2_validation.parquet",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 259.9769016847317,
+    "month_rmse": {
+      "2025-07": 291.50483831750523,
+      "2025-11": 217.16599975817016
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 262.5263614123253,
+    "month_rmse": {
+      "2025-07": 294.335353103769,
+      "2025-11": 219.33997851000913
+    }
+  },
+  "rmse_change": -2.5494597275936144,
+  "day_bootstrap_rmse_change_95pct": [
+    -2.9157484357256296,
+    -2.2092224054844776
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 327184,
+  "december_scored": false
+}

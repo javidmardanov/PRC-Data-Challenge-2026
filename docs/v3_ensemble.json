@@ -1,0 +1,63 @@
+{
+  "version": 3,
+  "parent_recipe": "docs/v2_ensemble.json",
+  "validation_file": "artifacts/v3_validation.parquet",
+  "validation_sha256": "1eae71c8b4e2aa881d8d62c956544a418d0cb7407f885c7ad89d2793515aa137",
+  "validation": {
+    "pooled_rmse": 259.9769016847317,
+    "month_rmse": {
+      "2025-07": 291.50483831750523,
+      "2025-11": 217.16599975817016
+    }
+  },
+  "gated_alpha_even": 0.5441252012777676,
+  "selected": {
+    "name": "known_nonrome",
+    "alpha_even": 1.0
+  },
+  "coefficient_meanings": {
+    "gated_alpha_even": "CatBoost tail correction",
+    "selected": "Arrival-context correction"
+  },
+  "missing_arrival": {
+    "development_raw": "artifacts/moe_missing_arrival_v3_raw_validation.parquet",
+    "ranking_raw": "artifacts/moe_missing_arrival_v3_raw_missing_ranking.parquet",
+    "previous_raw": "artifacts/moe_normal_cap12000_raw_missing_ranking.parquet",
+    "regional_alphas": {
+      "Rome": 0.4224120030856563,
+      "other": 1.0
+    },
+    "protected": "Missing LIRF rows with takeoff minus schedule >=24000 seconds retain complete v2 exactly"
+  },
+  "catboost_tail": {
+    "development_raw": "artifacts/catboost_tail_d8_full_v3_predictions.parquet",
+    "ranking_raw": "artifacts/catboost_tail_d8_full_v3_final_predictions.parquet",
+    "gate": "AOBT present AND (takeoff-AOBT<300 OR >2200 OR takeoff-EOBT>3600)"
+  },
+  "arrival_known": {
+    "development_raw": "artifacts/tfm_arrival_d8_v3_predictions.parquet",
+    "ranking_raw": "artifacts/tfm_arrival_d8_v3_final_predictions.parquet",
+    "gate": "AOBT present AND ADEP != LIRF"
+  },
+  "apply_order": [
+    "complete frozen v2",
+    "seasonally routed CatBoost tail delta, then gate bounds",
+    "fixed-alpha missing-arrival raw delta, excluding protected tails",
+    "seasonally routed arrival-model delta, then known non-Rome gate bounds"
+  ],
+  "delta_definition": "For each known-row correction, replace column0 in the frozen v2 seasonal base, route using frozen experts and bounds, subtract the original seasonal base. Each delta is measured against the original base, not the preceding corrected prediction.",
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "calibration": "Even calendar dates in July/November 2025; odd dates and cross-month transfer are checks. Periods repeatedly reused for tuning, not unbiased tests.",
+  "december_scored_for_selection": false,
+  "timesfm_context_hours": 512,
+  "rejected": [
+    "TimesFM context168",
+    "Known-Rome binary/multisource experts",
+    "Known-Rome residual with/without arrival features",
+    "Joint scalar fit that regressed November odd dates"
+  ]
+}

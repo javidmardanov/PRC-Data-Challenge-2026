@@ -1,0 +1,123 @@
+{
+  "lane": "timesfm_arrival_context_v3",
+  "december_read": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "candidate": "artifacts/tfm_arrival_d8_v3_predictions.parquet",
+  "model": "artifacts/tfm_arrival_d8_v3.cbm",
+  "comparator": "artifacts/tfm_queue_d8_predictions.parquet",
+  "complete_base": "artifacts/v3_cat_missing_validation.parquet",
+  "raw_known_rmse": {
+    "arrival": 224.87275013873614,
+    "comparator": 227.95751752263178
+  },
+  "baseline": {
+    "all": {
+      "pooled": 261.8973757151639,
+      "july": 293.55579096092265,
+      "november": 218.93165557842423
+    },
+    "odd_check": {
+      "pooled": 253.6386641027753,
+      "july": 286.08579814644594,
+      "november": 207.6133284412583
+    }
+  },
+  "trials": [
+    {
+      "name": "known_all",
+      "gate_rows": 347751,
+      "alpha_even": 1.0,
+      "all": {
+        "pooled": 260.0687260077164,
+        "july": 291.59687853025804,
+        "november": 217.2599227041483
+      },
+      "odd_check": {
+        "pooled": 251.85095569130016,
+        "july": 284.3269946782688,
+        "november": 205.71906947192656
+      },
+      "cross_month": {
+        "m7_to_m11": {
+          "alpha": 1.0,
+          "destination_odd": 205.71906947192656
+        },
+        "m11_to_m7": {
+          "alpha": 0.9283215097933865,
+          "destination_odd": 284.35968035573893
+        }
+      }
+    },
+    {
+      "name": "known_nonrome",
+      "gate_rows": 321601,
+      "alpha_even": 1.0,
+      "all": {
+        "pooled": 259.9769016847317,
+        "july": 291.50483831750523,
+        "november": 217.16599975817016
+      },
+      "odd_check": {
+        "pooled": 251.66248672784198,
+        "july": 284.1267033176828,
+        "november": 205.54421059012867
+      },
+      "cross_month": {
+        "m7_to_m11": {
+          "alpha": 1.0,
+          "destination_odd": 205.54421059012867
+        },
+        "m11_to_m7": {
+          "alpha": 0.9806762678605444,
+          "destination_odd": 284.1428862362576
+        }
+      }
+    }
+  ],
+  "selected": {
+    "name": "known_nonrome",
+    "gate_rows": 321601,
+    "alpha_even": 1.0,
+    "all": {
+      "pooled": 259.9769016847317,
+      "july": 291.50483831750523,
+      "november": 217.16599975817016
+    },
+    "odd_check": {
+      "pooled": 251.66248672784198,
+      "july": 284.1267033176828,
+      "november": 205.54421059012867
+    },
+    "cross_month": {
+      "m7_to_m11": {
+        "alpha": 1.0,
+        "destination_odd": 205.54421059012867
+      },
+      "m11_to_m7": {
+        "alpha": 0.9806762678605444,
+        "destination_odd": 284.1428862362576
+      }
+    }
+  },
+  "output": "artifacts/timesfm_arrival_d8_v3_gated_validation.parquet",
+  "output_sha256": "1eae71c8b4e2aa881d8d62c956544a418d0cb7407f885c7ad89d2793515aa137",
+  "output_rows": 353045,
+  "outside_selected_gate_array_equal_base": true,
+  "selection_rule": "fit alpha on even dates; retain only if complete odd-date RMSE improves in both July and November",
+  "apply": "Replace seasonal ensemble column0 with arrival model only on selected known gate, subtract original routed seasonal base, add frozen alpha to complete v3 base, and clip gate rows to timing bounds."
+  ,"final_apply": {
+    "model": "artifacts/tfm_arrival_d8_v3_final.cbm",
+    "predictions": "artifacts/tfm_arrival_d8_v3_final_predictions.parquet",
+    "baseline": "artifacts/v3_cat_missing_ranking.parquet",
+    "output": "artifacts/timesfm_arrival_v3_ranking.parquet",
+    "output_sha256": "8e31bd802386442bb8de9b0f93773d86dc19678219c7560ea5b3ae07f2fc6273",
+    "rows": 344841,
+    "gate_rows": 313035,
+    "outside_gate_array_equal_baseline": true,
+    "command": "python scripts/timesfm_arrival_apply_v3.py --baseline artifacts/v3_cat_missing_ranking.parquet --arrival-predictions artifacts/tfm_arrival_d8_v3_final_predictions.parquet --config docs/research_timesfm_arrival_v3.json --output artifacts/timesfm_arrival_v3_ranking.parquet"
+  }
+}

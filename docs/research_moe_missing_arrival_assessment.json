@@ -1,0 +1,25 @@
+{
+  "full_months": {
+    "7": {
+      "baseline": 294.335353103769,
+      "candidate": 293.7347748929615
+    },
+    "11": {
+      "baseline": 219.33997851000913,
+      "candidate": 219.1335011949019
+    }
+  },
+  "cross_month": {
+    "fit_7_check_11": {
+      "beta": 1.0,
+      "baseline_rmse": 1050.8976073790045,
+      "rmse": 1045.7282186209418
+    },
+    "fit_11_check_7": {
+      "beta": 1.0,
+      "baseline_rmse": 1129.3383857904344,
+      "rmse": 1121.7401523952528
+    }
+  },
+  "selected": "missing_arrival_fixed_existing_alphas"
+}

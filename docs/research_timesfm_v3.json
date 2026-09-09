@@ -1,0 +1,78 @@
+{
+  "december_read": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "contexts": {
+    "incumbent": 512,
+    "candidate": 168
+  },
+  "native_candidate": "data/processed/timesfm_hourly_dev_c168_v3.parquet",
+  "native_metadata": {
+    "path": "data/processed/timesfm_hourly_dev_c168_v3.json",
+    "checkpoint": "google/timesfm-3.0-pytorch",
+    "revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+    "rows": 80160,
+    "peak_gpu_gb": 1.347249664,
+    "sha256": "1768474f944cfc5e5cd02fd417269103dfaee2bbc472943f74aa4912102b851a"
+  },
+  "matched_models": [
+    "artifacts/tfm_search_3_predictions.parquet",
+    "artifacts/timesfm_c168_search3_v3_predictions.parquet"
+  ],
+  "matched_params": {
+    "sample": 600000,
+    "seed": 42,
+    "known_only": true,
+    "iterations": 1400,
+    "depth": 8,
+    "learning_rate": 0.07505790178893094,
+    "l2": 4.090915852190167
+  },
+  "base": "artifacts/v2_validation.parquet",
+  "base_scores": {
+    "m7_even": 302.27518239708786,
+    "m7_odd": 286.6620644272799,
+    "m7_all": 294.335353103769,
+    "m11_even": 229.99406089018063,
+    "m11_odd": 208.10748722973366,
+    "m11_all": 219.33997851000913
+  },
+  "trials": [
+    {
+      "name": "known_all",
+      "gate_rows": 347751,
+      "alpha": 0.17442376424618755,
+      "scores": {
+        "m7_even": 302.17416616001935,
+        "m7_odd": 286.62390886198807,
+        "m7_all": 294.26591302562684,
+        "m11_even": 229.95170102854996,
+        "m11_odd": 208.1240207881906,
+        "m11_all": 219.32557105829306
+      }
+    },
+    {
+      "name": "known_nonrome",
+      "gate_rows": 321614,
+      "alpha": 0.09642519300667392,
+      "scores": {
+        "m7_even": 302.26352494921446,
+        "m7_odd": 286.66427892282246,
+        "m7_all": 294.3306598204081,
+        "m11_even": 229.96907418863077,
+        "m11_odd": 208.1115672904221,
+        "m11_all": 219.32879227656505
+      }
+    }
+  ],
+  "selected": {
+    "name": "none",
+    "alpha": 0.0
+  },
+  "selection_rule": "retain only if both July and November odd-date complete RMSE do not worsen",
+  "january_gap": "Jan-2025 has no TimesFM history while Jan-2026 does; no January-specific parameter was fit.",
+  "next_question": "Only test context336 if context168 improves both routed odd-date months."
+}

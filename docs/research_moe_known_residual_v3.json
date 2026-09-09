@@ -1,0 +1,55 @@
+{
+  "excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "december_scored": false,
+  "training_rows": 121086,
+  "validation_eligible_rows": 26137,
+  "target": "TAXITIME_SEC_mvt - mvt_minus_AOBT_3_flt",
+  "params": {
+    "iterations": 1000,
+    "depth": 6,
+    "learning_rate": 0.06,
+    "l2_leaf_reg": 30
+  },
+  "pooled_alpha": 0.21213060680842805,
+  "baseline_full_rmse": 262.5263614123253,
+  "corrected_full_rmse": 262.4475104016053,
+  "months": {
+    "7": {
+      "full_rmse": 294.15062386924444
+    },
+    "11": {
+      "full_rmse": 219.42587889957
+    }
+  },
+  "held_checks": {
+    "fit_even_check_odd": {
+      "alpha": 0.2582010367516881,
+      "rows": 13269,
+      "rmse": 402.0488307447705,
+      "baseline_rmse": 402.335922072808
+    },
+    "fit_odd_check_even": {
+      "alpha": 0.1657613293464882,
+      "rows": 12868,
+      "rmse": 379.6193083042631,
+      "baseline_rmse": 380.58723632051294
+    },
+    "fit_july_check_november": {
+      "alpha": 0.30739976654673845,
+      "rows": 11273,
+      "rmse": 292.6647511619035,
+      "baseline_rmse": 290.9519205515426
+    },
+    "fit_november_check_july": {
+      "alpha": 0.0,
+      "rows": 14864,
+      "rmse": 453.5399135576502,
+      "baseline_rmse": 453.5399135576502
+    }
+  },
+  "selected": "pending_parent_review"
+}
