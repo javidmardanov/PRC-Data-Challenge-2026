@@ -1,0 +1,69 @@
+{
+  "attempt_limit": 3,
+  "attempts_used": 3,
+  "attempts_remaining": 0,
+  "best_version": 6,
+  "best_official_rmse": 268.5583,
+  "rank": 14,
+  "ranked_teams": 147,
+  "retrieved_at": "2026-09-15T21:56:11.832025+00:00",
+  "submissions": [
+    {
+      "version": 4,
+      "upload": {
+        "bucket": "prc-2026-elegant-alligator",
+        "key": "elegant-alligator_v4.parquet",
+        "sha256": "f92c4411f49ae133449a342f63a771f7645a0d1390e391456f56c550c4ab23c8",
+        "uploaded_at": "2026-09-15T20:54:21.621978+00:00",
+        "bytes": 4707617
+      },
+      "official": {
+        "submissionId": "defe3f6d-c0b8-44c8-b516-a2e562b286bb",
+        "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+        "teamName": "elegant-alligator",
+        "filename": "elegant-alligator_v4.parquet",
+        "score": 271.5069,
+        "usedPairs": 344841,
+        "processedAt": "2026-09-15T20:54:59.481423Z"
+      }
+    },
+    {
+      "version": 5,
+      "upload": {
+        "bucket": "prc-2026-elegant-alligator",
+        "key": "elegant-alligator_v5.parquet",
+        "sha256": "fd254af624ec992338e093662d3ebb67a65e8cab4ec043df8ebddf1b5b7f04a4",
+        "uploaded_at": "2026-09-15T21:53:38.148254+00:00",
+        "bytes": 4707609
+      },
+      "official": {
+        "submissionId": "0d018ac3-8f5d-4a04-9728-6f5b97c0c6aa",
+        "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+        "teamName": "elegant-alligator",
+        "filename": "elegant-alligator_v5.parquet",
+        "score": 269.0799,
+        "usedPairs": 344841,
+        "processedAt": "2026-09-15T21:54:22.91335Z"
+      }
+    },
+    {
+      "version": 6,
+      "upload": {
+        "bucket": "prc-2026-elegant-alligator",
+        "key": "elegant-alligator_v6.parquet",
+        "sha256": "2fa2ee5bdcfd38a9d7575707e40f82d90f62bb1db7e2babb1649166b51ac7be5",
+        "uploaded_at": "2026-09-15T21:54:58.669232+00:00",
+        "bytes": 4707609
+      },
+      "official": {
+        "submissionId": "55c2a913-139b-42f4-be38-3a8ef0ac4621",
+        "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+        "teamName": "elegant-alligator",
+        "filename": "elegant-alligator_v6.parquet",
+        "score": 268.5583,
+        "usedPairs": 344841,
+        "processedAt": "2026-09-15T21:55:32.927418Z"
+      }
+    }
+  ]
+}

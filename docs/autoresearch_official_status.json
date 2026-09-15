@@ -1,16 +1,16 @@
 {
-  "retrieved_at": "2026-09-15T21:23:09.332563+00:00",
+  "retrieved_at": "2026-09-15T21:56:11.832025+00:00",
   "source": "https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard",
-  "rank": 16,
+  "rank": 14,
   "ranked_teams": 147,
   "best": {
-    "submissionId": "5abd3072-13c4-4759-b231-f2b384c5cb45",
+    "submissionId": "55c2a913-139b-42f4-be38-3a8ef0ac4621",
     "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
     "teamName": "elegant-alligator",
-    "filename": "elegant-alligator_v3.parquet",
-    "score": 271.0449,
+    "filename": "elegant-alligator_v6.parquet",
+    "score": 268.5583,
     "usedPairs": 344841,
-    "processedAt": "2026-09-09T08:14:14.928003Z"
+    "processedAt": "2026-09-15T21:55:32.927418Z"
   },
   "leaders": [
     {
@@ -77,6 +77,24 @@
       "score": 271.5069,
       "usedPairs": 344841,
       "processedAt": "2026-09-15T20:54:59.481423Z"
+    },
+    {
+      "submissionId": "0d018ac3-8f5d-4a04-9728-6f5b97c0c6aa",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v5.parquet",
+      "score": 269.0799,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-15T21:54:22.91335Z"
+    },
+    {
+      "submissionId": "55c2a913-139b-42f4-be38-3a8ef0ac4621",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v6.parquet",
+      "score": 268.5583,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-15T21:55:32.927418Z"
     }
   ]
 }

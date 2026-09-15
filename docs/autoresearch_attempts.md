@@ -3,6 +3,11 @@
 User-authorized budget: at most three new official submissions after V3.
 The parent alone uploads. Local experiments do not consume an official attempt.
 
+Completed: all three attempts used. Best official RMSE **268.5583** (V6),
+rank **14 of 147 teams** at 2026-09-15 21:56:11 UTC. Prior V3 scored 271.0449.
+First place remains 245.0207; this run improved our score but did not reach
+first place or the top three.
+
 Following the experiment/measure/retain loop from
 https://github.com/karpathy/autoresearch, each bounded trial records its hypothesis,
 parameters, matched complete-pipeline scores, failure or acceptance, and artifacts.
@@ -39,9 +44,9 @@ months. Only three ranking rows changed. SHA256:
 Uploaded 2026-09-15 20:54:21 UTC; processed 20:54:59 UTC. Official RMSE
 **271.5069**, all 344,841 pairs accepted. This is worse than V3's 271.0449;
 the rare-tail change is rejected for subsequent combinations. No coefficient is
-refitted to the official score. Two official attempts remain.
+refitted to the official score. Two official attempts remained at this point.
 
-## Candidates for attempts 2 and 3 (not yet submitted)
+## Selection for attempts 2 and 3
 
 Frozen candidate A2 predicts the residual from the supplied LOBT timestamp with
 CatBoost: 3,500 trees, depth 10, learning rate 0.05, L2 20, seed 42. Its global
@@ -54,7 +59,7 @@ An airport-specific coefficient variant, shrunk toward the global coefficient
 with 1,000 pseudo-rows, has local RMSE 257.5250142. The missing-Rome flight
 identity trial failed in summer; its separate winter-only hypothesis improved
 later November dates. That winter correction is disjoint from the LOBT gate.
-Neither planned candidate includes the rejected V4 tail change.
+Neither candidate includes the rejected V4 tail change.
 
 Complete chronological July refits: V3 297.3438985, global A2 293.8911651,
 regional A2 293.7105852. The regional gain over global is uncertain under a
@@ -87,5 +92,40 @@ retuned. The table above includes this correction. Final local RMSE is
 257.7546428 for V5 and 257.1286939 for V6, versus V3 259.9769017. Ranking-mix
 weighted local RMSE is 262.1451119 and 261.0992930, respectively.
 
-As of 2026-09-15 21:23 UTC, the best official score is still 271.0449, ranked
-16 of 147 teams. Rank movement reflects new submissions from other teams.
+At 2026-09-15 21:23 UTC, V3 ranked 16 of 147 teams. Rank movement reflects
+new submissions from other teams as well as improvements to our best score.
+
+## Official attempt 2: V5, improved
+
+Published source: `a8c29c8`. Uploaded 2026-09-15 21:53:38 UTC; processed
+21:54:22 UTC. Official RMSE **269.0799**, all 344,841 pairs accepted. This
+improves V3's 271.0449 by 1.9650 seconds. Team-best rank was **15 of 147**
+at the 21:54:35 UTC snapshot. Submission ID:
+`0d018ac3-8f5d-4a04-9728-6f5b97c0c6aa`.
+
+SHA256: `fd254af624ec992338e093662d3ebb67a65e8cab4ec043df8ebddf1b5b7f04a4`.
+The final attempt uses the already frozen V6 recipe; no coefficient is changed
+in response to this official score.
+
+## Official attempt 3: V6, best result
+
+Published source: `a8c29c8`. Uploaded 2026-09-15 21:54:58 UTC; processed
+21:55:32 UTC. Official RMSE **268.5583**, all 344,841 pairs accepted. This
+improves V5 by 0.5216 seconds and V3 by 2.4866 seconds (0.9174%). Team-best
+rank is **14 of 147** at the 21:56:11 UTC snapshot. Submission ID:
+`55c2a913-139b-42f4-be38-3a8ef0ac4621`.
+
+SHA256: `2fa2ee5bdcfd38a9d7575707e40f82d90f62bb1db7e2babb1649166b51ac7be5`.
+
+| Attempt | Version | Local RMSE | Official RMSE | Decision |
+| --- | --- | ---: | ---: | --- |
+| 1 | V4 | 258.014900 | 271.5069 | Rejected |
+| 2 | V5 | 257.754643 | 269.0799 | Improved |
+| 3 | V6 | 257.128694 | 268.5583 | Retained best |
+
+The official gain confirms some transfer from local validation, but leaves a
+23.5376-second gap to first place. No further uploads are authorized within
+this three-attempt run. All worker training jobs have finished. The
+[official snapshot](autoresearch_official_status.json),
+[independent final checks](autoresearch_final_artifact_check.json), and
+[reproduction guide](autoresearch_recipe.md) retain the evidence.

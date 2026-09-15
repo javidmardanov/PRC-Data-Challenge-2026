@@ -1,5 +1,14 @@
 # PRC Data Challenge 2026 — TimesFM-3 solution
 
+Latest best: **V6, official RMSE 268.5583**, ranked **14 of 147 teams** at
+2026-09-15 21:56 UTC. All three authorized autoresearch submissions were scored:
+V4 271.5069, V5 269.0799, V6 268.5583. V6 adds a LOBT residual expert with
+airport-specific blend weights and a winter-only Rome flight-identity
+correction to V3. Local RMSE is 257.128694; both chronological checks improved.
+See the [attempt log](docs/autoresearch_attempts.md),
+[reproduction guide](docs/autoresearch_recipe.md), and
+[official results](docs/autoresearch_official_status.json).
+
 The [forward validation audit](docs/rolling_validation.md) adds chronological
 backtests and ranking-mix weighting. Its matched diagnostic blend scores 263.9724
 versus 269.5916 for its baseline; this is not a replacement for the full V3 score.
