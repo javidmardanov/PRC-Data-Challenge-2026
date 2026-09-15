@@ -1,0 +1,33 @@
+{
+  "candidate": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\autoresearch_v4_validation.parquet",
+  "reference": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\v3_validation.parquet",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 258.0149002497622,
+    "month_rmse": {
+      "2025-07": 290.43842831741864,
+      "2025-11": 213.72851229723173
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 259.9769016847317,
+    "month_rmse": {
+      "2025-07": 291.50483831750523,
+      "2025-11": 217.16599975817016
+    }
+  },
+  "rmse_change": -1.9620014349694657,
+  "day_bootstrap_rmse_change_95pct": [
+    -4.311404219904723,
+    -0.018432627105527382
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 6,
+  "december_scored": false,
+  "ranking_changed_rows": 3,
+  "final_training_support": 14,
+  "final_weight": 0.5332053828418667,
+  "sha256": "f92c4411f49ae133449a342f63a771f7645a0d1390e391456f56c550c4ab23c8",
+  "official_attempt": 1,
+  "maximum_official_attempts": 3
+}

@@ -1,0 +1,190 @@
+{
+  "december_scored": false,
+  "development_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "predeclared_specs": [
+    [
+      54000,
+      86400,
+      0
+    ],
+    [
+      54000,
+      86400,
+      1
+    ],
+    [
+      50000,
+      86400,
+      3
+    ]
+  ],
+  "trials": [
+    {
+      "spec": {
+        "support": 7,
+        "ordinary": 970.0,
+        "day_level": 87370.0,
+        "raw_weight": 0.33198753531089464,
+        "weight": 0.33198753531089464,
+        "lower": 54000,
+        "upper": 86400,
+        "shrink_support": 0
+      },
+      "validation_gate_rows": 6,
+      "late_gate_rows": 2,
+      "late": {
+        "7": {
+          "baseline": 1077.8211951975054,
+          "candidate": 1051.9090803414006,
+          "gate_baseline": 15666.740689500126,
+          "gate_candidate": 13627.476602070803
+        },
+        "11": {
+          "baseline": 598.1671123675535,
+          "candidate": 598.1671123675535,
+          "gate_baseline": null,
+          "gate_candidate": null
+        }
+      },
+      "full_v3_late": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 286.11402165505325
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.2170866200752
+        }
+      },
+      "late_sse_change": -119477290.58410358,
+      "bootstrap_days_probability_improvement": 0.8674,
+      "late_day_breakdown": {
+        "2025-07-21": {
+          "sse_change": -1880072.2166277645,
+          "gate_rows": 1
+        },
+        "2025-07-30": {
+          "sse_change": -117597218.36747563,
+          "gate_rows": 1
+        }
+      }
+    },
+    {
+      "spec": {
+        "support": 7,
+        "ordinary": 970.0,
+        "day_level": 87370.0,
+        "raw_weight": 0.33198753531089464,
+        "weight": 0.2904890933970328,
+        "lower": 54000,
+        "upper": 86400,
+        "shrink_support": 1
+      },
+      "validation_gate_rows": 6,
+      "late_gate_rows": 2,
+      "late": {
+        "7": {
+          "baseline": 1077.8211951975054,
+          "candidate": 1062.3425744731953,
+          "gate_baseline": 15666.740689500126,
+          "gate_candidate": 14477.12060227821
+        },
+        "11": {
+          "baseline": 598.1671123675535,
+          "candidate": 598.1671123675535,
+          "gate_baseline": null,
+          "gate_candidate": null
+        }
+      },
+      "full_v3_late": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 286.9087091719359
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.2170866200752
+        }
+      },
+      "late_sse_change": -71719485.79826164,
+      "bootstrap_days_probability_improvement": 0.8674,
+      "late_day_breakdown": {
+        "2025-07-21": {
+          "sse_change": -1120393.8566637337,
+          "gate_rows": 1
+        },
+        "2025-07-30": {
+          "sse_change": -70599091.9415977,
+          "gate_rows": 1
+        }
+      }
+    },
+    {
+      "spec": {
+        "support": 11,
+        "ordinary": 970.0,
+        "day_level": 87370.0,
+        "raw_weight": 0.3026914602494616,
+        "weight": 0.2378290044817198,
+        "lower": 50000,
+        "upper": 86400,
+        "shrink_support": 3
+      },
+      "validation_gate_rows": 6,
+      "late_gate_rows": 2,
+      "late": {
+        "7": {
+          "baseline": 1077.8211951975054,
+          "candidate": 1076.3303120147568,
+          "gate_baseline": 15666.740689500126,
+          "gate_candidate": 15555.391976603807
+        },
+        "11": {
+          "baseline": 598.1671123675535,
+          "candidate": 598.1671123675535,
+          "gate_baseline": null,
+          "gate_candidate": null
+        }
+      },
+      "full_v3_late": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 287.98291534236336
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.2170866200752
+        }
+      },
+      "late_sse_change": -6953088.572497845,
+      "bootstrap_days_probability_improvement": 0.8674,
+      "late_day_breakdown": {
+        "2025-07-21": {
+          "sse_change": -107687.11333708465,
+          "gate_rows": 1
+        },
+        "2025-07-30": {
+          "sse_change": -6845401.459160507,
+          "gate_rows": 1
+        }
+      }
+    }
+  ],
+  "selected_index": 0,
+  "ranking_output": "submissions/autoresearch_ensemble_lirf_tail_policy.parquet",
+  "final_parameters": {
+    "support": 14,
+    "ordinary": 1020.0,
+    "day_level": 87420.0,
+    "raw_weight": 0.5332053828418667,
+    "weight": 0.5332053828418667,
+    "lower": 54000,
+    "upper": 86400,
+    "shrink_support": 0
+  },
+  "ranking_gate_rows": 3
+}
