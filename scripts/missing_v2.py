@@ -63,10 +63,17 @@ def analyze(full, valid):
     return report
 
 
-def load_training(meta, missing):
+def load_training(meta, missing, cutoff=None):
     month = meta[TIME].dt.month
     development = meta.source.eq('training') & ~month.isin([7, 11, 12])
     valid = meta.source.eq('training') & month.isin([7, 11]) & missing
+    if cutoff is not None:
+        cutoff = pd.Timestamp(cutoff, tz='UTC')
+        if cutoff.year != 2025 or cutoff.month not in [7, 11]:
+            raise ValueError('Forward specialist cutoff must be July or November 2025')
+        development = meta.source.eq('training') & meta[TIME].lt(cutoff)
+        valid = (meta.source.eq('training') & meta[TIME].ge(cutoff)
+                 & meta[TIME].lt(cutoff + pd.offsets.MonthBegin(1)) & missing)
     rng = np.random.default_rng(SEED)
     known = development & ~missing
     selected = np.concatenate([rng.choice(np.flatnonzero(known & mask),

@@ -1,0 +1,241 @@
+{
+  "december_read": false,
+  "calibration": "UTC days 1-14",
+  "evaluation": "UTC days 15+",
+  "baseline_holdout": {
+    "7": 288.0980001930841,
+    "11": 209.2170866200752
+  },
+  "trials": [
+    {
+      "name": "v2",
+      "cache": "v2_validation.parquet",
+      "ranking_cache": "v2_ranking.parquet",
+      "alpha": 0.0,
+      "weights": {
+        "v3": 1.0,
+        "v2": 0.0
+      },
+      "scores_days15_plus": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 288.0980001930841
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.2170866200752
+        }
+      },
+      "correction_abs_mean": 0.0,
+      "correction_abs_max": 0.0
+    },
+    {
+      "name": "cat_missing",
+      "cache": "v3_cat_missing_validation.parquet",
+      "ranking_cache": "v3_cat_missing_ranking.parquet",
+      "alpha": 0.0,
+      "weights": {
+        "v3": 1.0,
+        "cat_missing": 0.0
+      },
+      "scores_days15_plus": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 288.0980001930841
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.2170866200752
+        }
+      },
+      "correction_abs_mean": 0.0,
+      "correction_abs_max": 0.0
+    },
+    {
+      "name": "missing_shrunk",
+      "cache": "moe_missing_arrival_v3_shrunk_complete_validation.parquet",
+      "ranking_cache": null,
+      "alpha": 0.0,
+      "weights": {
+        "v3": 1.0,
+        "missing_shrunk": 0.0
+      },
+      "scores_days15_plus": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 288.0980001930841
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.2170866200752
+        }
+      },
+      "correction_abs_mean": 0.0,
+      "correction_abs_max": 0.0
+    }
+  ],
+  "selected": null,
+  "top_1pct_sse_share": 0.5073966012706349,
+  "top_error_groups": [
+    {
+      "ADEP_mvt": "LIRF",
+      "month": 7,
+      "state": "missing",
+      "rows": 337,
+      "sse": 3897971078.288876,
+      "rmse": 3400.9821754213526
+    },
+    {
+      "ADEP_mvt": "LIRF",
+      "month": 7,
+      "state": "normal",
+      "rows": 14552,
+      "sse": 2588687186.960615,
+      "rmse": 421.7726788411794
+    },
+    {
+      "ADEP_mvt": "LTFM",
+      "month": 7,
+      "state": "normal",
+      "rows": 24064,
+      "sse": 1560539271.9845412,
+      "rmse": 254.6557236070828
+    },
+    {
+      "ADEP_mvt": "LIRF",
+      "month": 11,
+      "state": "missing",
+      "rows": 52,
+      "sse": 1215818615.0746825,
+      "rmse": 4835.403521214612
+    },
+    {
+      "ADEP_mvt": "LEBL",
+      "month": 7,
+      "state": "normal",
+      "rows": 15795,
+      "sse": 1046906627.8475775,
+      "rmse": 257.45074892006966
+    },
+    {
+      "ADEP_mvt": "LIRF",
+      "month": 11,
+      "state": "normal",
+      "rows": 11257,
+      "sse": 937830771.9274814,
+      "rmse": 288.63627178636614
+    },
+    {
+      "ADEP_mvt": "LFPG",
+      "month": 7,
+      "state": "normal",
+      "rows": 20189,
+      "sse": 921929643.9492455,
+      "rmse": 213.69358538513467
+    },
+    {
+      "ADEP_mvt": "LTFM",
+      "month": 11,
+      "state": "normal",
+      "rows": 21643,
+      "sse": 856187197.1489099,
+      "rmse": 198.89581033704647
+    },
+    {
+      "ADEP_mvt": "LFPG",
+      "month": 11,
+      "state": "normal",
+      "rows": 17505,
+      "sse": 810896739.0177001,
+      "rmse": 215.2294616598584
+    },
+    {
+      "ADEP_mvt": "EGLL",
+      "month": 7,
+      "state": "normal",
+      "rows": 18708,
+      "sse": 774609783.6469094,
+      "rmse": 203.48284841333003
+    },
+    {
+      "ADEP_mvt": "EGLL",
+      "month": 11,
+      "state": "normal",
+      "rows": 18425,
+      "sse": 617629807.7699143,
+      "rmse": 183.0882086451969
+    },
+    {
+      "ADEP_mvt": "EDDF",
+      "month": 7,
+      "state": "normal",
+      "rows": 20573,
+      "sse": 600499888.2024095,
+      "rmse": 170.8471161372722
+    },
+    {
+      "ADEP_mvt": "LEMD",
+      "month": 7,
+      "state": "normal",
+      "rows": 17964,
+      "sse": 582140429.2671261,
+      "rmse": 180.01651827815903
+    },
+    {
+      "ADEP_mvt": "EHAM",
+      "month": 7,
+      "state": "normal",
+      "rows": 21455,
+      "sse": 478351586.8605411,
+      "rmse": 149.3170324383924
+    },
+    {
+      "ADEP_mvt": "EDDF",
+      "month": 11,
+      "state": "normal",
+      "rows": 17825,
+      "sse": 477495319.1454288,
+      "rmse": 163.67026667446942
+    },
+    {
+      "ADEP_mvt": "LIRF",
+      "month": 7,
+      "state": "faulty",
+      "rows": 322,
+      "sse": 471316493.7020062,
+      "rmse": 1209.8412370845729
+    },
+    {
+      "ADEP_mvt": "LEMD",
+      "month": 11,
+      "state": "normal",
+      "rows": 17175,
+      "sse": 468277263.7233113,
+      "rmse": 165.12132431994047
+    },
+    {
+      "ADEP_mvt": "EGLL",
+      "month": 7,
+      "state": "faulty",
+      "rows": 1744,
+      "sse": 455076186.54655546,
+      "rmse": 510.8210844897296
+    },
+    {
+      "ADEP_mvt": "EGLL",
+      "month": 7,
+      "state": "missing",
+      "rows": 338,
+      "sse": 453578581.70917773,
+      "rmse": 1158.4249939444505
+    },
+    {
+      "ADEP_mvt": "EHAM",
+      "month": 11,
+      "state": "normal",
+      "rows": 18658,
+      "sse": 387866347.8383439,
+      "rmse": 144.18115693654758
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "alpha": 0.8788581367641393,
+  "new_features": [
+    "flight_identity",
+    "flight_destination"
+  ],
+  "full_rmse": 257.2404390307562,
+  "late": {
+    "7": {
+      "baseline": 288.0980001930841,
+      "candidate": 288.59726899729435
+    },
+    "11": {
+      "baseline": 209.2170866200752,
+      "candidate": 208.345356864396
+    }
+  },
+  "eligible": false
+}

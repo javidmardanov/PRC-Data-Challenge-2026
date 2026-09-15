@@ -1,0 +1,51 @@
+{
+  "status": "pass_with_pending_artifacts",
+  "reviewed": [
+    "scripts/assemble_autoresearch_attempt.py",
+    "scripts/autoresearch_identity.py",
+    "scripts/autoresearch_known_lobt.py"
+  ],
+  "recipes": {
+    "v5": "Original V3 plus global-alpha A2 correction on known AOBT+LOBT rows; rejected V4 tail excluded.",
+    "v6": "Original V3 plus airport-ridge A2 correction and January-only missing-LIRF flight-identity correction; gates are disjoint; rejected V4 tail excluded."
+  },
+  "label_leakage": {
+    "lobt_development": "Training excludes July, November, and December; fixed iterations; calibration uses only days 1-14 after fitting.",
+    "lobt_forward": "Uses only eligible non-reserved months strictly before the fold; prior July remains excluded by the shared tuning-month contract.",
+    "lobt_final": "All 2025 labels enter only after recipe freeze; ranking targets are absent and never used.",
+    "identity_development": "Classifier target is computed only for training rows; flight identity and destination are ranking-visible metadata.",
+    "identity_forward": "Strict pre-November training with the matching forward normal model.",
+    "identity_final": "All 2025 labels enter only after alpha and winter-only policy freeze; ranking rows are inference-only."
+  },
+  "identity_final_artifact": {
+    "rows": 5290,
+    "unique_ids": true,
+    "finite_predictions": true,
+    "id_set_exactly_equals_ranking_missing_aobt": true,
+    "january_winter_gate_rows": 97,
+    "winter_gate_fully_covered": true,
+    "assembled_winter_prediction_min": 370.14682386892457,
+    "assembled_winter_prediction_max": 20925.31658305312,
+    "assembled_winter_predictions_nonnegative_finite": true
+  },
+  "invariants": {
+    "lobt_gate": "Known AOBT and known LOBT only; timing bounds applied after correction.",
+    "winter_identity_gate": "Missing AOBT, LIRF, January, schedule delta below 24000 only.",
+    "outside_union_bitwise_unchanged": "Enforced by assembler assertion.",
+    "correction_overlap": "Impossible because LOBT requires known AOBT and identity requires missing AOBT; enforced by assembler assertion.",
+    "submission_schema_ids_finiteness": "Validated by check_submission after assembly."
+  },
+  "bugs": [
+    {
+      "file": "scripts/autoresearch_known_lobt.py",
+      "issue": "apply_ranking referenced an undefined positions variable in a stale subset assertion.",
+      "resolution": "Known-LOBT worker moved the exact gate/subset assertion to score_forward and removed it from full-ranking apply; July forward score and hash were unchanged."
+    }
+  ],
+  "pending": [
+    "artifacts/known_lobt_d10_a2_final_predictions.parquet before V5/V6 assembly",
+    "complete November forward V3 and raw A2 artifacts before final regional promotion",
+    "complete November forward V3 check for winter identity before V6 promotion"
+  ],
+  "uploads_or_official_score_fitting": false
+}

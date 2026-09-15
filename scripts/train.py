@@ -121,6 +121,18 @@ def rmse(y,p):
     return float(np.sqrt(np.mean((np.asarray(y)-p)**2)))
 
 
+def rolling_masks(rows, month):
+    start = pd.Timestamp(month + '-01', tz='UTC')
+    if start.year != 2025 or start.month not in range(2, 12):
+        raise ValueError('Rolling validation requires February-November 2025; December is reserved')
+    known = rows.source.eq('training') & rows[TARGET].notna()
+    train = known & rows[TIME].lt(start)
+    valid = known & rows[TIME].ge(start) & rows[TIME].lt(start + pd.offsets.MonthBegin(1))
+    if not train.any() or not valid.any():
+        raise ValueError('Empty rolling training or validation partition')
+    return train, valid
+
+
 def run(args):
     if args.boost_priority:
         import os
@@ -137,6 +149,11 @@ def run(args):
     if args.forward:
         train = known & month.lt(7)
         valid = known & month.eq(7)
+    rolling_month = getattr(args, 'rolling_month', None)
+    if rolling_month:
+        if args.final or args.audit or args.forward or args.load:
+            raise ValueError('Rolling validation cannot be combined with final/audit/forward/load')
+        train, valid = rolling_masks(rows, rolling_month)
     if args.final:
         train = known
     has_proxy=x['mvt_minus_AOBT_3_flt'].gt(-100000)
@@ -193,7 +210,7 @@ def run(args):
         print('Building pools',int(train.sum()),'train rows',flush=True)
         tr = Pool(x.loc[train], y[train]-base[train], cat_features=cats)
         eval_mask=valid & has_proxy if args.known_only else valid
-        va = None if args.final else Pool(x.loc[eval_mask], y[eval_mask]-base[eval_mask], cat_features=cats)
+        va = None if args.final or rolling_month else Pool(x.loc[eval_mask], y[eval_mask]-base[eval_mask], cat_features=cats)
         model = CatBoostRegressor(iterations=args.iterations, depth=args.depth,
             learning_rate=args.rate, l2_leaf_reg=args.l2, loss_function='RMSE',
             task_type=args.device, devices='0' if args.device=='GPU' else None,
@@ -201,8 +218,8 @@ def run(args):
             one_hot_max_size=20, max_ctr_complexity=1, gpu_ram_part=0.55,
             allow_writing_files=True,train_dir=str(OUT/(args.name+'_logs')))
         print('Fitting',flush=True)
-        model.fit(tr, eval_set=None if args.final else va,
-            early_stopping_rounds=None if args.final else 200, verbose=100)
+        model.fit(tr, eval_set=va,
+            early_stopping_rounds=None if args.final or rolling_month else 200, verbose=100)
         model.save_model(str(OUT/(args.name+'.cbm')))
     sel = rows.source.eq('ranking') if args.final else (known & month.eq(12) if args.audit else valid)
     pred = model.predict(x.loc[sel], thread_count=args.threads) + base[sel]
@@ -210,6 +227,11 @@ def run(args):
     result['prediction'] = pred
     result.to_parquet(OUT/(args.name+'_predictions.parquet'), index=False)
     info = {'args':vars(args), 'seconds':time.time()-start, 'trees':model.tree_count_}
+    if rolling_month:
+        info['split'] = {'train_max': str(rows.loc[train, TIME].max()),
+                         'validation_min': str(rows.loc[valid, TIME].min()),
+                         'train_rows': int(train.sum()), 'validation_rows': int(valid.sum()),
+                         'validation_used_for_early_stopping': False}
     if not args.load:
         info['importance'] = dict(sorted(zip(x.columns, model.feature_importances_), key=lambda t:-t[1]))
     if not args.final and not args.audit:
@@ -234,6 +256,7 @@ if __name__ == '__main__':
     p.add_argument('--device', default='GPU')
     p.add_argument('--residual', action='store_true')
     p.add_argument('--forward', action='store_true')
+    p.add_argument('--rolling-month', help='YYYY-MM: train strictly before this month; fixed tree count')
     p.add_argument('--final', action='store_true')
     p.add_argument('--audit', action='store_true')
     p.add_argument('--tfm')

@@ -1,0 +1,33 @@
+{
+  "lane": "known_lobt_residual",
+  "status": "selected_pending_forward_and_final_refits",
+  "december_read": false,
+  "official_scores_used_for_selection": false,
+  "training_excluded_months": [7, 11, 12],
+  "baseline": {"artifact": "artifacts/v3_validation.parquet", "pooled_rmse": 259.9769016847317, "july_rmse": 291.50483831750523, "november_rmse": 217.16599975817016, "late_july_rmse": 288.0980001930841, "late_november_rmse": 209.2170866200752},
+  "protocol": {
+    "model_fit": "Fixed tree count; neither July nor November labels enter model fitting or stopping.",
+    "calibration": "UTC days 1-14 in July and November 2025 fit one bounded scalar alpha.",
+    "check": "UTC days 15-end checked separately in both months.",
+    "selection_rule": "Retain only when both later month checks improve; minimize their combined RMSE.",
+    "apply": "On rows with known AOBT and LOBT, add alpha*(LOBT expert-complete V3), then clip to timing bounds."
+  },
+  "lobt_training_residual": {"rows": 1550798, "within_6_seconds_of_minus_3600": 329, "within_6_seconds_of_zero": 82131, "within_6_seconds_of_plus_3600": 73, "quantiles_0_1_10_50_90_99_100": [-3606.0, -2576.0, -1100.0, -244.0, 296.0, 840.0, 3606.0], "decision": "No material +/-3600 discrete classes; retain bounded continuous residual regression."},
+  "trials": [
+    {"name": "contaminated_exploratory_interrupted", "eligible": false, "reason": "Initial eval_set included later check dates; interrupted at 2500 trees before artifact creation."},
+    {"name": "known_lobt_d8_a1", "params": {"iterations": 3500, "depth": 8, "rate": 0.06, "l2": 12.0}, "alpha": 0.5361347978368685, "pooled_rmse": 258.1788680689613, "july_rmse": 288.9812859367761, "november_rmse": 216.46214698697156, "late_july_rmse": 285.59496754104634, "late_november_rmse": 208.10043200487536, "artifact": "artifacts/known_lobt_d8_a1_gated_validation.parquet"},
+    {"name": "known_lobt_d10_a2", "params": {"iterations": 3500, "depth": 10, "rate": 0.05, "l2": 20.0}, "alpha": 0.630797588656986, "pooled_rmse": 257.7679019474301, "july_rmse": 288.4555027117568, "november_rmse": 216.2207293966188, "late_july_rmse": 285.2413885452433, "late_november_rmse": 207.80524047647728, "artifact": "artifacts/known_lobt_d10_a2_gated_validation.parquet", "sha256": "29ca50af85ef7536f2910f5912989df2969472182dff34e8fcc76c797f9a06eb"},
+    {"name": "known_lobt_d10_a3", "params": {"iterations": 5000, "depth": 10, "rate": 0.04, "l2": 30.0}, "alpha": 0.6267716902393078, "pooled_rmse": 257.8050428759333, "july_rmse": 288.4725969284818, "november_rmse": 216.2902286950143, "late_july_rmse": 285.2325946824758, "late_november_rmse": 207.90379969869178, "artifact": "artifacts/known_lobt_d10_a3_gated_validation.parquet"}
+  ],
+  "selected": {"name": "known_lobt_d10_a2", "gate": "all rows with known AOBT and LOBT", "alpha": 0.630797588656986, "local_gain_seconds": 2.2089997373016},
+  "forward_validation": {
+    "july": {"train_rows": 996700, "baseline_rows": 190713, "gate_rows": 186775, "baseline_rmse": 297.3438985359695, "candidate_rmse": 293.89116513111384, "gain_seconds": 3.45273340485565, "raw": "artifacts/known_lobt_d10_forward_july_predictions.parquet", "output": "artifacts/known_lobt_d10_forward_july_fixed_alpha_validation.parquet", "sha256": "c07bc00c98c7597bdb46bd1abba39a0e52555d43dbb609088a827fdde781fa22"},
+    "november": null
+  },
+  "commands": {
+    "rolling_july": "python -u scripts/autoresearch_known_lobt.py --name known_lobt_d10_forward_july --rolling-month 2025-07 --iterations 3500 --depth 10 --rate .05 --l2 20 --threads 6 --device GPU",
+    "rolling_november": "python -u scripts/autoresearch_known_lobt.py --name known_lobt_d10_forward_november --rolling-month 2025-11 --iterations 3500 --depth 10 --rate .05 --l2 20 --threads 6 --device GPU",
+    "final": "python -u scripts/autoresearch_known_lobt.py --name known_lobt_d10_a2_final --final --iterations 3500 --depth 10 --rate .05 --l2 20 --threads 6 --device GPU",
+    "ranking": "python scripts/autoresearch_known_lobt.py --name known_lobt_d10_a2_final --apply-ranking --alpha 0.630797588656986 --output submissions/elegant-alligator_lobt.parquet"
+  }
+}

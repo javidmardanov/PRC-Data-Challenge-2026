@@ -1,0 +1,27 @@
+{
+  "candidate": "artifacts\\autoresearch_lobt_regional_validation.parquet",
+  "reference": "artifacts\\v3_validation.parquet",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 257.5250141630571,
+    "month_rmse": {
+      "2025-07": 288.1574070332647,
+      "2025-11": 216.05819223771
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 259.9769016847317,
+    "month_rmse": {
+      "2025-07": 291.50483831750523,
+      "2025-11": 217.16599975817016
+    }
+  },
+  "rmse_change": -2.451887521674564,
+  "day_bootstrap_rmse_change_95pct": [
+    -3.135803520130375,
+    -1.7516272503715649
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 347745,
+  "december_scored": false
+}

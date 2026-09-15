@@ -1,0 +1,62 @@
+{
+  "baseline_rmse": 259.9769016847317,
+  "trials": {
+    "missing_only_d6": {
+      "alphas": {
+        "rome": 0.17088863797291257,
+        "other": 0.0
+      },
+      "late_dates": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 288.93355660007506
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.13391896792584
+        }
+      },
+      "full_rmse": 260.1377666008375,
+      "train_rows": 15493,
+      "eligible": false
+    },
+    "missing_weighted_d6": {
+      "alphas": {
+        "rome": 0.9896837842263558,
+        "other": 0.4425727562679028
+      },
+      "late_dates": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 289.72917156717875
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.083533393135
+        }
+      },
+      "full_rmse": 258.8944448989285,
+      "train_rows": 215454,
+      "eligible": false
+    },
+    "missing_only_d4": {
+      "alphas": {
+        "rome": 0.10348617967721054,
+        "other": 0.0
+      },
+      "late_dates": {
+        "7": {
+          "baseline": 288.0980001930841,
+          "candidate": 288.5789036915383
+        },
+        "11": {
+          "baseline": 209.2170866200752,
+          "candidate": 209.17563086057436
+        }
+      },
+      "full_rmse": 260.08924183510607,
+      "train_rows": 15493,
+      "eligible": false
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "december_read": false,
+  "global_alpha": 0.630797588656986,
+  "reconstruction_max_abs": 0.0,
+  "ridge_definition": "penalty equals pseudo_rows times global calibration mean(delta^2), centered on global alpha",
+  "trials": [
+    {
+      "pseudo_rows": 1000,
+      "coefficients": {
+        "EDDF": 0.3528221897952836,
+        "EDDM": 0.28275104948082647,
+        "EGLL": 0.8563498563047732,
+        "EHAM": 0.38459902055827483,
+        "LEBL": 0.48303468787710563,
+        "LEMD": 0.40470311119711033,
+        "LFPG": 0.6693000165795181,
+        "LIRF": 0.8354362619649509,
+        "LSZH": 0.23254916219468355,
+        "LTFM": 0.5109581488331201
+      },
+      "coefficient_range": [
+        0.23254916219468355,
+        0.8563498563047732
+      ],
+      "full": {
+        "v3": 259.9769016847317,
+        "global_a2": 257.7679019474301,
+        "regional": 257.5250141630571,
+        "three_column_blend": 257.67524875269356
+      },
+      "late": {
+        "7": {
+          "v3": 288.0980001930841,
+          "global_a2": 285.2413885452433,
+          "regional": 285.0361710719316,
+          "three_column_blend": 285.1125547187748
+        },
+        "11": {
+          "v3": 209.2170866200752,
+          "global_a2": 207.80524047647728,
+          "regional": 207.56593515147276,
+          "three_column_blend": 207.75127764227048
+        }
+      }
+    },
+    {
+      "pseudo_rows": 5000,
+      "coefficients": {
+        "EDDF": 0.4375052639565528,
+        "EDDM": 0.40339640672477517,
+        "EGLL": 0.8240032627129313,
+        "EHAM": 0.45393083755517427,
+        "LEBL": 0.5299612424324144,
+        "LEMD": 0.4624239097085937,
+        "LFPG": 0.6626159767179239,
+        "LIRF": 0.8206201140677736,
+        "LSZH": 0.3991196172621764,
+        "LTFM": 0.528416264663272
+      },
+      "coefficient_range": [
+        0.3991196172621764,
+        0.8240032627129313
+      ],
+      "full": {
+        "v3": 259.9769016847317,
+        "global_a2": 257.7679019474301,
+        "regional": 257.54711533405526,
+        "three_column_blend": 257.67524875269356
+      },
+      "late": {
+        "7": {
+          "v3": 288.0980001930841,
+          "global_a2": 285.2413885452433,
+          "regional": 285.03073420378126,
+          "three_column_blend": 285.1125547187748
+        },
+        "11": {
+          "v3": 209.2170866200752,
+          "global_a2": 207.80524047647728,
+          "regional": 207.6256819698563,
+          "three_column_blend": 207.75127764227048
+        }
+      }
+    }
+  ],
+  "selected_index": 0,
+  "validation_output": "artifacts/autoresearch_lobt_regional_validation.parquet"
+}

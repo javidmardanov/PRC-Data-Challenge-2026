@@ -2,6 +2,7 @@
 import gc
 import json
 import os
+import argparse
 
 import numpy as np
 import pandas as pd
@@ -61,10 +62,56 @@ def score(y, p, month, missing):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--rolling-month', choices=['2025-07', '2025-11'])
+    args = parser.parse_args()
     if os.name == 'nt':
         import ctypes
         assert ctypes.windll.kernel32.SetPriorityClass(ctypes.c_void_p(-1), 0x8000)
     x, meta = load()
+    if args.rolling_month:
+        start = pd.Timestamp(args.rolling_month + '-01', tz='UTC')
+        train = meta[TIME].lt(start).to_numpy()
+        valid = (meta[TIME].ge(start) & meta[TIME].lt(start + pd.offsets.MonthBegin(1))).to_numpy()
+        if not train.any() or not valid.any() or not meta.loc[train, TIME].lt(start).all():
+            raise ValueError('Invalid chronological Rome split')
+        y = meta[TARGET].to_numpy(float)
+        schedule = x[SCHEDULE].to_numpy(float)
+        identity = np.abs(y-schedule) <= 6
+        nm_time = ('LOBT', 'IOBT', 'EOBT', 'AOBT', 'ARVT')
+        normal_cols = [c for c in x if not any(token in c for token in nm_time)]
+        normal_cols = [c for c in normal_cols if x.loc[train, c].nunique() > 1]
+        normal_train = train & ~identity & (y < 6000)
+        cats = list(x[normal_cols].select_dtypes('object').columns)
+        normal = CatBoostRegressor(iterations=500, depth=6, learning_rate=.08, l2_leaf_reg=30,
+            thread_count=3, random_seed=2026, loss_function='RMSE', verbose=False,
+            one_hot_max_size=20, max_ctr_complexity=1)
+        normal.fit(x.loc[normal_train, normal_cols], y[normal_train], cat_features=cats)
+        ordinary = normal.predict(x.loc[valid, normal_cols])
+        classifier_cols = [c for c in x if x.loc[train, c].nunique() > 1]
+        cats = list(x[classifier_cols].select_dtypes('object').columns)
+        weight = np.clip(1 + (np.maximum(schedule, 0)/3600)**2, 1, 25)
+        classifier = CatBoostClassifier(iterations=400, depth=5, learning_rate=.08, l2_leaf_reg=30,
+            thread_count=3, random_seed=2026, loss_function='Logloss', verbose=False,
+            one_hot_max_size=20, max_ctr_complexity=1)
+        classifier.fit(x.loc[train, classifier_cols], identity[train].astype(int),
+                       cat_features=cats, sample_weight=weight[train])
+        probability = classifier.predict_proba(x.loc[valid, classifier_cols])[:, 1]
+        expert = np.maximum(probability*schedule[valid] + (1-probability)*ordinary, 0)
+        vm = meta.loc[valid].reset_index(drop=True)
+        regime = schedule[valid] < 24000
+        out = vm.loc[regime, [ID]].copy(); out['prediction'] = expert[regime]
+        stem = 'forward_v3_' + args.rolling_month + '_rome'
+        out.to_parquet(OUT/(stem + '.parquet'), index=False)
+        normal.save_model(str(OUT/(stem + '_normal.cbm')))
+        classifier.save_model(str(OUT/(stem + '_classifier.cbm')))
+        (OUT/(stem + '.json')).write_text(json.dumps({'month': args.rolling_month,
+            'train_rows': int(train.sum()), 'normal_train_rows': int(normal_train.sum()),
+            'validation_rows': int(valid.sum()), 'expert_rows': len(out),
+            'train_max': str(meta.loc[train, TIME].max()), 'selected': 'schedule_weighted',
+            'threads': 3, 'validation_used_for_selection': False}, indent=2))
+        print('Saved', stem, len(out), flush=True)
+        return
     month = meta[TIME].dt.month.to_numpy()
     train, valid = ~np.isin(month, [7, 11]), np.isin(month, [7, 11])
     assert not np.intersect1d(np.flatnonzero(train), np.flatnonzero(valid)).size

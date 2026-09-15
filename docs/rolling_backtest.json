@@ -1,0 +1,50 @@
+{
+  "protocol": "Fixed 2000 trees; strictly earlier training months; blend calibrated on previous completed fold only. First fold uses existing arrival-model preference (alpha=1).",
+  "limitations": [
+    "Only one labeled year: no genuine January forward backtest is possible.",
+    "July/November were previously researched; these are not pristine holdouts.",
+    "Matched models are diagnostic refits, not the complete frozen V3 ensemble."
+  ],
+  "folds": [
+    {
+      "month": "2025-07",
+      "calibration_month": null,
+      "check_rows": 190713,
+      "alpha": 1.0,
+      "check_rmse": {
+        "baseline": 325.1584057674773,
+        "arrival": 315.13106542604555,
+        "calibrated_blend": 315.13106542604555
+      }
+    },
+    {
+      "month": "2025-10",
+      "calibration_month": "2025-07",
+      "check_rows": 185674,
+      "alpha": 0.9878189043764929,
+      "check_rmse": {
+        "baseline": 231.14159342555175,
+        "arrival": 229.555615151367,
+        "calibrated_blend": 229.48988030011523
+      }
+    },
+    {
+      "month": "2025-11",
+      "calibration_month": "2025-10",
+      "check_rows": 162332,
+      "alpha": 0.6124973358476706,
+      "check_rmse": {
+        "baseline": 236.37877751458453,
+        "arrival": 233.55648277914386,
+        "calibrated_blend": 233.10569703896022
+      }
+    }
+  ],
+  "pooled_check_rmse": {
+    "baseline": 269.59157450704475,
+    "arrival": 264.1121717944629,
+    "calibrated_blend": 263.97244178158724
+  },
+  "change_vs_baseline": -5.6191327254575185,
+  "improves_every_fold": true
+}

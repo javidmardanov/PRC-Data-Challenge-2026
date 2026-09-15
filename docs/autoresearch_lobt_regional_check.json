@@ -1,0 +1,29 @@
+{
+  "coefficient_max_abs_difference": 3.3306690738754696e-16,
+  "artifact_max_abs_difference": 1.8189894035458565e-12,
+  "outside_gate_bitwise_unchanged": true,
+  "gate_rows": 347751,
+  "coefficients": {
+    "EDDF": 0.3528221897952839,
+    "EDDM": 0.28275104948082647,
+    "EGLL": 0.8563498563047734,
+    "EHAM": 0.384599020558275,
+    "LEBL": 0.4830346878771056,
+    "LEMD": 0.40470311119711017,
+    "LFPG": 0.6693000165795179,
+    "LIRF": 0.8354362619649508,
+    "LSZH": 0.23254916219468355,
+    "LTFM": 0.5109581488331197
+  },
+  "late_day_block_sse_delta": -20765025.38481374,
+  "bootstrap_95pct_sse_delta": [
+    -39497804.873925015,
+    -2968160.4937537625
+  ],
+  "bootstrap_probability_regional_better": 0.9879,
+  "mapper_column_contract": [
+    "prediction",
+    "TAXITIME_SEC_mvt"
+  ],
+  "mapper_exercise": "Run autoresearch_lobt_regional.py on generated prediction/TARGET bases; both outputs matched selected artifact exactly (max_abs=0)."
+}

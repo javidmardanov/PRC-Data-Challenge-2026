@@ -1,0 +1,82 @@
+{
+  "retrieved_at": "2026-09-15T21:23:09.332563+00:00",
+  "source": "https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard",
+  "rank": 16,
+  "ranked_teams": 147,
+  "best": {
+    "submissionId": "5abd3072-13c4-4759-b231-f2b384c5cb45",
+    "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+    "teamName": "elegant-alligator",
+    "filename": "elegant-alligator_v3.parquet",
+    "score": 271.0449,
+    "usedPairs": 344841,
+    "processedAt": "2026-09-09T08:14:14.928003Z"
+  },
+  "leaders": [
+    {
+      "submissionId": "3689b7cc-35c2-4fd3-9733-fe7473100917",
+      "teamId": "a45d1dc2-0a43-4790-9a14-19c9065e47f9",
+      "teamName": "youthful-giraffe",
+      "filename": "youthful-giraffe_v22.parquet",
+      "score": 245.0207,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-10T11:13:50.050889Z"
+    },
+    {
+      "submissionId": "38ddf2e1-04ec-43f5-b113-aea89bb7e5d0",
+      "teamId": "757e7e60-be13-4253-8188-ea3677db8255",
+      "teamName": "jovial-uniform",
+      "filename": "jovial-uniform_v24.parquet",
+      "score": 245.2932,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-15T06:18:50.958417Z"
+    },
+    {
+      "submissionId": "259602f8-3752-4e86-8b46-1980845415b3",
+      "teamId": "64cf67d0-5b26-49db-bd82-7b12ca4411ce",
+      "teamName": "vigorous-whistle",
+      "filename": "vigorous-whistle_v12.parquet",
+      "score": 246.4831,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-15T10:19:11.567858Z"
+    }
+  ],
+  "our_submissions": [
+    {
+      "submissionId": "3770961f-26b8-4db3-bbf8-48014a31e854",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v1.parquet",
+      "score": 285.0706,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-09T02:55:05.359073Z"
+    },
+    {
+      "submissionId": "63373a1c-2bc1-4b50-8b04-94f7deb7166d",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v2.parquet",
+      "score": 274.3377,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-09T07:27:52.756478Z"
+    },
+    {
+      "submissionId": "5abd3072-13c4-4759-b231-f2b384c5cb45",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v3.parquet",
+      "score": 271.0449,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-09T08:14:14.928003Z"
+    },
+    {
+      "submissionId": "defe3f6d-c0b8-44c8-b516-a2e562b286bb",
+      "teamId": "30539096-c1af-4739-8d85-f05cc41e271d",
+      "teamName": "elegant-alligator",
+      "filename": "elegant-alligator_v4.parquet",
+      "score": 271.5069,
+      "usedPairs": 344841,
+      "processedAt": "2026-09-15T20:54:59.481423Z"
+    }
+  ]
+}

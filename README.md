@@ -1,5 +1,9 @@
 # PRC Data Challenge 2026 — TimesFM-3 solution
 
+The [forward validation audit](docs/rolling_validation.md) adds chronological
+backtests and ranking-mix weighting. Its matched diagnostic blend scores 263.9724
+versus 269.5916 for its baseline; this is not a replacement for the full V3 score.
+
 Taxi-out-time prediction for EUROCONTROL's PRC 2026 challenge. Frozen v3 combines
 Google TimesFM-3 airport forecasts, seasonal CatBoost blends, a missing-timestamp
 mixture of experts, arrival stand/runway context, and a targeted correction for
@@ -11,7 +15,9 @@ Both odd-date check periods improve. Three GPT-5.6-sol workers tested and tuned
 the methods in a file-backed experiment/review loop; the parent independently
 verified the assembled predictions. The [v3 reproduction guide](docs/solution_v3.md),
 [frozen recipe](docs/v3_ensemble.json), and [results](docs/results_v3.json) describe
-the selected changes and checks. Official v3 scoring is pending.
+the selected changes and checks. V3 scored **271.0449** officially, with all
+344,841 pairs accepted. The subsequent [three-attempt research log](docs/autoresearch_attempts.md)
+records candidate validation and official acceptance or rejection.
 
 V2 lowers July/November tuning RMSE from **266.052234 to 262.526361 seconds**.
 July improves to 294.335353 and November to 219.339979. Three GPT-5.6-sol workers

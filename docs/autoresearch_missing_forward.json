@@ -1,0 +1,34 @@
+{
+  "alpha": 0.4425727562679028,
+  "params": {
+    "iterations": 1400,
+    "depth": 6,
+    "learning_rate": 0.04,
+    "l2_leaf_reg": 40,
+    "random_seed": 20260915,
+    "thread_count": 3
+  },
+  "folds": {
+    "7": {
+      "train_rows": 166083,
+      "gate_rows": 3601,
+      "baseline_sse": 1051848731.5101837,
+      "candidate_sse": 1073452363.261618,
+      "sse_delta": 21603631.751434326,
+      "baseline_rmse": 540.4618992752648,
+      "candidate_rmse": 545.9838888686069
+    },
+    "11": {
+      "train_rows": 219369,
+      "gate_rows": 1304,
+      "baseline_sse": 261172973.40958595,
+      "candidate_sse": 260849293.459306,
+      "sse_delta": -323679.9502799511,
+      "baseline_rmse": 447.5332641864328,
+      "candidate_rmse": 447.25585712497565
+    }
+  },
+  "eligible": false,
+  "decision": "Rejected: strict pre-July forward validation worsened; final all-2025 fit and ranking generation skipped.",
+  "december_scored": false
+}

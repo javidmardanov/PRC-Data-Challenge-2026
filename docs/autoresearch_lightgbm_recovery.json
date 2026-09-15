@@ -1,0 +1,21 @@
+{
+  "issue": "Rolling November mode overwrote canonical development model and report filenames.",
+  "repair": {
+    "rolling_model": "artifacts/lgbm_tfm_rolling_2025-11.txt",
+    "rolling_report": "artifacts/lgbm_tfm_rolling_2025-11.json",
+    "code": "Rolling outputs are now namespaced by cutoff month; --output-dir supports isolated recovery fits.",
+    "cpu_threads": 3
+  },
+  "development_recovery": {
+    "method": "Deterministic isolated refit with the documented 500000-row sample, seed 42, TimesFM development features, and early stopping.",
+    "best_iteration": 188,
+    "validation_rows": 353045,
+    "rmse": 303.747911596349,
+    "month_rmse": {"7": 338.6340952227331, "11": 256.77710849418463},
+    "comparison_to_frozen_validation": {"ids_equal": true, "prediction_array_equal": true, "max_abs_difference": 0.0},
+    "restored": ["artifacts/lgbm_tfm.txt", "artifacts/lgbm_tfm.json"],
+    "frozen_validation_sha_unchanged": true,
+    "frozen_validation_overwritten": false,
+    "final_artifacts_modified": false
+  }
+}

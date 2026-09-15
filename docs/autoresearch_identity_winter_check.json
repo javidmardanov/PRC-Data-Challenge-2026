@@ -1,0 +1,39 @@
+{
+  "december_read": false,
+  "alpha": 0.8788581367641393,
+  "scope": "November/January winter only; July unchanged",
+  "metadata": [
+    "flight_identity",
+    "flight_destination"
+  ],
+  "target_used_as_feature": false,
+  "cached_reconstruction": {
+    "november_matches_allseason_max_abs": 0.0,
+    "july_bitwise_v3": true,
+    "outside_gate_bitwise_unchanged": true
+  },
+  "local": {
+    "full_rmse": 259.5879690517322,
+    "baseline_full_rmse": 259.9769016847317,
+    "late_november": {
+      "baseline": 209.2170866200752,
+      "candidate": 208.345356864396
+    },
+    "late_july_unchanged": 288.0980001930841
+  },
+  "day_bootstrap": {
+    "late_november_sse_delta": -31094837.2642674,
+    "ci95": [
+      -53731339.27201466,
+      -11603321.867367731
+    ],
+    "probability_improvement": 1.0
+  },
+  "strict_forward_preliminary": {
+    "status": "raw missing-arrival comparison; awaiting complete forward V3",
+    "gate_rows": 48,
+    "baseline_rmse": 1979.6628440683464,
+    "candidate_rmse": 1646.3827063596818,
+    "sse_delta": -58007470.09845811
+  }
+}

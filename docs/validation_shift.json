@@ -1,0 +1,14 @@
+{
+  "method": "Reweight local squared errors by ranking season, airport, and AOBT missingness proportions.",
+  "limitation": "November approximates January; cannot detect error changes within strata or remove tuning optimism.",
+  "models": {
+    "v2": {
+      "local_rmse": 262.5263614123253,
+      "ranking_mix_rmse": 266.90774004412623
+    },
+    "v3": {
+      "local_rmse": 259.9769016847317,
+      "ranking_mix_rmse": 264.4347127333257
+    }
+  }
+}

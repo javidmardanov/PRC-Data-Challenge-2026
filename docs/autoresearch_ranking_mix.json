@@ -1,0 +1,22 @@
+{
+  "method": "Reweight local squared errors by ranking season, airport, and AOBT missingness proportions.",
+  "limitation": "November approximates January; cannot detect error changes within strata or remove tuning optimism.",
+  "models": {
+    "v3": {
+      "local_rmse": 259.9769016847317,
+      "ranking_mix_rmse": 264.4347127333257
+    },
+    "known_lobt_d10_a2_gated": {
+      "local_rmse": 257.7679019474301,
+      "ranking_mix_rmse": 262.1583401001527
+    },
+    "autoresearch_lobt_regional": {
+      "local_rmse": 257.5250141630571,
+      "ranking_mix_rmse": 261.9168615840013
+    },
+    "autoresearch_identity_winter": {
+      "local_rmse": 259.5879690517322,
+      "ranking_mix_rmse": 263.6285554028445
+    }
+  }
+}

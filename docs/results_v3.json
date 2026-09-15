@@ -27,7 +27,11 @@
     "moe_missing_arrival_v3_normal_cap12000_final.cbm": "510a907660a77d75bcd9e47a9c393964791e827723b610d568171ded961b7464"
   },
   "official": {
-    "status": "not uploaded yet"
+    "status": "accepted",
+    "score": 271.0449,
+    "usedPairs": 344841,
+    "processedAt": "2026-09-09T08:14:14.928003Z",
+    "submissionId": "5abd3072-13c4-4759-b231-f2b384c5cb45"
   },
   "workers": [
     "gpt-5.6-sol",

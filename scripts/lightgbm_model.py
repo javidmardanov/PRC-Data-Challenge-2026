@@ -39,10 +39,15 @@ def main():
     parser.add_argument("--tfm", type=Path)
     parser.add_argument("--sample", type=int, default=500000)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--output-dir", type=Path, help="Write new model/report/predictions outside the frozen artifact directory")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--final", action="store_true", help="Refit frozen settings on an all-2025 sample and predict ranking")
     mode.add_argument("--audit", action="store_true", help="Predict December with the original development model; scoring belongs to the frozen ensemble")
+    mode.add_argument("--rolling-month", choices=["2025-07", "2025-11"],
+                      help="Fit strictly earlier labels and predict this month with 188 fixed trees")
     args = parser.parse_args()
+    write_out = args.output_dir or OUT
+    write_out.mkdir(parents=True, exist_ok=True)
     if not 1 <= args.sample <= 500000:
         parser.error("--sample must be between 1 and 500000")
     pa.set_cpu_count(4)
@@ -60,10 +65,13 @@ def main():
     rows = pd.read_parquet(rows_path, columns=[ID, TIME, "ADEP_mvt", "source"])
     month = rows[TIME].dt.month
     known = rows.source.eq("training") & rows[TIME].dt.year.eq(2025)
-    eligible = np.flatnonzero(known if args.final else known & ~month.isin([7, 11, 12]))
+    rolling_start = pd.Timestamp(args.rolling_month + "-01", tz="UTC") if args.rolling_month else None
+    eligible_mask = (known & rows[TIME].lt(rolling_start)) if rolling_start is not None else (known if args.final else known & ~month.isin([7, 11, 12]))
+    eligible = np.flatnonzero(eligible_mask)
     training = np.empty(0, dtype=np.int64) if args.audit else np.random.default_rng(args.seed).choice(
         eligible, min(args.sample, len(eligible)), replace=False)
-    validation = np.flatnonzero(rows.source.eq("ranking") if args.final else known & (
+    validation = np.flatnonzero(known & rows[TIME].ge(rolling_start) &
+        rows[TIME].lt(rolling_start + pd.offsets.MonthBegin(1))) if rolling_start is not None else np.flatnonzero(rows.source.eq("ranking") if args.final else known & (
         month.eq(12) if args.audit else month.isin([7, 11])))
     selected = np.sort(np.r_[training, validation])
     train = np.isin(selected, training)
@@ -75,7 +83,7 @@ def main():
         raise ValueError("Selected rows must have finite targets and unique IDs")
     if not args.final and not args.audit:
         assert not rows[TIME].dt.month.eq(12).any()
-    prediction_scope = "ranking" if args.final else "December audit" if args.audit else "July/November validation"
+    prediction_scope = args.rolling_month or ("ranking" if args.final else "December audit" if args.audit else "July/November validation")
     print(f"Selected {train.sum()} training rows and {(~train).sum()} {prediction_scope} rows", flush=True)
     parquet = pq.ParquetFile(OUT / "features.parquet")
     if parquet.metadata.num_rows != pq.ParquetFile(rows_path).metadata.num_rows:
@@ -116,11 +124,11 @@ def main():
     base = residual_base(x)
     categories = x.select_dtypes("category").columns.tolist()
     params = {"objective": "regression", "metric": "rmse", "learning_rate": .05,
-        "num_leaves": 63, "lambda_l2": 20, "num_threads": 4, "device_type": "cpu",
+        "num_leaves": 63, "lambda_l2": 20, "num_threads": 3, "device_type": "cpu",
         "max_bin": 127, "force_col_wise": True, "seed": args.seed, "verbosity": -1,
         "deterministic": True}
     if frozen is not None:
-        params = dict(frozen["parameters"], num_threads=4, device_type="cpu")
+        params = dict(frozen["parameters"], num_threads=3, device_type="cpu")
     if not args.audit:
         data = lgb.Dataset(x.loc[train], label=target[train] - base[train],
             categorical_feature=categories, params=params, free_raw_data=True).construct()
@@ -130,11 +138,12 @@ def main():
     print(f"Prepared {len(valid_x.columns)} features in {time.perf_counter()-started:.1f}s", flush=True)
     if args.audit:
         model, iterations = original, frozen["best_iteration"]
-    elif args.final:
+    elif args.final or args.rolling_month:
         def progress(env):
             if (env.iteration + 1) % 50 == 0:
-                print(f"Final CPU refit: {env.iteration + 1}/{frozen['best_iteration']} trees", flush=True)
-        iterations = frozen["best_iteration"]
+                total = frozen["best_iteration"] if frozen else 188
+                print(f"Fixed CPU fit: {env.iteration + 1}/{total} trees", flush=True)
+        iterations = frozen["best_iteration"] if frozen else 188
         model = lgb.train(params, data, num_boost_round=iterations, callbacks=[progress])
     else:
         valid_data = lgb.Dataset(valid_x, label=target[~train] - base[~train], reference=data,
@@ -147,10 +156,11 @@ def main():
         raise ValueError("Model produced nonfinite predictions")
     result = rows.loc[~train, [ID, TIME, "ADEP_mvt", TARGET]].copy()
     result["prediction"] = prediction
-    suffix = "ranking" if args.final else "audit" if args.audit else "validation"
-    result.to_parquet(OUT / f"lgbm_tfm_{suffix}.parquet", index=False)
+    suffix = "ranking" if args.final else "audit" if args.audit else ("rolling_" + args.rolling_month if args.rolling_month else "validation")
+    result.to_parquet(write_out / f"lgbm_tfm_{suffix}.parquet", index=False)
     if not args.audit:
-        model.save_model(str(OUT / ("lgbm_tfm_final.txt" if args.final else "lgbm_tfm.txt")), num_iteration=iterations)
+        model_name = "lgbm_tfm_final.txt" if args.final else f"lgbm_tfm_rolling_{args.rolling_month}.txt" if args.rolling_month else "lgbm_tfm.txt"
+        model.save_model(str(write_out / model_name), num_iteration=iterations)
     result["month"] = result[TIME].dt.month
     rmse = lambda frame: float(np.sqrt(np.mean((frame[TARGET] - frame.prediction) ** 2)))
     report = {"lightgbm_version": lgb.__version__, "mode": suffix, "training_rows": int(train.sum()),
@@ -161,7 +171,8 @@ def main():
     if not args.final and not args.audit:
         report.update(rmse=rmse(result), month_rmse={str(m): rmse(g) for m, g in result.groupby("month")},
             airport_rmse={str(a): rmse(g) for a, g in result.groupby("ADEP_mvt")})
-    report_path = OUT / ("lgbm_tfm_final.json" if args.final else "lgbm_tfm_audit.json" if args.audit else "lgbm_tfm.json")
+    report_name = "lgbm_tfm_final.json" if args.final else "lgbm_tfm_audit.json" if args.audit else f"lgbm_tfm_rolling_{args.rolling_month}.json" if args.rolling_month else "lgbm_tfm.json"
+    report_path = write_out / report_name
     report_path.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "feature_importance"}, indent=2), flush=True)
 

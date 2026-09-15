@@ -39,10 +39,10 @@ def base(d, means):
     return p
 
 
-def fit(d, path):
+def fit(d, path, threads=4):
     x, cats = features(d)
     means = d.groupby('ADEP_mvt')[TARGET].mean().to_dict()
-    model = CatBoostRegressor(**PARAMS)
+    model = CatBoostRegressor(**{**PARAMS, 'thread_count': threads})
     model.fit(x, d[TARGET].to_numpy() - base(d, means), cat_features=cats)
     model.save_model(str(path))
     return model, means
@@ -98,8 +98,29 @@ def save_predictions(d, p, path, labels=False):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--predict-audit-december', action='store_true')
+    parser.add_argument('--rolling-month', choices=['2025-07', '2025-11'])
     args = parser.parse_args()
     OUT.mkdir(exist_ok=True)
+    if args.rolling_month:
+        start = pd.Timestamp(args.rolling_month + '-01', tz='UTC')
+        paths = sorted(DATA.glob('training*.parquet'))
+        development = pd.concat([read_missing(p) for p in paths if '2025-12-01_2026' not in p.name], ignore_index=True)
+        train = development.loc[development[TIME].lt(start)].copy()
+        validation = development.loc[development[TIME].ge(start) &
+            development[TIME].lt(start + pd.offsets.MonthBegin(1))].copy()
+        if train.empty or validation.empty or not train[TIME].lt(start).all():
+            raise ValueError('Invalid chronological missing-specialist split')
+        stem = 'forward_v3_' + args.rolling_month + '_missing'
+        model, means = fit(train, OUT/(stem + '.cbm'), threads=3)
+        tail = tail_parameters(train)
+        prediction = predict(model, validation, means, tail)
+        save_predictions(validation, prediction, OUT/(stem + '.parquet'), labels=True)
+        (OUT/(stem + '.json')).write_text(json.dumps({'month': args.rolling_month,
+            'train_rows': len(train), 'validation_rows': len(validation),
+            'train_max': str(train[TIME].max()), 'threads': 3,
+            'validation_used_for_selection': False, 'tail': tail}, indent=2))
+        print('Saved', stem, len(validation), flush=True)
+        return
     if args.predict_audit_december:
         config = json.loads((OUT/'missing_audit_config.json').read_text())
         model = CatBoostRegressor().load_model(str(OUT/'missing_audit_model.cbm'))
