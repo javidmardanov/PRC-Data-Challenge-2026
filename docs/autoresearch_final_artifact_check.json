@@ -1,0 +1,39 @@
+{
+  "status": "complete",
+  "ranking": {
+    "5": {
+      "rows": 344841,
+      "id_order_exact": true,
+      "finite": true,
+      "nonnegative": true,
+      "negative_rows": 0,
+      "baseline_negative_rows": 0,
+      "max_abs_arithmetic_difference": 0.0,
+      "outside_gate_bitwise_unchanged": true,
+      "known_gate_within_bounds": true,
+      "sha256": "fd254af624ec992338e093662d3ebb67a65e8cab4ec043df8ebddf1b5b7f04a4"
+    },
+    "6": {
+      "rows": 344841,
+      "id_order_exact": true,
+      "finite": true,
+      "nonnegative": true,
+      "negative_rows": 0,
+      "baseline_negative_rows": 0,
+      "max_abs_arithmetic_difference": 0.0,
+      "outside_gate_bitwise_unchanged": true,
+      "known_gate_within_bounds": true,
+      "sha256": "2fa2ee5bdcfd38a9d7575707e40f82d90f62bb1db7e2babb1649166b51ac7be5"
+    }
+  },
+  "local_validation": {
+    "5": {
+      "id_order_exact": true,
+      "max_abs_reconstruction_difference": 0.0
+    },
+    "6": {
+      "id_order_exact": true,
+      "max_abs_reconstruction_difference": 0.0
+    }
+  }
+}

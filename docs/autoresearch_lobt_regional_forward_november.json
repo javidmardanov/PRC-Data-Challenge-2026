@@ -1,0 +1,14 @@
+{
+  "month": "2025-11",
+  "gate_rows": 160976,
+  "baseline_rmse": 213.59028050020015,
+  "global_alpha_rmse": 212.3631784651802,
+  "regional_rmse": 212.24738967309634,
+  "regional_vs_global_sse_delta": -7981076.284175873,
+  "day_bootstrap_ci95": [
+    -13622332.085963996,
+    -2427875.499068626
+  ],
+  "day_bootstrap_probability_improvement": 0.997,
+  "outside_gate_bitwise_unchanged": true
+}

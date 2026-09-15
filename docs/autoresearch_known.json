@@ -1,7 +1,8 @@
 {
   "lane": "known_lobt_residual",
-  "status": "selected_pending_forward_and_final_refits",
-  "december_read": false,
+  "status": "selected_forward_validated_and_final_refit_complete",
+  "december_evaluated_for_selection": false,
+  "final_training_includes_december": true,
   "official_scores_used_for_selection": false,
   "training_excluded_months": [7, 11, 12],
   "baseline": {"artifact": "artifacts/v3_validation.parquet", "pooled_rmse": 259.9769016847317, "july_rmse": 291.50483831750523, "november_rmse": 217.16599975817016, "late_july_rmse": 288.0980001930841, "late_november_rmse": 209.2170866200752},
@@ -22,7 +23,40 @@
   "selected": {"name": "known_lobt_d10_a2", "gate": "all rows with known AOBT and LOBT", "alpha": 0.630797588656986, "local_gain_seconds": 2.2089997373016},
   "forward_validation": {
     "july": {"train_rows": 996700, "baseline_rows": 190713, "gate_rows": 186775, "baseline_rmse": 297.3438985359695, "candidate_rmse": 293.89116513111384, "gain_seconds": 3.45273340485565, "raw": "artifacts/known_lobt_d10_forward_july_predictions.parquet", "output": "artifacts/known_lobt_d10_forward_july_fixed_alpha_validation.parquet", "sha256": "c07bc00c98c7597bdb46bd1abba39a0e52555d43dbb609088a827fdde781fa22"},
-    "november": null
+    "november": {"train_rows": 1550798, "baseline_rows": 162332, "gate_rows": 160976, "baseline_rmse": 213.59028050020015, "candidate_rmse": 212.3631784651802, "gain_seconds": 1.22710203501995, "raw": "artifacts/known_lobt_d10_forward_november_predictions.parquet", "output": "artifacts/known_lobt_d10_forward_november_fixed_alpha_validation.parquet", "sha256": "0d54a9424e04605551229b7579f5fcf0a12d8733a622b27b3863f21d7958d4fb"}
+  },
+  "final_refit": {
+    "name": "known_lobt_d10_a2_final",
+    "training_scope": "All eligible known-AOBT plus known-LOBT 2025 rows after parameters were frozen, including December.",
+    "training_rows": 2062577,
+    "trees": 3500,
+    "features": "artifacts/features.parquet plus timesfm_hourly_final, weather_hourly, and queue_arrival_context_v3; LOBT/AOBT disagreement and tail copies added by the standalone script.",
+    "model": "artifacts/known_lobt_d10_a2_final.cbm",
+    "model_sha256": "c618454821f592628dc1bd21b8d632b93dfee47279031e8fadc49f024fb77384",
+    "raw_ranking": "artifacts/known_lobt_d10_a2_final_predictions.parquet",
+    "raw_ranking_rows": 344841,
+    "raw_ranking_unique_ids": true,
+    "raw_ranking_finite": true,
+    "raw_ranking_sha256": "37e4f8ea76f20abf53795e97c11fd4b5efcebce5ccfb650eac6a004413aeb645"
+  },
+  "global_alpha_ranking_check": {
+    "output": "submissions/elegant-alligator_lobt.parquet",
+    "rows": 344841,
+    "unique_ids": true,
+    "finite": true,
+    "template_order_and_schema": true,
+    "gate_rows": 339551,
+    "sha256": "519f6145baad92f7aa32ea7b548f1f83e3be30e702d35d9c3a58a4c1fcda76f8"
+  },
+  "nonnegative_projection_follow_on": {
+    "reason": "Independent final audit found two corrected validation predictions below zero; V1/V3 apply order requires a nonnegative floor in addition to timing bounds.",
+    "model_refit": false,
+    "coefficient_retuned": false,
+    "alpha": 0.630797588656986,
+    "development": {"pooled_rmse": 257.7546427639795, "july_rmse": 288.43356850678083, "november_rmse": 216.2207293966188, "late_july_rmse": 285.2053947397164, "late_november_rmse": 207.80524047647728, "output_sha256": "9e1e5bc60fd6bc18c85b9e673263792800115fa930d2c86a8bee6639670e8b87"},
+    "forward_july": {"rmse": 293.86798736565385, "output_sha256": "31ead623861f2ac722a3cefd0a961b5b14e1bcfcbec89f5dfc981108ecb9db20"},
+    "forward_november": {"rmse": 212.3631784651802, "output_sha256": "0d54a9424e04605551229b7579f5fcf0a12d8733a622b27b3863f21d7958d4fb"},
+    "global_alpha_ranking": {"output": "submissions/elegant-alligator_lobt.parquet", "minimum_prediction": 0.0, "sha256": "fd254af624ec992338e093662d3ebb67a65e8cab4ec043df8ebddf1b5b7f04a4"}
   },
   "commands": {
     "rolling_july": "python -u scripts/autoresearch_known_lobt.py --name known_lobt_d10_forward_july --rolling-month 2025-07 --iterations 3500 --depth 10 --rate .05 --l2 20 --threads 6 --device GPU",

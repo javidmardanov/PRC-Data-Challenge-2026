@@ -1,0 +1,41 @@
+{
+  "projection": "max(prediction, 0) after timing bounds",
+  "cases": {
+    "local_global": {
+      "negative_rows_before": 0,
+      "rmse_before": 257.7546427639795,
+      "rmse_after": 257.7546427639795,
+      "sse_change": 0.0,
+      "not_worse": true
+    },
+    "local_regional": {
+      "negative_rows_before": 1,
+      "rmse_before": 257.5250141630571,
+      "rmse_after": 257.52134078096077,
+      "sse_change": -667947.745136261,
+      "not_worse": true
+    },
+    "july_regional": {
+      "negative_rows_before": 4,
+      "rmse_before": 293.7105853883092,
+      "rmse_after": 293.7016337550409,
+      "sse_change": -1002825.9319972992,
+      "not_worse": true
+    },
+    "november_regional": {
+      "negative_rows_before": 0,
+      "rmse_before": 212.24738967309634,
+      "rmse_after": 212.24738967309634,
+      "sse_change": 0.0,
+      "not_worse": true
+    },
+    "november_combined_v6": {
+      "negative_rows_before": 0,
+      "rmse_before": 211.28948923467644,
+      "rmse_after": 211.28948923467644,
+      "sse_change": 0.0,
+      "not_worse": true
+    }
+  },
+  "ranking_upper_bound_conflicts": 0
+}

@@ -58,8 +58,8 @@ Neither planned candidate includes the rejected V4 tail change.
 
 Complete chronological July refits: V3 297.3438985, global A2 293.8911651,
 regional A2 293.7105852. The regional gain over global is uncertain under a
-day-block bootstrap (95% SSE change interval -47.63M to +7.16M). November
-complete refits are still pending. These are additional checks, not untouched
+day-block bootstrap (95% SSE change interval -47.63M to +7.16M). These are
+additional checks, not untouched
 research holdouts: frozen coefficients were originally selected using these
 months. Model fits use only preceding labels and fixed iteration counts.
 
@@ -67,6 +67,25 @@ Reweighting local errors to the ranking set's observed season, airport, and
 missing-AOBT mix preserves the gains: V3 264.4347, global A2 262.1583, regional
 A2 261.9169. The winter identity correction alone gives 263.6286. These are
 diagnostics, not official score forecasts; November only approximates January.
+
+Complete November checks now pass. Baseline V3 is 213.5902805; global A2 is
+212.3631785; regional A2 is 212.2473897. Adding the winter identity correction
+to regional A2 gives 211.2894892. The two corrections affect disjoint groups;
+all other predictions remain bitwise unchanged. The combined November SSE gain
+is 158.69M, with a descriptive day-bootstrap interval of 103.51M to 217.52M.
+The frozen A2 model is therefore refitted on all 2025 labels for submission.
+
+| Complete forward check | V3 | V5 recipe | V6 recipe |
+| --- | ---: | ---: | ---: |
+| July | 297.343899 | 293.867987 | 293.701634 |
+| November | 213.590281 | 212.363178 | 211.289489 |
+
+The final artifact review caught one negative ranking prediction in V5 and two
+in V6. Restoring V3's nonnegative projection improved the affected local and
+July forward checks; November was unchanged. No model or coefficient was
+retuned. The table above includes this correction. Final local RMSE is
+257.7546428 for V5 and 257.1286939 for V6, versus V3 259.9769017. Ranking-mix
+weighted local RMSE is 262.1451119 and 261.0992930, respectively.
 
 As of 2026-09-15 21:23 UTC, the best official score is still 271.0449, ranked
 16 of 147 teams. Rank movement reflects new submissions from other teams.

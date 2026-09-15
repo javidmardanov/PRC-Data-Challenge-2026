@@ -1,0 +1,34 @@
+{
+  "candidate": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\autoresearch_v6_validation.parquet",
+  "reference": "C:\\Users\\javid\\Desktop\\PRC-Data-Challenge-2026\\artifacts\\v3_validation.parquet",
+  "rows": 353045,
+  "candidate_metrics": {
+    "pooled_rmse": 257.1286938955553,
+    "month_rmse": {
+      "2025-07": 288.15132978488197,
+      "2025-11": 215.03874406309023
+    }
+  },
+  "reference_metrics": {
+    "pooled_rmse": 259.9769016847317,
+    "month_rmse": {
+      "2025-07": 291.50483831750523,
+      "2025-11": 217.16599975817016
+    }
+  },
+  "rmse_change": -2.8482077891763993,
+  "day_bootstrap_rmse_change_95pct": [
+    -3.5281855484876146,
+    -2.1652759088395013
+  ],
+  "uncertainty_note": "Exploratory: July/November repeatedly used for tuning; not an untouched test.",
+  "changed_rows": 347793,
+  "december_scored": false,
+  "version": 6,
+  "official_attempt": 3,
+  "ranking_known_gate_rows": 339551,
+  "ranking_winter_gate_rows": 97,
+  "sha256": "2fa2ee5bdcfd38a9d7575707e40f82d90f62bb1db7e2babb1649166b51ac7be5",
+  "baseline": "elegant-alligator_v3.parquet; rejected V4 correction excluded",
+  "nonnegative_projection": true
+}

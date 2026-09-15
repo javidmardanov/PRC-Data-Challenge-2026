@@ -1,5 +1,5 @@
 {
-  "status": "pass_with_pending_artifacts",
+  "status": "complete_pass",
   "reviewed": [
     "scripts/assemble_autoresearch_attempt.py",
     "scripts/autoresearch_identity.py",
@@ -42,10 +42,6 @@
       "resolution": "Known-LOBT worker moved the exact gate/subset assertion to score_forward and removed it from full-ranking apply; July forward score and hash were unchanged."
     }
   ],
-  "pending": [
-    "artifacts/known_lobt_d10_a2_final_predictions.parquet before V5/V6 assembly",
-    "complete November forward V3 and raw A2 artifacts before final regional promotion",
-    "complete November forward V3 check for winter identity before V6 promotion"
-  ],
+  "pending": [],
   "uploads_or_official_score_fitting": false
 }

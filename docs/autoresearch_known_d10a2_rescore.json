@@ -1,0 +1,115 @@
+{
+  "lane": "known_lobt_residual",
+  "december_read": false,
+  "official_scores_used": false,
+  "training_excluded_months": [
+    7,
+    11,
+    12
+  ],
+  "candidate": "artifacts/known_lobt_d10_a2_predictions.parquet",
+  "calibration": "UTC days 1-14 in July and November 2025",
+  "check": "UTC days 15-end in each month",
+  "baseline": {
+    "early_calibration": {
+      "pooled": 264.871780780217,
+      "july": 295.6140407919563,
+      "november": 225.66732326597824
+    },
+    "later_check": {
+      "pooled": 255.71652103253103,
+      "july": 288.0980001930841,
+      "november": 209.2170866200752
+    },
+    "all": {
+      "pooled": 259.9769016847317,
+      "july": 291.50483831750523,
+      "november": 217.16599975817016
+    }
+  },
+  "trials": [
+    {
+      "gate": "faulty_or_disagree",
+      "gate_rows": 74784,
+      "alpha_early": 0.7455959534964011,
+      "early_calibration": {
+        "pooled": 262.937909434046,
+        "july": 292.5880997786098,
+        "november": 225.28275948911093
+      },
+      "later_check": {
+        "pooled": 253.74242157019094,
+        "july": 285.5523915269258,
+        "november": 208.14450965516173
+      },
+      "all": {
+        "pooled": 258.02200533305654,
+        "july": 288.74027305501795,
+        "november": 216.4332248439531
+      }
+    },
+    {
+      "gate": "disagree",
+      "gate_rows": 71650,
+      "alpha_early": 0.7575410015297784,
+      "early_calibration": {
+        "pooled": 262.9870305026086,
+        "july": 292.6025665399212,
+        "november": 225.38309739877374
+      },
+      "later_check": {
+        "pooled": 253.83145528117916,
+        "july": 285.65520651227007,
+        "november": 208.21313148191862
+      },
+      "all": {
+        "pooled": 258.09227669825776,
+        "july": 288.8027898568954,
+        "november": 216.51743368311693
+      }
+    },
+    {
+      "gate": "all_lobt",
+      "gate_rows": 347751,
+      "alpha_early": 0.630797588656986,
+      "early_calibration": {
+        "pooled": 262.75254135251333,
+        "july": 292.3293826242131,
+        "november": 225.19994208003575
+      },
+      "later_check": {
+        "pooled": 253.40229263100937,
+        "july": 285.2053947397164,
+        "november": 207.80524047647728
+      },
+      "all": {
+        "pooled": 257.7546427639795,
+        "july": 288.43356850678083,
+        "november": 216.2207293966188
+      }
+    }
+  ],
+  "selected": {
+    "gate": "all_lobt",
+    "gate_rows": 347751,
+    "alpha_early": 0.630797588656986,
+    "early_calibration": {
+      "pooled": 262.75254135251333,
+      "july": 292.3293826242131,
+      "november": 225.19994208003575
+    },
+    "later_check": {
+      "pooled": 253.40229263100937,
+      "july": 285.2053947397164,
+      "november": 207.80524047647728
+    },
+    "all": {
+      "pooled": 257.7546427639795,
+      "july": 288.43356850678083,
+      "november": 216.2207293966188
+    }
+  },
+  "output": "artifacts/known_lobt_d10_a2_gated_validation.parquet",
+  "output_sha256": "9e1e5bc60fd6bc18c85b9e673263792800115fa930d2c86a8bee6639670e8b87",
+  "apply": "On the selected gate, add frozen alpha times (LOBT raw expert minus complete V3), then clip to timing bounds."
+}

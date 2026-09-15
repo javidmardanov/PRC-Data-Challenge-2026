@@ -31,7 +31,7 @@ def main():
     base = baseline[TARGET].to_numpy(float)
     result = base.copy()
     result[gate] += coefficient[gate]*(raw[PRED].to_numpy()[gate]-base[gate])
-    result[gate] = np.clip(result[gate], bounds.lower_bound.fillna(-np.inf).to_numpy()[gate],
+    result[gate] = np.clip(result[gate], np.maximum(bounds.lower_bound.fillna(-np.inf).to_numpy()[gate], 0),
                             bounds.upper_bound.fillna(np.inf).to_numpy()[gate])
     winter_gate = np.zeros(len(ids), dtype=bool)
     if args.version == 6:
@@ -40,7 +40,7 @@ def main():
         positions = np.flatnonzero(winter_gate)
         candidate = identity.loc[ids.iloc[positions], PRED].to_numpy(float)
         result[positions] += .8788581367641393*(candidate-base[positions])
-    if np.any(gate & winter_gate) or not np.isfinite(result).all():
+    if np.any(gate & winter_gate) or not np.isfinite(result).all() or np.any(result < 0):
         raise ValueError('Overlapping corrections or nonfinite result')
     np.testing.assert_array_equal(result[~(gate | winter_gate)], base[~(gate | winter_gate)])
     output = ROOT/'submissions'/f'elegant-alligator_v{args.version}.parquet'
@@ -57,6 +57,7 @@ def main():
         if np.any((delta != 0) & (validation[PRED].to_numpy() != v3[PRED].to_numpy())):
             raise ValueError('Validation corrections overlap')
         validation[PRED] += delta
+    validation[PRED] = np.maximum(validation[PRED].to_numpy(float), 0)
     valpath = art/f'autoresearch_v{args.version}_validation.parquet'
     validation.to_parquet(valpath, index=False)
     report = review(valpath, art/'v3_validation.parquet')
@@ -64,6 +65,7 @@ def main():
                   ranking_known_gate_rows=int(gate.sum()), ranking_winter_gate_rows=int(winter_gate.sum()),
                   sha256=hashlib.sha256(output.read_bytes()).hexdigest(),
                   baseline='elegant-alligator_v3.parquet; rejected V4 correction excluded')
+    report['nonnegative_projection'] = True
     (ROOT/'docs'/f'autoresearch_v{args.version}_review.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report, indent=2))
 

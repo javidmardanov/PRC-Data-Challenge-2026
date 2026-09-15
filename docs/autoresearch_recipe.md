@@ -25,7 +25,8 @@ python scripts/autoresearch_identity.py
 The known-timestamp expert learns `TAXITIME - (movement time - LOBT)`, then adds
 that supplied estimate back. It uses the V3 timestamp, airport, weather,
 TimesFM, and arrival-context features plus timestamp-range interactions.
-Only rows with both AOBT and LOBT receive its correction. The global coefficient
+Only rows with both AOBT and LOBT receive its correction; results are projected
+to nonnegative timing bounds, as verified by the final artifact audit. The global coefficient
 is 0.630797588656986. Airport coefficients are in
 [autoresearch_lobt_regional.json](autoresearch_lobt_regional.json), selected
 trial 0, with shrinkage equivalent to 1,000 global calibration rows.
@@ -68,6 +69,7 @@ python scripts/check_forward_v3.py
 python scripts/autoresearch_identity.py --rolling-month 2025-11
 python scripts/autoresearch_identity_winter_check.py
 python scripts/autoresearch_identity_winter_forward_complete.py
+python scripts/autoresearch_v6_forward_combine.py
 ```
 
 Each refitted model sees strictly earlier departure labels. LOBT additionally

@@ -11,7 +11,7 @@ GLOBAL = .630797588656986
 def apply(base, raw, airport, gate, alpha, lower, upper):
     a = airport.map(alpha).fillna(GLOBAL).to_numpy(float)
     out = base.copy(); out[gate] += a[gate]*(raw[gate]-base[gate])
-    out[gate] = np.clip(out[gate], lower[gate], upper[gate])
+    out[gate] = np.clip(out[gate], np.maximum(lower[gate], 0), upper[gate])
     return out
 
 

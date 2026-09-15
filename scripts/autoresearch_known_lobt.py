@@ -114,7 +114,7 @@ def score(args):
     faulty = (aobt < 300) | (aobt > 2200) | (eobt > 3600)
     disagree = np.abs(lobt - aobt) > args.disagreement
     gates = {"faulty_or_disagree": usable & (faulty | disagree), "disagree": usable & disagree, "all_lobt": usable}
-    lower = bounds.lower_bound.fillna(-np.inf).to_numpy(float)
+    lower = np.maximum(0., bounds.lower_bound.fillna(-np.inf).to_numpy(float))
     upper = bounds.upper_bound.fillna(np.inf).to_numpy(float)
     delta = candidate - incumbent
     trials = []
@@ -171,8 +171,9 @@ def score_forward(args):
     candidate = incumbent.copy()
     candidate[positions] = raw[PRED].to_numpy(float)
     prediction = incumbent.copy()
+    lower = np.maximum(0., bounds.lower_bound.fillna(-np.inf).to_numpy(float))
     prediction[gate] = np.clip(incumbent[gate] + args.alpha * (candidate[gate] - incumbent[gate]),
-                               bounds.lower_bound.fillna(-np.inf).to_numpy()[gate], bounds.upper_bound.fillna(np.inf).to_numpy()[gate])
+                               lower[gate], bounds.upper_bound.fillna(np.inf).to_numpy()[gate])
     output = ART / f"{args.name}_fixed_alpha_validation.parquet"
     pd.DataFrame({ID: ids, PRED: prediction}).to_parquet(output, index=False)
     report = {"baseline": str(args.baseline), "candidate": f"artifacts/{args.name}_predictions.parquet",
@@ -201,8 +202,9 @@ def apply_ranking(args):
     gate = meta.mvt_minus_AOBT_3_flt.gt(-100000).to_numpy() & meta.mvt_minus_LOBT_flt.gt(-100000).to_numpy()
     incumbent, candidate = base[PRED].to_numpy(float), raw[PRED].to_numpy(float)
     result = incumbent.copy()
+    lower = np.maximum(0., bounds.lower_bound.fillna(-np.inf).to_numpy(float))
     result[gate] = np.clip(incumbent[gate] + args.alpha * (candidate[gate] - incumbent[gate]),
-                           bounds.lower_bound.fillna(-np.inf).to_numpy()[gate], bounds.upper_bound.fillna(np.inf).to_numpy()[gate])
+                           lower[gate], bounds.upper_bound.fillna(np.inf).to_numpy()[gate])
     if not np.array_equal(result[~gate], incumbent[~gate]):
         raise AssertionError("Rows outside the LOBT gate changed")
     out = pd.DataFrame({ID: base[ID], TARGET: result})

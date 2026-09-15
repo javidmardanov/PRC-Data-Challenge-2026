@@ -1,0 +1,21 @@
+{
+  "alpha": 0.8788581367641393,
+  "rows": 162332,
+  "gate_rows": 48,
+  "full_rmse": {
+    "baseline": 213.59028050020015,
+    "candidate": 212.63842964563446
+  },
+  "gate_rmse": {
+    "baseline": 2022.437092225996,
+    "candidate": 1648.6926217457499
+  },
+  "sse_delta": -65859092.68860817,
+  "day_bootstrap_ci95": [
+    -113776985.80982052,
+    -25002893.968077302
+  ],
+  "day_bootstrap_probability_improvement": 1.0,
+  "outside_gate_bitwise_unchanged": true,
+  "output": "artifacts/autoresearch_identity_winter_forward_november.parquet"
+}

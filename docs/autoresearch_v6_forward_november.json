@@ -1,0 +1,20 @@
+{
+  "rows": 162332,
+  "regional_changed_rows": 160975,
+  "winter_changed_rows": 48,
+  "overlap_rows": 0,
+  "rmse": {
+    "v3": 213.59028050020015,
+    "regional": 212.24738967309634,
+    "winter": 212.63842964563446,
+    "combined_v6": 211.28948923467644
+  },
+  "combined_sse_delta_vs_v3": -158689215.23095512,
+  "day_bootstrap_ci95_vs_v3": [
+    -217520623.43204746,
+    -103505228.4007969
+  ],
+  "day_bootstrap_probability_improvement_vs_v3": 1.0,
+  "outside_union_bitwise_unchanged": true,
+  "output": "artifacts/autoresearch_v6_forward_november.parquet"
+}
